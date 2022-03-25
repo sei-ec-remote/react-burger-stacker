@@ -17,6 +17,9 @@ export default class Burger extends Component {
                     <div class="container">
                         <h1> Order up!</h1>
                         <div> {burger}</div>
+                        <button onClick={this.props.clearIngredients}>
+                            CLEAR
+                        </button>
                     </div>
                 </>
                 )

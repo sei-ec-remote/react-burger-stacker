@@ -26,6 +26,13 @@ export default class IngredientList extends Component {
         })
     }
 
+    // create a function that clears ingredients
+    clearIngedients = () =>{
+        this.setState({
+            burgerIngredients: []
+        })
+    }
+
         render(){
 
             const ingredientList = this.props.ingredientList.map((ingredient, index)=>{
@@ -50,7 +57,7 @@ export default class IngredientList extends Component {
                             <h1> LIST OF INGREDIENTS</h1>
                             <div> {ingredientList}</div>
                         </div>
-                        <Burger burgerIngredients={this.state.burgerIngredients}/>
+                        <Burger burgerIngredients={this.state.burgerIngredients} clearIngredients={this.clearIngedients}/>
                     </div>
                 </>
                 )
