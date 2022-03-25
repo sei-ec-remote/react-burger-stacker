@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
+import './index.css'
 
 const ingredients = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
