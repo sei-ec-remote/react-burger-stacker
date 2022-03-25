@@ -20,7 +20,7 @@ export default class IngredientList extends Component {
     addIngredient = (index) => {
         console.log('INGREDIENT BEING PUSHED IS!', this.props.ingredientList[index])
         const newIngredient=this.props.ingredientList[index]
-        this.state.burgerIngredients.push(newIngredient)
+        this.state.burgerIngredients.unshift(newIngredient)
         this.setState({
             burgerIngredients: this.state.burgerIngredients
         })
