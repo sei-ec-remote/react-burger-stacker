@@ -54,11 +54,11 @@
   border-radius: 10px;
   box-shadow: 1px 4px 10px 0 #5e2104f7;
   zoom: 100%;
-  background-color: white;
+  background-color: #faf0e6;
 }
 
 p {
-  color: white;
+  color: #ff0000;
 }
 
 ul {

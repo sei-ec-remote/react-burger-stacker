@@ -1,6 +1,7 @@
 
 import './App.css';
 import IngredientList from './IngredientList'
+import BurgerPane from './BurgerPane'
 
 function App() {
 
@@ -22,7 +23,10 @@ function App() {
   return (
     <div className="App">
       <h1>Burger Stacker</h1>
+      <div className='burger_container'>
       < IngredientList ingredients={ingredients} />
+      < BurgerPane />
+      </div>
     </div>
   );
 }
