@@ -11,7 +11,7 @@ export default class IngredientsList extends Component {
         console.log('this is the state', this.state)
     }
     render(){
-        let foods = this.props.foodItems.map((foods,index) => {
+        let foods = this.state.foodsToDisplay.map((foods,index) => {
             console.log('this is foods', foods)
             return <li key={index}>
                 <Ingredients foods = {foods}/>

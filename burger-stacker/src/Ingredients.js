@@ -8,9 +8,9 @@ export default class Ingredients extends Component {
         
        
         return(
-            <ul style={this.props.foods}>
+            <h4 style={this.props.foods}>
             {this.props.foods.name}
-            </ul>
+            </h4>
         )
     }
 }
