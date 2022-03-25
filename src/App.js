@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './App.css'
-import BurgerPane from './BurgerPane'
 import IngredientList from './IngredientList'
+import BurgerPane from './BurgerPane'
 
 const ingredients = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
@@ -24,14 +23,40 @@ class App extends Component {
     this.state = {
       burgerIngredients: []
     }
-
   }
+
+  // add ingredients to BurgerPane
+  addToBurger = (e) => {
+    let newIngredient = {
+      name: e.target.innertext, 
+      color: e.target.style.backgroundColor
+    }
+    let newBurger = this.state.burgerIngredients.concat(newIngredient)
+    this.setState({
+      burgerIngredients: newBurger
+    })
+  } 
+
+  // clear the burger
+  clearBurger = (e) => {
+    this.setState({
+      burgerIngredients: []
+    })
+  }
+
   render () {
     return (
-      <div className="App">
+      <div>
         <h1>BURGER STACKER</h1>
-        <IngredientList ingredients={ingredients} />
-        <BurgerPane burgerIngredients={burgerIngredients} />
+        <IngredientList 
+          ingredients={ingredients} 
+          addToBurger={this.addToBurger}
+        />
+
+        <BurgerPane 
+          burgerIngredients={this.state.burgerIngredients} 
+          clearBurger={this.clearBurger}  
+        />
       </div>
     )
   }

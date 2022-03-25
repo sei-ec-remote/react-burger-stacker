@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Ingredient from './Ingredient'
 
 export default class BurgerStack extends Component {
     render () {
         return (
             <div>
-                
+                <button onClick={(e) => this.props.clearburger(e)}>CLEAR BURGER</button>                
             </div>
         )
     }
