@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class IngredientsList extends Component {
 
     render() {
-        console.log("PROPS", this.props)
+        // console.log("PROPS", this.props)
         const ingredientList = this.props.ingredients.map((n, i) => {
             return <li
                 key={i}

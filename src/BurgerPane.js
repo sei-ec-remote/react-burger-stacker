@@ -10,6 +10,7 @@ export default class BurgerPane extends Component {
             return <li
                 key={i}
                 style={{ backgroundColor: n.color }}
+                onClick={() => this.props.removeFromStack(n)}
             > {n.name}</li >
         })
 
