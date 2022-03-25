@@ -21,6 +21,7 @@ export default class Ingredient extends Component {
     render() {
         return(
             <button
+                className = 'ingredient'
                 type='submit'
                 value='Add Ingredient'
                 onClick={this.props.addIngredient}

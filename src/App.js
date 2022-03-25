@@ -1,6 +1,6 @@
 import './App.css';
 import IngredientList from './IngredientList'
-import Ingredient from './Ingredient';
+import BurgerPane from './BurgerPane'
 
 function App() {
   const ingredientList = [
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <h1> Burger Stacker</h1>
       <IngredientList ingredientList={ingredientList}/>
-      <Ingredient/>
+      <BurgerPane />
     </div>
   );
 }
