@@ -19,17 +19,38 @@ export default class BurgerStacker extends Component {
                 {name: 'Lettuce', color: 'lawngreen'},
                 {name: 'Tomato', color: 'tomato'},
                 {name: 'Bacon', color: 'maroon'},
-                {name: 'Onion', color: 'lightyellow'}]
+                {name: 'Onion', color: 'lightyellow'}
+            ],
+            burgerIngredients: []
         }
+    }
+
+    addToStack = (e) => {
+        const ingColor = e.target.style.backgroundColor
+        const ingName = e.target.innerText
+        this.setState({
+            burgerIngredients: [
+                { name: ingName, color: ingColor },
+                ...this.state.burgerIngredients
+            ]
+        })
     }
 
     render () {
         console.log('checking ingredients', this.state.ingredients)
         return (
             <>
-            <h1>Burger Stacker</h1>
-            <IngredientList ingredients={this.state.ingredients}/>
-            <BurgerPane/>
+                <h1>Burger Stacker</h1>
+                <div className='panes'>
+                    <IngredientList 
+                        ingredients={this.state.ingredients}
+                        add={this.addToStack}
+                    
+                    />
+                    <BurgerPane 
+                        ingredients={this.state.burgerIngredients}
+                    />
+                </div>
             </>
         )
     }

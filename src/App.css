@@ -50,3 +50,11 @@ ul {
   flex-direction: row;
   justify-content: space-between;
 }
+
+
+.pane {
+  margin: 1em .3em;
+  padding: 0 2em;
+  width: 45%;
+  border: 2px solid black;
+}
