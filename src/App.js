@@ -1,11 +1,12 @@
 import './App.css';
 import ingredientsArr from './Ingredients';
-import DisplayIngredients from './DisplayIngredients';
+import BurgerStacker from './BugerStacker';
 
 function App() {
   return (
     <div className="App">
-      <DisplayIngredients ingredients={ingredientsArr} />
+      <BurgerStacker />
+     
     </div>
   );
 }
