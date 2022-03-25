@@ -1,5 +1,6 @@
 import './App.css';
 import IngredientList from './IngredientList'
+import Ingredient from './Ingredient';
 
 function App() {
   const ingredientList = [
@@ -19,7 +20,8 @@ function App() {
   return (
     <div className="App">
       <h1> Burger Stacker</h1>
-      <IngredientList ingredientList={ingredientList} />
+      <IngredientList ingredientList={ingredientList}/>
+      <Ingredient/>
     </div>
   );
 }
