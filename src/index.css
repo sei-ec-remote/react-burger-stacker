@@ -20,13 +20,21 @@ code {
 .ingredient-container{
   border: 2px solid gray;
   border-radius: 10px;
-  height: 300px;
+  height: 100%;
   width: 300px;
 }
 
 .burger-stacking-area {
   border: 2px solid gray;
   border-radius: 10px;
-  height: 300px;
+  height: 100%;
   width: 300px;
+}
+
+.ingredient{
+  width: 100px
+}
+
+.clear{
+  margin: 10px;
 }
