@@ -4,7 +4,7 @@ import Ingredients from "./Ingredients"
 
 function App() {
 
-  const ingredients = [
+  const allIngredients = [
     {name: 'Kaiser Bun', color: 'saddlebrown'},
     {name: 'Sesame Bun', color: 'sandybrown'},
     {name: 'Gluten Free Bun', color: 'peru'},
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App stack-wrap">
-      < Ingredients ingredients={ingredients} />
+      < Ingredients ingredients={allIngredients} />
       < Burger />
     </div>
   );
