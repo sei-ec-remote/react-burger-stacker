@@ -49,4 +49,11 @@
   margin: 5%;
   text-align: center;
   width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient{
+  background-color:green;
+  width: 100%;
 }
