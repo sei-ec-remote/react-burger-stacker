@@ -9,6 +9,7 @@ export default class IngredientsList extends Component {
             return <li
                 key={i}
                 onClick={() => this.props.handleClick(n)}
+                style={{ backgroundColor: n.color }}
             > {n.name}</li >
         })
 
