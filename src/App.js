@@ -25,9 +25,7 @@ function App() {
     <div className="App">
       <h1> BURGER STACKER! </h1>
       <div id="master-container">
-      <div id="container">
-          <IngredientList ingredientList={ingredientList}/>
-      </div>
+        <IngredientList ingredientList={ingredientList}/>
       <div id="container">
           <Burger burger={burger}/>
       </div>

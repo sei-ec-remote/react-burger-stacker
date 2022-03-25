@@ -14,8 +14,10 @@ export default class IngredientList extends Component {
 
             return(
                 <>
-                    <h1> LIST OF INGREDIENTS</h1>
-                    <div> {ingredientList}</div>
+                    <div id="container">
+                        <h1> LIST OF INGREDIENTS</h1>
+                        <div> {ingredientList}</div>
+                    </div>
                 </>
                 )
         }

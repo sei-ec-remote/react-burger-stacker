@@ -38,7 +38,7 @@
 }
 
 #master-container{
-  height: 600px;
+  height: 550px;
   display: flex;
   justify-content: space-around;
 }
@@ -51,9 +51,15 @@
   width: 400px;
   display: flex;
   flex-direction: column;
+  align-items: center;;
 }
 
 .ingredient{
   background-color:green;
-  width: 100%;
+  width: 300px;
+  margin: 5px;
+}
+.ingredient-button-container{
+  display: flex;
+  justify-content: space-around;
 }

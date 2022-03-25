@@ -9,8 +9,11 @@ export default class Ingredient extends Component {
         render(){
             return(
                 <>
-                    <div class="ingredient">
+                    <div class="ingredient-button-container">
+                        <div class="ingredient">
                         {this.props.ingredient.name}
+                        </div>
+                        <button> ADD</button>
                     </div>
                 </>
                 )
