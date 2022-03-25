@@ -1,6 +1,14 @@
+html {
+  height: 100%;
+}
+
+#root{
+  height: 100%;
+}
+
 body {
   margin: 0;
-  height: 800px;
+  height: 100%;
   background-color: lightcyan;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

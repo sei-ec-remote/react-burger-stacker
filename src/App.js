@@ -1,7 +1,5 @@
 import './App.css';
-import Burger from './Burger';
 import IngredientList from './IngredientList';
-
 
 const ingredientList = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
@@ -18,18 +16,11 @@ const ingredientList = [
   {name: 'Onion', color: 'lightyellow'}
 ]
 
-const burger = []
-
 function App() {
   return (
     <div className="App">
       <h1> BURGER STACKER! </h1>
-      <div id="master-container">
         <IngredientList ingredientList={ingredientList}/>
-      <div id="container">
-          <Burger burger={burger}/>
-      </div>
-      </div>
     </div>
   );
 }

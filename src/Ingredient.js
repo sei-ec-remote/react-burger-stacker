@@ -9,11 +9,8 @@ export default class Ingredient extends Component {
         render(){
             return(
                 <>
-                    <div class="ingredient-button-container">
-                        <div class="ingredient">
+                    <div class="ingredient" style={{ backgroundColor: this.props.ingredient.color}}>
                         {this.props.ingredient.name}
-                        </div>
-                        <button> ADD</button>
                     </div>
                 </>
                 )
