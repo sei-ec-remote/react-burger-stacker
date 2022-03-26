@@ -1,13 +1,28 @@
 import React, {Component} from "react";
-import BurgerStack from './BurgerStack'
-
+import Ingredients from "./Ingredients";
+//this is where the burger happens
 export default class BurgerPane extends Component {
+    //burger pane will eventually get props(ingredients), and should loop and display those
+    //similar to the ingredients list
+    //the differnce will be the clear button
     render () {
+        //console.log('ingredients in burger pane', this.props.ingredients)
+        //You have to do an implied return (()) not {} or the burger
+        //ingredients do not move state to the burger pane!
+        let burgerPane = this.props.ingredients.map((ing, i) => (
+            <li>
+                <Ingredients itemKey={i} ingredients={ing} />
+            </li>
+            
+        ))
         return (
-            <div className="burger">
-                <h1>Burger Stacking Area</h1>
-                <BurgerStack/>
-            </div>
+            <section className="burger-pane">
+                <h3>Burger Pane</h3>
+                <ul>
+                    {burgerPane}
+                </ul>
+                <button onClick={this.props.clear}>Clear Burger Pane</button>
+            </section>
         )
     }
 }

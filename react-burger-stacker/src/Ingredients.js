@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
+//ingredient is a child of Ingredient List
+//receives the props of an individual ingredient -> color and name
 
 export default class Ingredients extends Component {
     render () {
-        const ingredientItems = this.props.ingredients.map((ingredients, i) => {
-            //key is i and the value is b
-            return <li key={i}>{ingredients.name}</li>
-        })
+        //use destructuring on props...
+        //console log them to see them seperated!
+        const {name, color} = this.props.ingredients
+        //console.log('these are my this.props names', name)
+        //console.log('these are my props colors', color)
         return (
-            <div>
-                {ingredientItems}
-            </div>
+            //<p>{this.props.ingredients.name}</p> original way before we destructured them!
+            <p style={{backgroundColor: color}}>{name}</p>
         )
     }
+  
 }
