@@ -1,32 +1,19 @@
-import React, { Component } from 'react'
+    import React, { Component } from 'react'
 
 
 export default class Ingredient extends Component {
-    constructor(props) {
-        super(props)
-        this.state= {
-            ingredients:this.props.ingredientList,
-            burgerIngredients:[]
-        }
-    }
-
-    addIngredient = (e) => {
-        let burgerArray = this.state.burgerIngredients
-        burgerArray.push(e.target.name)
-        this.setState({
-            burgerIngredients:burgerArray
-        })
-    }
-
     render() {
+        const {name,color} = this.props.ingredient
+        // console.log('name of ingred' ,name)
+        // console.log('color of ingred' ,color)
         return(
-            <button
-                className = 'ingredient'
-                type='submit'
-                value='Add Ingredient'
-                onClick={this.props.addIngredient}
-            > Add to Burger
-            </button>
+            <p 
+                style={{backgroundColor:color}}
+                id={this.props.itemKey}
+                onClick={this.props.clickFunc}
+                >
+                {name}
+            </p>
         )
     }
 }

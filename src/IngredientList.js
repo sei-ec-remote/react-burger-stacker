@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
+import Ingredient from './Ingredient'
 
 export default class IngredientList extends Component{
     render() {
-        let allIngredients = this.props.ingredientList.map((ingredient,index)=> {
-            return <div key={index}> {ingredient.name},{ingredient.color}  </div>
-        })
+        let allIngredients = this.props.ingredients.map((ing,index)=> (
+             <li key={index}>
+                <Ingredient itemKey={index} ingredient={ing} clickFunc={this.props.add}/>
+            </li>
+        ))
         return (
-            <div>
+            <section className='pane'>  
                 <h1>Ingredients:</h1>
                 <ul>
                     {allIngredients}
                 </ul>
-            </div>
-        )
-    }
+            </section>
+        )  
+    }   
 }
