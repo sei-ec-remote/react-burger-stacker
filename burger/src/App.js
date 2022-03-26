@@ -1,7 +1,4 @@
-import ClearBurger from "./ClearBurger";
-import Ingredient from "./Ingredient";
-import BurgerPane from "./BurgerPane";
-import IngredientList from "./IngredientList";
+import BurgerStack from "./BurgerStack";
 
 
 import './App.css';
@@ -10,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>burger</h1>
+      <BurgerStack/>
     </div>
   );
 }
