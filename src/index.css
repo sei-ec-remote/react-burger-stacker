@@ -12,8 +12,10 @@ code {
     monospace;
 }
 
-.container {
+.panes {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: bisque;
   height: 600px;
   width: auto;

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import IngredientList from "./IngredientList"
+import BurgerPane from "./BurgerPane"
 
 // burger stacker component is the parent of BurgerPane and IngredientList
 
@@ -32,8 +33,9 @@ export default class BurgerStacker extends Component {
     console.log("ingredients list", this.state.ingredients)
     return (
       <>
-          <h1>Burger Stacker</h1> 
-            <IngredientList ingredients={this.state.ingredients} /> 
+        <h1>Burger Stacker</h1>
+        <IngredientList ingredients={this.state.ingredients} />
+        <BurgerPane />
       </>
     )
   }
