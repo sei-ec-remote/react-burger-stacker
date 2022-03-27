@@ -6,8 +6,7 @@ import React, { Component } from "react"
 
 export default class Ingredient extends Component {
   render() {
-    return (
-      <p>{this.props.ingredient.name}</p>
-    )
+    const { name, color } = this.props.ingredient
+    return <p style={{ backgroundColor: color }}>{name}</p>
   }
 }

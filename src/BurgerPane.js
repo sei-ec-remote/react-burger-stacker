@@ -6,6 +6,7 @@ export default class BurgerStacker extends Component {
     return (
       <section className="pane">
         <h3>Burger Pane</h3>
+        <button>Clear Burger</button>
       </section>
     )
   }
