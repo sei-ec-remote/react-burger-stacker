@@ -24,19 +24,46 @@ export default class BurgerStacker extends Component {
         { name: "Bacon", color: "maroon" },
         { name: "Onion", color: "lightyellow" },
       ],
+      burgerIngredients: [],
     }
   }
   // state will hold ingredients
   // might want methods here to add ingredients, that will be passed to a child component
+  addToStack = (e) => {
+    const ingColor = e.target.style.backgroundColor
+    const ingName = e.target.innerText
+    this.setState({
+      burgerIngredients: [
+        {
+          name: ingName,
+          color: ingColor,
+        },
+        ...this.state.burgerIngredients,
+      ],
+    })
+  }
+
+  clearBurger = () => {
+    this.setState({
+      burgerIngredients: [],
+    })
+  }
   // might want my clear function here, to pass down as a prop
   render() {
     console.log("ingredients list", this.state.ingredients)
+    console.log("Burger ingredients", this.state.burgerIngredients)
     return (
       <>
         <h1>Burger Stacker</h1>
         <div className="panes">
-          <IngredientList ingredients={this.state.ingredients} />
-          <BurgerPane />
+          <IngredientList
+            ingredients={this.state.ingredients}
+            add={this.addToStack}
+          />
+          <BurgerPane
+            ingredients={this.state.burgerIngredients}
+            clear={this.clearBurger}
+          />
         </div>
       </>
     )
