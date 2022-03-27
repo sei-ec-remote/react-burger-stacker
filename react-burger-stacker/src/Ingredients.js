@@ -6,12 +6,20 @@ export default class Ingredients extends Component {
     render () {
         //use destructuring on props...
         //console log them to see them seperated!
-        const {name, color} = this.props.ingredients
+        const { name, color} = this.props.ingredients
         //console.log('these are my this.props names', name)
         //console.log('these are my props colors', color)
         return (
             //<p>{this.props.ingredients.name}</p> original way before we destructured them!
-            <p style={{backgroundColor: color}}>{name}</p>
+            //we are calling the itemKey={i} from IngredientsList here in the Ingredients now
+            <p 
+                style={{backgroundColor: color}}
+                id={this.props.itemKey}
+                onClick={this.props.clickFunc}
+            >
+                {name}
+            </p>
+            
         )
     }
   

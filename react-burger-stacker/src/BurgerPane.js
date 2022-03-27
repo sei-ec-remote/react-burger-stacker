@@ -9,9 +9,14 @@ export default class BurgerPane extends Component {
         //console.log('ingredients in burger pane', this.props.ingredients)
         //You have to do an implied return (()) not {} or the burger
         //ingredients do not move state to the burger pane!
+        //we add the clickFunc later from Ingredients to help remove a single ingredient
         let burgerPane = this.props.ingredients.map((ing, i) => (
-            <li>
-                <Ingredients itemKey={i} ingredients={ing} />
+            <li key={i}>
+                <Ingredients 
+                    itemKey={i} 
+                    ingredients={ing} 
+                    clickFunc={this.props.remove}
+                />
             </li>
             
         ))
