@@ -1,26 +1,28 @@
 import React, { Component } from 'react'
-import Ingredients from './Ingredients'
-import BurgerIngredients from "./BurgerIngredients"
-import BurgerStacker from "./BurgerStacker"
+import Ingredient from './Ingredient'
+
+// ingredient list will loop over props (ingredients)
+// produce one Ingredient component for each item in the array
 
 export default class IngredientList extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            ingredientDisplay: this.props.ingredients
-        }
-    }
-
     render(){
-        console.log("props in ingredients:", this.props)
-        console.log("state in ingredients:", this.state)
-        return (
-        <>
-            <h3>Ingredient List</h3>
-            <Ingredients ingredients={this.state.ingredientDisplay}/>
-            <BurgerStacker/>
-            <BurgerIngredients ingredients={this.state.ingredientDisplay}/>
-        </>
+        // ing = ingredient, i = index
+        let ingredientItems = this.props.ingredients.map((ing, i) => {
+            return (
+                <li key={i}>
+                    <Ingredient itemKey={i} ingredient={ing} clickFunc={this.props.add}/>
+                </li>
+        )})
+        // console.log("props in ing list", this.props.ingredients)
+        return(
+            <>
+                <section className='pane'>
+                    <h3>Ingredients List</h3>
+                    <ul>
+                        {ingredientItems}
+                    </ul>
+                </section>
+            </>
         )
     }
 }
