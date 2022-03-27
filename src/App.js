@@ -1,4 +1,3 @@
-import IngredientList from "./IngredientList"
 import BurgerStacker from "./BurgerStacker"
 import "./App.css"
 
