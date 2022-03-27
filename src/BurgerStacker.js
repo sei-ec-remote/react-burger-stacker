@@ -34,8 +34,10 @@ export default class BurgerStacker extends Component {
     return (
       <>
         <h1>Burger Stacker</h1>
-        <IngredientList ingredients={this.state.ingredients} />
-        <BurgerPane />
+        <div className="panes">
+          <IngredientList ingredients={this.state.ingredients} />
+          <BurgerPane />
+        </div>
       </>
     )
   }

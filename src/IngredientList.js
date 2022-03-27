@@ -9,12 +9,12 @@ export default class IngredientList extends Component {
         <Ingredient itemKey={i} ingredient={ing} />
       </li>
     ))
-    console.log('ingreidenits in ingredient list', this.props.ingredients)
+    console.log("ingreidenits in ingredient list", this.props.ingredients)
     return (
-      <>
+      <section className="pane">
         <h3>Ingredients List</h3>
         <ul>{allIngredients}</ul>
-      </>
+      </section>
     )
   }
 }
