@@ -6,8 +6,8 @@ export default class IngredientList extends Component {
     // const [ingredient] = this.props.ingredients;
 
     let allIngredients = this.props.ingredients.map((ing, i) => (
-      <li key={i} onClick={this.props.add}>
-        <Ingredient itemKey={i} ingredient={ing} />
+      <li key={i}>
+        <Ingredient itemKey={i} ingredient={ing} clickFunc={this.props.add} />
       </li>
     ));
     return (

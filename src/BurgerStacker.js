@@ -34,6 +34,15 @@ export default class BurgerStacker extends Component {
     });
   };
 
+  removeFromStack = (e) => {
+    const clickIndex = e.target.id;
+    const currBurger = this.state.burgerIngredients.slice();
+    currBurger.splice(clickIndex, 1);
+    this.setState({
+      burgerIngredients: currBurger,
+    });
+  };
+
   clearBurger = () => {
     this.setState({
       burgerIngredients: [],
@@ -53,6 +62,7 @@ export default class BurgerStacker extends Component {
           />
           <BurgerPane
             ingredients={this.state.burgerIngredients}
+            remove={this.removeFromStack}
             clear={this.clearBurger}
           />
         </div>
