@@ -1,38 +1,36 @@
-.App {
+/* this is telling everything to have a centered text */
+* {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* this is telling the unordered list and the list items within it 
+to not have dots anymore */
+ul{
+  list-style: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* this is telling the panes ingredient list and burger pane
+to have flexbox styling
+the flex direction is in a row 
+and the content is currently spaced between horizontally */
+.panes{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* this so that the pane ingregients list and burger pane is matching
+the margin makes it small and responsive
+-by only putting the two parameters it determines what happens to both top and bottom
+of content being styled-
+same with padding it determines what happens on both top and bottom
+the width is 35% in order to see exactly what is being determined here
+in this case the content of the pane is being sized with the width 
+the border has a thicker border of 4 and dotted border in order to see exactly what I'm styling
+plus I wanted to add my own styling 
+border radius is what curves or rounds the border
+*/
+.pane{
+  margin: 1em .3em;
+  padding: 0 2em;
+  width: 35%;
+  border: 4px dotted mediumslateblue;
+  border-radius: 5%;
 }

@@ -1,27 +1,32 @@
 import React, { Component } from "react";
 import Ingredients from "./Ingredients";
 
-export default class IngredientsList extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            foodsToDisplay: this.props.foodItems
+// ingredients list will loop over props (ingredients) meaning a for loop
+// produce one Ingredients component item in the array
 
-        }
-        console.log('this is the state', this.state)
-    }
-    render(){
-        let foods = this.state.foodsToDisplay.map((foods,index) => {
-            console.log('this is foods', foods)
-            return <li key={index}>
-                <Ingredients foods = {foods}/>
-                </li>
-        })
-        console.log('this is after foods', foods)
-        return(
-            <div>
-              {foods} 
-            </div>
+export default class IngredientsList extends Component {
+
+    render() {
+        // this is how we're able to map over all our ingredients in order to 
+        // produce one ingredient 
+        // we have to do a map function
+        // parentheses after the arrow shows the inplied return 
+         let allIngredients = this.props.ingredients.map((ingredients, index) => (
+             //  produce a list item that displays and ingredient
+            //  we added the onClick property to the props in order to see what is being clicked
+             <li key={index}>
+                 <Ingredients itemKey={index} ingredients={ingredients} clickFunction={this.props.add}/>
+             </li>
+         ))
+        return (
+            // saying section in this way allows the content
+            // to be styled within the div 'panes'
+            <section className="pane">
+                <h3>Ingredients List</h3>
+                <ul>
+                    {allIngredients}
+                </ul>
+            </section>
         )
     }
 }
