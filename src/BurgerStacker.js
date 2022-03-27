@@ -34,17 +34,28 @@ export default class BurgerStacker extends Component {
     });
   };
 
+  clearBurger = () => {
+    this.setState({
+      burgerIngredients: [],
+    });
+  };
+
   render() {
     console.log('ingredients list', this.state.ingredients);
     console.log('burger ingredients', this.state.burgerIngredients);
     return (
       <>
         <h1>Burger Stacker</h1>
-        <IngredientList
-          ingredients={this.state.ingredients}
-          add={this.addToStack}
-        />
-        <BurgerPane ingredients={this.state.burgerIngredients} />
+        <div className="panes">
+          <IngredientList
+            ingredients={this.state.ingredients}
+            add={this.addToStack}
+          />
+          <BurgerPane
+            ingredients={this.state.burgerIngredients}
+            clear={this.clearBurger}
+          />
+        </div>
       </>
     );
   }

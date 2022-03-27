@@ -10,7 +10,7 @@ export default class BurgerPane extends Component {
       <section className="pane">
         <h3>Burger Pane</h3>
         <ul>{burgerBits}</ul>
-        <button>Clear Burger</button>
+        <button onClick={this.props.clear}>Clear Burger</button>
       </section>
     );
   }
