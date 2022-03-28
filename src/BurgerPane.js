@@ -1,30 +1,20 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Burger from './Burger'
 
+//refactored to functional component!
+export default function BurgerPane (props) {
 
-export default class BurgerPane extends Component {
-    constructor (props) {
-        super (props)
-        this.state = {
-            fruitsToDisplay: this.props.fruits
-        }
-    }
-    clrBurger = (e) => {
+    function clrBurger(e) {
         const burger = document.getElementById('burger')
-        while(burger.firstChild) {
+        while (burger.firstChild) {
             burger.removeChild(burger.firstChild)
         }
     }
+    return (
+        <div>
+            <Burger />
+            <button onClick={clrBurger}>Clear Burger!</button>
+        </div>
 
-    render () {
-        console.log('props', this.props)
-        console.log('state', this.state)
-        return (
-            <div>
-                <Burger />
-                <button onClick={this.clrBurger}>Clear Burger!</button>
-
-            </div>
-        )
-    }
+    )
 }

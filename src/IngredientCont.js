@@ -1,30 +1,15 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import IngredientList from './IngredientList'
 import './App.css';
 
+//refactored to functional component!
+export default function IngredientCont (props) {
 
-export default class IngredientCont extends Component {
-    constructor (props) {
-        super (props)
-        this.state = {
-            ingredientsToDisplay: this.props.choices
-        }
-    }
-    addLayer = (e) => {
-        let burger = document.getElementById('burger')
-        let layer = document.createElement('div').innerText(`${e.target.innerText}`)
-        burger.appendChild(layer)
-    }
-    
+    const [ingredientsToDisplay] = useState(props.choices)
 
-    render () {
-        console.log('props', this.props)
-        console.log('state', this.state)
-        return (
-            <div className='ing-container'>
-                <IngredientList ingredients={this.state.ingredientsToDisplay}/>
-
-            </div>
-        )
-    }
+    return (
+        <div className='ing-container'>
+            <IngredientList ingredients={ingredientsToDisplay}/>
+        </div>
+    )
 }
