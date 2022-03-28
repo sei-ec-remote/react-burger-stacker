@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 
 
@@ -6,28 +6,25 @@ import Ingredient from './Ingredient'
 //   array that comes in thru props it will create an Ingredient for the display
 //   It must make sure the function to addIngredientToBurger to pass to an 
 //   Ingredient
-export default class IngredientList extends Component {
+export default function IngredientList ({ingredients, addIngredientToBurger}) {
 
-    render () {
-
-        const ingredients = this.props.ingredients.map((ingredient, index) => {
-            return ( 
-                <li key={index}>
-                < Ingredient 
-                    ingredient={ingredient}
-                    addIngredientToBurger={this.props.addIngredientToBurger}
-                    /> 
-                </li>
-            );
-        });
-
-        return (
-            <div className="container">
-            <h2>Hamburger Ingredient List</h2>
-            <ul>
-            { ingredients }
-            </ul>
-            </div>
+    const ingredientsList = ingredients.map((ingredient, index) => {
+        return ( 
+            <li key={index}>
+            < Ingredient 
+                ingredient={ingredient}
+                addIngredientToBurger={addIngredientToBurger}
+                /> 
+            </li>
         );
-    }
+    });
+
+    return (
+        <div className="container">
+        <h2>Hamburger Ingredient List</h2>
+        <ul>
+        { ingredientsList }
+        </ul>
+        </div>
+    );
 }

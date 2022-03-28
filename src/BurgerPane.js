@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 import ClearBurger from './ClearBurger'
 
@@ -9,27 +9,23 @@ import ClearBurger from './ClearBurger'
 //   It will also display the button to clear by using ClearBurger
 //   and passing in the name of the function to clearBurgerIngredients.
 //   via props.
-export default class BurgerPane extends Component {
+export default function BurgerPane ({burgerIngredients, clearBurgerIngredients}) {
 
-    render() {
+    const burger = burgerIngredients.map(ingredient => {
+        return ( 
+            <li>
+            < Ingredient ingredient={ingredient}/> 
+            </li>
+        );
+    });
 
-        const burger = this.props.burgerIngredients.map(ingredient => {
-            return ( 
-                <li>
-                < Ingredient ingredient={ingredient}/> 
-                </li>
-            );
-        });
-
-        return (
-        <div className="container">
-            <h2>Your Hamburger</h2>
-            <ul>
-             { burger }  
-            </ul>
-            < ClearBurger clearBurgerIngredients={this.props.clearBurgerIngredients}/>
-        </div>
-
-        )
-    }
+    return (
+    <div className="container">
+        <h2>Your Hamburger</h2>
+        <ul>
+            { burger }  
+        </ul>
+        < ClearBurger clearBurgerIngredients={clearBurgerIngredients}/>
+    </div>
+    )
 }
