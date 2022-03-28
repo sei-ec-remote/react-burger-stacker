@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 
-export default class Ingredient extends Component {
-    render(){
+const Ingredient= (props) => {
         return(
             <div>
-                <button className='ingredient' onClick={this.props.addIngredient} style={{backgroundColor: this.props.ingredient.color}}>{this.props.ingredient.name}</button>
+                <button className='ingredient' onClick={props.addIngredient} style={{backgroundColor: props.ingredient.color}}>{props.ingredient.name}</button>
             </div>
         )
-    }
 }
+
+export default Ingredient

@@ -1,42 +1,36 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import ingredientArray from './IngredientList';
 import IngredientContainer from './IngredientContainer';
 import StackingArea from './StackingArea';
-class App extends Component  {
-  constructor () {
-    super ()
-    this.state = {
-      ingredientsToDisplay: ingredientArray,
-      stackIngredients: []
-    }
-  }
-  addIngredient = (e) =>{
+const App = () =>  {
+  // constructor () {
+  //   super ()
+  //   this.state = {
+  //     ingredientsToDisplay: ingredientArray,
+  //     stackIngredients: []
+  //   }
+  // }
+  const [stackIngredients, setStackIngredients] = useState([])
+  const addIngredient = (e) =>{
     console.log("this is the target", e.target.style)
-    this.setState(()=>{
-      let object = {name: e.target.innerText, color: e.target.style.backgroundColor}
-        return {
-            stackIngredients: [{object}, ...this.state.stackIngredients]
-        }
-    })
+    let object = {name: e.target.innerText, color: e.target.style.backgroundColor}
+    setStackIngredients(
+            [{object}, ...stackIngredients]
+            )
   }
-  clearBurger = () =>{
-    this.setState(()=>{
-      return {
-        stackIngredients: []
-      }
-    })
+  const clearBurger = () =>{
+    setStackIngredients([])
   }
-  render() {
-    console.log('this is the state: ', this.state)
+    // console.log('this is the state: ', this.state)
   return (
     <div className="App">
-      <IngredientContainer ingredients={ingredientArray} addIngredient={this.addIngredient}/>
-      <StackingArea stackIngredients={this.state.stackIngredients} clearBurger={this.clearBurger}/>
+      <IngredientContainer ingredients={ingredientArray} addIngredient={addIngredient}/>
+      <StackingArea stackIngredients={stackIngredients} clearBurger={clearBurger}/>
 
     </div>
   );
-  }
+
 }
 
 export default App;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 
-export default class StackIngredient extends Component {
-    render(){
+ const StackIngredient = (props) => {
         return(
             <div>
-                <div className='stackItem' style={{backgroundColor: this.props.ingredient.object.color}}>{this.props.ingredient.object.name}</div>
+                <div className='stackItem' style={{backgroundColor: props.ingredient.object.color}}>{props.ingredient.object.name}</div>
             </div>
         )
-    }
 }
+
+export default StackIngredient
