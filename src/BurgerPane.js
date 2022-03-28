@@ -7,7 +7,7 @@ export default class BurgerPane extends Component {
 
     render() {
         let burgerBits = this.props.ingredients.map((ing, i) => (
-            <li>
+            <li key={i}>
             <Ingredient itemKey={i} ingredient={ing} />
             </li>
         ))

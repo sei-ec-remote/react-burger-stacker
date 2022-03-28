@@ -8,7 +8,11 @@ export default class Ingredient extends Component {
     // console.log('name in each ingredient', name)
     // console.log('color in each ingredient', color)
     return(
-      <p style={{backgroundColor: color}}>{name}</p>
+      <p 
+      style={{backgroundColor: color}}
+      id={this.props.itemKey}
+      onClick={this.props.clickFunc}
+      >{name}</p>
     )
   }
 }

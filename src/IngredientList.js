@@ -13,8 +13,8 @@ export default class IngredientList extends Component {
     render() {
         // ing= ingredient ,  i= index of array
         let allIngredients = this.props.ingredients.map((ing, i) => (
-            <li key={i} onClick={this.props.addIngs}>
-                <Ingredient itemKey={i} ingredient={ing}/>
+            <li key={i}>
+                <Ingredient itemKey={i} ingredient={ing} clickFunc={this.props.addIng}/>
             </li>
         ))
             
