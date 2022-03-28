@@ -22,9 +22,10 @@ const ingredientsData = [
 
 export default function App () {
 
-  const [ingredients, setIngredient] = useState({ingredientsData})
+  
+  const [ingredients, setIngredient] = useState(ingredientsData)
   const [burgerIngredients, setBurgerIngredients] = useState([])
-
+  console.log("Ingredients", ingredients)
   // Empty and reset the burgerIngredients array to empty
   const clearBurgerIngredients = () => {
     setBurgerIngredients([])
@@ -53,7 +54,7 @@ export default function App () {
           <h6>Click on an ingredient and add it to your hamburger</h6>
           <div className='burger_container'>
           < IngredientList 
-            ingredients={ingredients.ingredientsData} 
+            ingredients={ingredients} 
             addIngredientToBurger={addIngredientToBurger}/>
           < BurgerPane 
             burgerIngredients={burgerIngredients}
