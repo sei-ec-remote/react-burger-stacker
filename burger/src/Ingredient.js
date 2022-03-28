@@ -1,11 +1,10 @@
-import { Component } from "react";
+import React, { useState } from "react";
 
-export default class Ingredient extends Component {
-    render() {
-      const {name, color} = this.props.ingredient
+export default function Ingredient (props) {
+    
+      const {name, color} = props.ingredient
       
     return (
       <h5 style={{backgroundColor: color}}>{name}</h5>
     )
   }
-}
