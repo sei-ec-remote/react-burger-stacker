@@ -1,5 +1,36 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+/* 
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+}
+.ingContainer {
+  border: 1px black solid;
+  border-radius: 25px;
+  padding: 100px;
+}
+
+.burgerContainer {
+  margin: 0px 0px 0px 250px;
+  border: 1px black solid;
+  border-radius: 25px;
+  padding: 100px;
 }
 
 .App-logo {

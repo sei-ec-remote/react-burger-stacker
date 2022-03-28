@@ -12,7 +12,7 @@ export default class IngredientList extends Component {
     }
     render () {
         return (
-            <div class="ingContainer">
+            <div className="ingContainer">
                 
                 <Ingredients ingredient ={this.state.ingredientsToDisplay}/>
             </div>
