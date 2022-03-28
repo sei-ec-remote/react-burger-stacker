@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Ingredient from './Ingredient'
 
-export default class IngredientList extends Component{
-    render() {
-        let allIngredients = this.props.ingredients.map((ing,index)=> (
+const IngredientList = (props) => {
+        let allIngredients = props.ingredients.map((ing,index)=> (
              <li key={index}>
-                <Ingredient itemKey={index} ingredient={ing} clickFunc={this.props.add}/>
+                <Ingredient itemKey={index} ingredient={ing} clickFunc={props.add}/>
             </li>
         ))
         return (
@@ -17,4 +16,5 @@ export default class IngredientList extends Component{
             </section>
         )  
     }   
-}
+
+export default IngredientList
