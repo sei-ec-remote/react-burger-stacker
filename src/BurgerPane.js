@@ -5,6 +5,7 @@ import Ingredient from './Ingredient';
 // Burger pane needs to display ingredient components, similarly to how IngredientList does
 
 const BurgerPane = (props) => {
+  console.log('these are the props', props);
   let burgerBits = props.ingredients.map((ing, i) => (
     <li key={i}>
       <Ingredient itemKey={i} ingredient={ing} clickFunc={props.remove} />

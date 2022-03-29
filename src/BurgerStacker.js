@@ -23,10 +23,10 @@ const BurgerStacker = () => {
   const addToStack = (e) => {
     const ingColor = e.target.style.backgroundColor;
     const ingName = e.target.innerText;
-    setBurgerIngredients(
+    setBurgerIngredients([
       { name: ingName, color: ingColor },
-      ...burgerIngredients
-    );
+      ...burgerIngredients,
+    ]);
   };
 
   const removeFromStack = (e) => {
@@ -46,7 +46,7 @@ const BurgerStacker = () => {
       <div className="panes">
         <IngredientList ingredients={ingredients} add={addToStack} />
         <BurgerPane
-          ingredients={setBurgerIngredients}
+          ingredients={burgerIngredients}
           remove={removeFromStack}
           clear={clearBurger}
         />
