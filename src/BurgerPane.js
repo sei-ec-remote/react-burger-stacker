@@ -1,13 +1,13 @@
-import React, {Component} from "react";
+import React, {useState, useEffect} from "react";
 import Ingredient from "./Ingredient";
 import IngredientList from "./IngredientList";
 
-export default class BurgerPane extends Component {
+const BurgerPane = (props) => {
 
-render() {
-let burgerBits = this.props.ingredients.map((ing, index) =>(
+
+let burgerBits = props.ingredients.map((ing, index) =>(
     <li key={index}>
-    <Ingredient itemKey={index} ingredient={ing} clickFunc={this.props.remove}/>
+    <Ingredient itemKey={index} ingredient={ing} clickFunc={props.remove}/>
     </li>
 ))
     return(
@@ -16,10 +16,12 @@ let burgerBits = this.props.ingredients.map((ing, index) =>(
         <ul>
             {burgerBits}
         </ul>
-        <button onClick={this.props.clear}> Clear Burger</button>
+        <button onClick={props.clear}> Clear Burger</button>
         </section>
     )
-}
 
 
+
 }
+
+export default BurgerPane
