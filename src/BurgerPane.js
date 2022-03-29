@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Ingredient from "./Ingredient"
 
 
@@ -27,27 +27,28 @@ import Ingredient from "./Ingredient"
 
 // Way from class
 
-export default class BurgerPane extends Component {
+const BurgerPane = (props) => {
     //  will eventually get props(ingredients) to loop and display
     // the difference will be the clear button
-    render () {
-        let burgerBits = this.props.ingredients.map((ing,i) => (
-           <li key = {i}> 
-               <Ingredient itemKey = {i} 
-                   ingredient = {ing} 
-                   clickFunc={this.props.remove}
-                   />
-           </li>
-        ))
+
+    let burgerBits = props.ingredients.map((ing,i) => (
+        <li key = {i}> 
+            <Ingredient itemKey = {i} 
+                ingredient = {ing} 
+                clickFunc={props.remove}
+                />
+        </li>
+    ))
     // console.log('ingredients', this.props.ingredients)
-        return (
-            <section className='pane'>
-                <h3>Burger Pane</h3>
-                    <ul> 
-                        {burgerBits} 
-                    </ul>
-                 <button onClick={this.props.clear}>Clear Burger</button> 
-            </section>
-        )
-    }
+    return (
+        <section className='pane'>
+            <h3>Burger Pane</h3>
+                <ul> 
+                    {burgerBits} 
+                </ul>
+                <button onClick={props.clear}>Clear Burger</button> 
+        </section>
+    )
+
 }
+export default BurgerPane

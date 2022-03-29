@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Ingredient from "./Ingredient"
 
 
@@ -39,29 +39,27 @@ import Ingredient from "./Ingredient"
 // way in class 
 
 
-export default class IngredientList extends Component {
-    render () {
-        // console.log('props in ing list', this.props.ingredient)
-        // ing is my ingredient
-        let allIngredients = this.props.ingredients.map((ing,i)=> (
-            <li key = {i} onClick={this.props.add}>
-                <Ingredient  itemKey={i} ingredient={ing} 
-                />
-                {/* {ing.color} clickFunc={this.props.add} */}
-            </li>
-        ))
-        return (
-            <>
-                <section className='pane'>
-                    <h3> Ingredient List</h3>
-                    <ul>
-                        {allIngredients}
-                    </ul>
-                </section>
-            </>
-        )
-    }
+const IngredientList = (props) => {
+    let allIngredients = props.ingredients.map((ing,i)=> (
+        <li key = {i} onClick={props.add}>
+            <Ingredient  itemKey={i} ingredient={ing} 
+            />
+            {/* {ing.color} clickFunc={this.props.add} */}
+        </li>
+    ))
+    return (
+        <>
+            <section className='pane'>
+                <h3> Ingredient List</h3>
+                <ul>
+                    {allIngredients}
+                </ul>
+            </section>
+        </>
+    )
+    
 }
+export default IngredientList
 
 
  
