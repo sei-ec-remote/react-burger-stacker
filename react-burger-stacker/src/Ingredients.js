@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react'
 //ingredient is a child of Ingredient List
 //receives the props of an individual ingredient -> color and name
 
-export default class Ingredients extends Component {
-    render () {
+const Ingredients = (props) => {
+    
         //use destructuring on props...
         //console log them to see them seperated!
-        const { name, color} = this.props.ingredients
+        const { name, color} = props.ingredients
         //console.log('these are my this.props names', name)
         //console.log('these are my props colors', color)
         return (
@@ -14,13 +14,12 @@ export default class Ingredients extends Component {
             //we are calling the itemKey={i} from IngredientsList here in the Ingredients now
             <p 
                 style={{backgroundColor: color}}
-                id={this.props.itemKey}
-                onClick={this.props.clickFunc}
+                id={props.itemKey}
+                onClick={props.clickFunc}
             >
                 {name}
-            </p>
-            
+            </p> 
         )
-    }
-  
 }
+
+export default Ingredients
