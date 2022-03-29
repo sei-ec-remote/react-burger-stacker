@@ -7,8 +7,7 @@ import BurgerPane from "./BurgerPane.js";
 
 const BurgerStacker = (props) => {
 
-   const [ingredients, setIngredient] = useState({
-         ingredients : [
+   const [ingredients, setIngredient] = useState( [
                 {name: 'Kaiser Bun', color: 'saddlebrown'},
                 {name: 'Sesame Bun', color: 'sandybrown'},
                 {name: 'Gluten Free Bun', color: 'peru'},
@@ -21,7 +20,7 @@ const BurgerStacker = (props) => {
                 {name: 'Tomato', color: 'tomato'},
                 {name: 'Bacon', color: 'maroon'},
                 {name: 'Onion', color: 'lightyellow'}
-              ]})
+              ])
     const [burgerIngredients, setBurgerIngredients] = useState([])         
               
               
@@ -29,27 +28,25 @@ const BurgerStacker = (props) => {
     const addToStack = (e) => {
         const ingColor = e.target.style.backgroundColor
         const ingName = e.target.innerText
-        setBurgerIngredients({
-            burgerIngredients: [
+        setBurgerIngredients( [
                 {name: ingName, color: ingColor },
                 ...burgerIngredients
             ]
-        })
+        )
     }
 
-   const removeFromStack = (e) => {
-        const clickIndex = e.target.id  
-        const currBurger = burgerIngredients.slice()
-        currBurger.splice(clickIndex, 1)
-        setBurgerIngredients({
-            burgerIngredients: currBurger
-        })
-    }   
+//    const removeFromStack = (e) => {
+//         const clickIndex = e.target.id  
+//         const currBurger = burgerIngredients.slice()
+//         currBurger.splice(clickIndex, 1)
+//         setBurgerIngredients({
+//             burgerIngredients: currBurger
+//         })
+//     }   
 
    const clearBurger = () => {
-        setBurgerIngredients({
-            burgerIngredients : []
-        })
+        setBurgerIngredients( []
+        )
     }
 
 
@@ -63,7 +60,7 @@ const BurgerStacker = (props) => {
                  />
                 <BurgerPane 
                 ingredients={burgerIngredients} 
-                remove= {removeFromStack}
+                // remove= {removeFromStack}
                 clear= {clearBurger} 
                 />
             </div>

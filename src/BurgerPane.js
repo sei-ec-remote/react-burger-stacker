@@ -3,7 +3,7 @@ import Ingredient from "./Ingredient";
 import IngredientList from "./IngredientList";
 
 const BurgerPane = (props) => {
-
+console.log(props.ingredients)
 
 let burgerBits = props.ingredients.map((ing, index) =>(
     <li key={index}>
