@@ -2,11 +2,11 @@
 // receives the props of an individual ingredient
 
 // bring in React and Component instances from React
-import React, { Component } from "react"
+import React from 'react'
 
-export default class Ingredient extends Component {
-  render() {
-    const { name, color } = this.props.ingredient
-    return <p style={{ backgroundColor: color }}>{name}</p>
-  }
+const Ingredient = (props) => {
+  const { name, color } = props.ingredient
+  return <p style={{ backgroundColor: color }}>{name}</p>
 }
+
+export default Ingredient
