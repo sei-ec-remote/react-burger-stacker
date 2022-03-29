@@ -21,8 +21,6 @@ const App = (props) => {
     setBurgerIngList(currBurger)
   }
 
-  console.log("EEEEEEwwww", burgerIngList);
-
   return (
     <div>
       <h1>Burger Stacker</h1>

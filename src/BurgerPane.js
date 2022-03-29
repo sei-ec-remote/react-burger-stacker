@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 const BurgerPane = (props) => {
-    useEffect(() => {
-        console.log('hit')
-    }, [props.burgIngredients])
+    // useEffect(() => {
+    //     console.log('hit')
+    // }, [props.burgIngredients])
 
     const clickedIngredients = props.burgIngredients.map((n, i) => {
-        console.log("burgIngredients", props.burgIngredients);
+        // console.log("burgIngredients", props.burgIngredients);
         return <li
             key={i}
             style={{ backgroundColor: n.color }}
