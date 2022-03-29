@@ -1,17 +1,10 @@
 // import react component
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import BurgerPane from './BurgerPane'
 import IngredientList from './IngredientList'
+const BurgerStacker = () => {
 
-// burger stacker component is the parent of BurgerPane and IngredientList
-// holds ingredients in State so we can pass them as props
-
-export default class BurgerStacker extends Component {
-
-    constructor () {
-        super()
-        this.state = {
-            ingredients: [
+    const [ingredients, setIngredients] = useState([
                 {name: 'Kaiser Bun', color: 'saddlebrown'},
                 {name: 'Sesame Bun', color: 'sandybrown'},
                 {name: 'Gluten Free Bun', color: 'peru'},
@@ -25,46 +18,46 @@ export default class BurgerStacker extends Component {
                 {name: 'Bacon', color: 'maroon'},
                 {name: 'Onion', color: 'lightyellow'},
                 {name: 'Cheese', color: 'gold'}
-            ],
-            burgerIngredients: []
+            ])
+        const [burgerIngredients, setBurgerIngredients] = useState([])
+
+
+        const addToStack = (e) => {
+            const ingColor = e.target.style.backgroundColor
+            const ingName =  e.target.innerText
+    
+            setBurgerIngredients( () => {
+                return (
+                    [
+                        {name: ingName, color: ingColor},
+                        ...burgerIngredients
+                    ]
+            )
+            })
         }
+
+    const clearBurger = () => {
+        setBurgerIngredients([])
     }
 
-    addToStack = (e) => {
-        const ingColor = e.target.style.backgroundColor
-        const ingName = e.target.innerText
-        this.setState({
-            burgerIngredients: [
-                { name: ingName, color: ingColor },
-                ...this.state.burgerIngredients
-            ]
-        })
-    }
-
-    clearBurger = () => {
-        this.setState({
-            burgerIngredients: []
-        })
-    }
-
-    render() {
-        console.log('what is this.state in BurgerStacker', this.state.ingredients)
-        console.log('burger ingredients', this.state.burgerIngredients)
-        return(
-
-            <>
+console.log('what is ingredients', ingredients)
+ 
+    return(
+        <>
             <h1>Burger Stacker</h1>
             <div className="panes">
                 <IngredientList 
-                    ingredients={this.state.ingredients}
-                    addIng={this.addToStack}   
+                    ingredients={ingredients}
+                    addIng={addToStack}   
                 />
                 <BurgerPane 
-                    ingredients={this.state.burgerIngredients}
-                    clear={this.clearBurger}
+                    ingredients={burgerIngredients}
+                    clear={clearBurger}
                 />
             </div>
-            </>
-        )
-    }
+        </>
+    )
+   
 }
+
+export default BurgerStacker
