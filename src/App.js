@@ -1,12 +1,13 @@
+import React from 'react';
 import './App.css';
 import BurgerStacker from './BurgerStacker';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BurgerStacker />
     </div>
   );
-}
+};
 
 export default App;
