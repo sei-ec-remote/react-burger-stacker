@@ -1,7 +1,7 @@
 import './App.css';
 import BurgerStacker from './BurgerStacker';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BurgerStacker />

@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export default class Ingredient extends Component {
-  render() {
-    const { name, color } = this.props.ingredient;
+const Ingredient = (props) => {
+    const { name, color } = props.ingredient;
     return (
       <p
         style={{ backgroundColor: color }}
-        id={this.props.itemKey}
-        onClick={this.props.clickFunc}
+        id={props.itemKey}
+        onClick={props.clickFunc}
       >
         {name}
       </p>
     );
-  }
 }
+
+export default Ingredient;
