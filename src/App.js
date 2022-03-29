@@ -1,18 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css'
-import IngredientList from './IngredientList'
-import BurgerPane from './BurgerPane'
 import BurgerStacker from './BurgerStacker'
 
-export default class App extends Component {
-
-  render()
-  {
-      return (
-        <div className="App">
-            <BurgerStacker />
-        </div>
-      );
-    }
+const App = () => {
+  return (
+    <div className="App">
+        <BurgerStacker />
+    </div>
+  )
 }
 
+export default App
