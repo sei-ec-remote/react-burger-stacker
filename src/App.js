@@ -1,71 +1,38 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import IngredientList from './IngredientList';
 import BurgerPane from './BurgerPane'
 import ingredients from './Ingredients'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      // 1. store burger ingredient list *hint this needs to be an array
-      burgerIngList: []
-    }
+const App = (props) => {
+  const [burgerIngList, setBurgerIngList] = useState([])
+
+  const handleClick = (ingred) => {
+    const updatedList = [ingred, ...burgerIngList]
+    setBurgerIngList(updatedList)
   }
-  // 3. pass burger ingredient list down through props to BurgerPane
-
-  handleClick = (ingred) => {
-    this.setState(state => {
-      // console.log('State', state)
-      const updatedList = [...state.burgerIngList, ingred]
-
-      return {
-        burgerIngList: updatedList
-      }
-    });
-    // 2. add the ingredient object to state above
+  const clearBurg = (props) => {
+    setBurgerIngList([])
   }
 
-
-  // handleClear
-
-  clearBurg = () => {
-    console.log("HIT");
-    this.setState({
-      burgerIngList: []
-
-    })
+  const removeFromStack = (clickIndex) => {
+    const currBurger = burgerIngList.filter((ing, index) => index !== clickIndex)
+    // console.log('current burger after splice', currBurger)
+    setBurgerIngList(currBurger)
   }
 
-  // remove from stack will find an ingredient & remove it
-  removeFromStack = (e) => {
-    // this is the location in the array
-    // console.log("eeeeee", e.name)
-    const clickIndex = e.name
-    // this is a copy of the burger
-    // console.log("this.state.burgerIngList", this.state.burgerIngList);
-    const currBurger = this.state.burgerIngList.slice()
-    // console.log("current burger", currBurger);
-    // this is removing one item from the copy of the burger
-    currBurger.splice(clickIndex, 1)
-    this.setState({
-      burgerIngList: currBurger
-    })
-  }
+  console.log("EEEEEEwwww", burgerIngList);
 
-  render() {
-    console.log('burgerIngList', this.state.burgerIngList)
-    return (
-      <div>
-        <h1>Burger Stacker</h1>
-        <div className="burgContainer">
-          <IngredientList ingredients={ingredients} handleClick={this.handleClick} />
-          <BurgerPane burgIngredients={this.state.burgerIngList} clearBurg={this.clearBurg} removeFromStack={this.removeFromStack} />
-        </div>
+  return (
+    <div>
+      <h1>Burger Stacker</h1>
+      <div className="burgContainer">
+        <IngredientList ingredients={ingredients} handleClick={handleClick} />
+        <BurgerPane burgIngredients={burgerIngList} clearBurg={clearBurg} removeFromStack={removeFromStack} />
       </div>
-    );
-  }
-
+    </div>
+  );
 }
+
 
 export default App;

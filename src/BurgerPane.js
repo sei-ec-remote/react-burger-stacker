@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 const BurgerPane = (props) => {
-    const clickedIngredients = props.burgIngredients.reverse().map((n, i) => {
+    useEffect(() => {
+        console.log('hit')
+    }, [props.burgIngredients])
+
+    const clickedIngredients = props.burgIngredients.map((n, i) => {
+        console.log("burgIngredients", props.burgIngredients);
         return <li
             key={i}
             style={{ backgroundColor: n.color }}
-            onClick={() => props.removeFromStack(n)}
+            onClick={() => props.removeFromStack(i)}
         > {n.name}</li >
     })
     return (
@@ -24,34 +29,4 @@ const BurgerPane = (props) => {
     )
 }
 
-
-// export default class BurgerPane extends Component {
-
-//     render() {
-//         // 4. console.log the ingredient list being passed down
-//         console.log('ingredient lists', this.props.burgIngredients)
-//         const clickedIngredients = this.props.burgIngredients.reverse().map((n, i) => {
-//             return <li
-//                 key={i}
-//                 style={{ backgroundColor: n.color }}
-//                 onClick={() => this.props.removeFromStack(n)}
-//             > {n.name}</li >
-//         })
-
-//         return (
-//             <>
-//                 <div className="column">
-//                     <h2>Yer Berrgher</h2>
-//                     <ul
-//                         className="items"
-//                     >
-//                         {clickedIngredients}
-//                     </ul>
-//                     <button onClick={() => this.props.clearBurg()}>Clear Burg</button>
-//                 </div>
-//             </>
-
-//         )
-//     }
-// }
 export default BurgerPane
