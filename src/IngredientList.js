@@ -1,21 +1,21 @@
 import React, {Component} from 'react'
-import Ingredients from './Ingredients'
+import Ingredient from './Ingredient'
 
 
 export default class IngredientList extends Component {
-    constructor (props){
-        super(props)
-
-        this.state = {
-            ingredientsToDisplay: this.props.ingredients
-        }
-    }
     render () {
+        let allIngs = this.props.ingredients.map((ing, i) =>(
+            <li key={i} onClick={this.props.addIngs}>
+                <Ingredient itemKey={i} ingredient={ing}/>
+            </li>
+        ))
         return (
-            <div className="ingContainer">
-                
-                <Ingredients ingredient ={this.state.ingredientsToDisplay}/>
-            </div>
+            <section className='stack' >
+                <h3>Ingredients List</h3>
+                <ul>
+                    {allIngs}
+                </ul>
+            </section>
         )
     }
 }

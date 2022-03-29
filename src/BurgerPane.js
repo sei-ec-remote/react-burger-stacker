@@ -1,12 +1,22 @@
 import React, {Component} from 'react'
-import IngredientList from './IngredientList'
+import Ingredient from './Ingredient'
 
 export default class BurgerPane extends Component{
+    
     render () {
+        let burgerStuff = this.props.ingredients.map((ing, i)=>(
+            <li key={i}>
+                <Ingredient itemKey={i} ingredient={ing}/>
+            </li>
+        ))
         return(
-            <div className="burgerContainer">
+            <section className="stack">
                 <h3>Burger Stack</h3>
-            </div>
+                <ul>
+                    {burgerStuff}
+                </ul>
+                <button onClick={this.props.clear}>Clear Burger</button>
+            </section>
         )
     }
 }
