@@ -1,67 +1,62 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Ingredient from './Ingredient'
 import Burger from './Burger';
 import './App.css';
 
 
 
-export default class IngredientList extends Component {
-    constructor(props){
-        super(props)
-
-        // put the burget state here and then push it as a prop to burger
-        this.state = {
-            burgerIngredients:[]
-        }
-    }
-
+const IngredientList  = (props) => {
+    const [burgerIngredients, setBurgerIngredients] = useState([])
   
     // create a function that listens to the add button
-    addIngredient = (index) => {
-        console.log('INGREDIENT BEING PUSHED IS!', this.props.ingredientList[index])
-        const newIngredient=this.props.ingredientList[index]
-        this.state.burgerIngredients.unshift(newIngredient)
-        this.setState({
-            burgerIngredients: this.state.burgerIngredients
-        })
+    const addIngredient = (index) => {
+        console.log('INGREDIENT BEING PUSHED IS!', props.ingredientList[index])
+        const newIngredient=props.ingredientList[index]
+        burgerIngredients.unshift(newIngredient)
+        console.log('BURGER INGREDIENTS: ', burgerIngredients)
+        console.log('BURGER INGREDIENTS WITH SPREAD OPERATOR: ', ...burgerIngredients)
+        setBurgerIngredients([...burgerIngredients])
     }
 
-    // create a function that clears ingredients
-    clearIngedients = () =>{
-        this.setState({
-            burgerIngredients: []
-        })
+    // create a function that clears ingredient
+    const clearIngedients = () =>{
+        setBurgerIngredients([])
     }
+    
 
-        render(){
+    useEffect(() => {
+        console.log('use effect ran')
+        console.log('burgerIngredients are: ', burgerIngredients)
+        
+      }, [burgerIngredients])
 
-            const ingredientList = this.props.ingredientList.map((ingredient, index)=>{
-                return (
-                        <>
-                            <div class="ingredient-button-container">
-                                <Ingredient ingredient={ingredient}/>
-                                <button
-                                    onClick={()=> this.addIngredient(index)}
-                                >
-                                ADD
-                                </button>
-                            </div>
-                        </>
-                )
-            })
-
-            return(
-                <>
-                    <div id="master-container">
-                        <div class="container">
-                            <h1> LIST OF INGREDIENTS</h1>
-                            <div> {ingredientList}</div>
-                        </div>
-                        <Burger burgerIngredients={this.state.burgerIngredients} clearIngredients={this.clearIngedients}/>
+    const ingredientList = props.ingredientList.map((ingredient, index)=>{
+        return (
+                <div key={ingredient.name}>
+                    <div className="ingredient-button-container" key={ingredient.name}>
+                        <Ingredient ingredient={ingredient}/>
+                        <button
+                            onClick={()=> addIngredient(index)}
+                            key={ingredient.name}
+                        >
+                        ADD
+                        </button>
                     </div>
-                </>
-                )
-        }
+                </div>
+        )
+    })
 
+    return(
+        <>
+            <div id="master-container">
+                <div className="container">
+                    <h1> LIST OF INGREDIENTS</h1>
+                    <div> {ingredientList}</div>
+                </div>
+                <Burger burgerIngredients={burgerIngredients} clearIngredients={clearIngedients}/>
+            </div>
+        </>
+        )
 }
 
+export default IngredientList

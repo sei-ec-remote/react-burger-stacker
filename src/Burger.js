@@ -2,29 +2,27 @@ import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 import './App.css';
 
-export default class Burger extends Component {
-    constructor(props){
-        super(props)
+const Burger  = (props) => {
 
-    }
-        render(){
-            const burger = this.props.burgerIngredients.map((ingredient)=>{
-                return <Ingredient ingredient={ingredient}/>
-            })
+    const burger = props.burgerIngredients.map((ingredient, index)=>{
+        return (
+            <Ingredient ingredient={ingredient} key={index}/>  
+        )
+    })
 
-            return(
-                <>
-                    <div class="container">
-                        <h1> Order up!</h1>
-                        <div> {burger}</div>
-                        <button onClick={this.props.clearIngredients}>
-                            CLEAR
-                        </button>
-                    </div>
-                </>
-                )
-        }
-
+    return(
+        <>
+            <div className="container">
+                <h1> Order up!</h1>
+                <div> {burger} </div>
+                <button onClick={props.clearIngredients}>
+                    CLEAR
+                </button>
+            </div>
+        </>
+        )
 }
+
+export default Burger
 
 
