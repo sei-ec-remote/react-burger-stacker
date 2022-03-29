@@ -36,16 +36,16 @@ const BurgerStack = () => {
         setBurgerIngredients([{name: ingName, color:ingColor},...burgerIngredients])
     }
 
-    // const removeFromStack = (e) => {
-    //     console.log('click')
-    //     const clickIndex = e.target.id
-    //     const currentBurger = setBurgerIngredients.slice()
-    //     currentBurger.splice(clickIndex,1)
-    //     // this.setState({
-    //     //     burgerIngredients:currentBurger
-    //     // })
-    //     setBurgerIngredients([{burgerIngredients:currentBurger}])
-    // }
+    const removeFromStack = (e) => {
+        console.log('click')
+        const clickIndex = e.target.id
+        const currentBurger = burgerIngredients.slice()
+        currentBurger.splice(clickIndex,1)
+        // this.setState({
+        //     burgerIngredients:currentBurger
+        // })
+        setBurgerIngredients(currentBurger)
+    }
 
     const clearBurger = () => {
             setBurgerIngredients([])
@@ -61,7 +61,7 @@ const BurgerStack = () => {
                     add={addToStack}
                 />
                 <BurgerPane ingredients={burgerIngredients}
-                    // remove={removeFromStack}
+                    remove={removeFromStack}
                     clear ={clearBurger}
                 />
                 </div>
