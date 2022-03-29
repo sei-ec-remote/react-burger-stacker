@@ -1,4 +1,4 @@
-// import React, { Component } from 'react'
+import React from 'react'
 import Ingredient from './Ingredient'
 
 
@@ -6,14 +6,14 @@ import Ingredient from './Ingredient'
 //   array that comes in thru props it will create an Ingredient for the display
 //   It must make sure the function to addIngredientToBurger to pass to an 
 //   Ingredient
-export default function IngredientList ({ingredients, addIngredientToBurger}) {
+export default function IngredientList (props) {
 
-    const ingredientsList = ingredients.map((ingredient, index) => {
+    const ingredientsList = props.ingredients.map((ingredient, index) => {
         return ( 
             <li key={index}>
             < Ingredient 
                 ingredient={ingredient}
-                addIngredientToBurger={addIngredientToBurger}
+                addIngredientToBurger={props.addIngredientToBurger}
                 /> 
             </li>
         );

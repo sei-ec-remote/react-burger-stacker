@@ -1,5 +1,5 @@
 
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
@@ -25,7 +25,11 @@ export default function App () {
   
   const [ingredients, setIngredient] = useState(ingredientsData)
   const [burgerIngredients, setBurgerIngredients] = useState([])
-  console.log("Ingredients", ingredients)
+
+  useEffect(()=> {
+    console.log("use effect ran")
+  }, [burgerIngredients])
+
   // Empty and reset the burgerIngredients array to empty
   const clearBurgerIngredients = () => {
     setBurgerIngredients([])
@@ -38,10 +42,11 @@ export default function App () {
   //     beginning of the array.
   const addIngredientToBurger = (ingredient) => {
     let newIngredientArray = burgerIngredients
-
     newIngredientArray.unshift(ingredient)
 
-    setBurgerIngredients(newIngredientArray)
+    setBurgerIngredients((prevburgerIngredients) => [
+      ...newIngredientArray
+    ])
   }
 
   // Display the list of ingredients by passing the list of ingredients via props
