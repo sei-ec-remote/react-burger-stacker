@@ -1,21 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import Ingredients from "./Ingredients";
 
 // ingredients list will loop over props (ingredients) meaning a for loop
 // produce one Ingredients component item in the array
 
-export default class IngredientsList extends Component {
+const IngredientsList = (props) => {
 
-    render() {
         // this is how we're able to map over all our ingredients in order to 
         // produce one ingredient 
         // we have to do a map function
         // parentheses after the arrow shows the inplied return 
-         let allIngredients = this.props.ingredients.map((ingredients, index) => (
+         let allIngredients = props.ingredients.map((ingredients, index) => (
              //  produce a list item that displays and ingredient
             //  we added the onClick property to the props in order to see what is being clicked
              <li key={index}>
-                 <Ingredients itemKey={index} ingredients={ingredients} clickFunction={this.props.add}/>
+                 <Ingredients itemKey={index} ingredients={ingredients} clickFunction={props.add}/>
              </li>
          ))
         return (
@@ -28,5 +27,6 @@ export default class IngredientsList extends Component {
                 </ul>
             </section>
         )
-    }
+    
 }
+export default IngredientsList

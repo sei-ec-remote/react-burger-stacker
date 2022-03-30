@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 // the burger pane needs to display the ingredients components
 // just like ingredientslist does
 import Ingredients from "./Ingredients";
 
 
-export default class BurgerPane extends Component {
+const BurgerPane = (props) => {
 // eventually this will get ingredients, and loop the array and should display 
 // similarly to the ingredientsList
 // the difference will be the clear button
 
-    render(){
-        let burgerBits = this.props.ingredients.map((ingredients, index) => (
+
+        let burgerBits = props.ingredients.map((ingredients, index) => (
             <li key={index}>
-            <Ingredients itemKey={index} ingredients={ingredients} clickFunction={this.props.remove}/>
+            <Ingredients itemKey={index} ingredients={ingredients} clickFunction={props.remove}/>
             </li>
         ))
         return(
@@ -21,8 +21,9 @@ export default class BurgerPane extends Component {
                 <ul>
                     {burgerBits}
                 </ul>
-                <button onClick={this.props.clear}>Clear Burger</button>
+                <button onClick={props.clear}>Clear Burger</button>
             </section>
         )
-    }
+    
 }
+export default BurgerPane
