@@ -1,28 +1,32 @@
-import React, { Component } from 'react'
-import Ingredient from './Ingredient'
+import React from "react";
+ import Ingredient from "./Ingredient";
 
- // ingredient list will loop over props (ingredients)
- // produce one Ingredient component for each item in the array
+ // ingredients list will loop over props (ingredients) meaning a for loop
+ // produce one Ingredients component item in the array
 
- export default class IngredientList extends Component {
-     render(){
-         // ing = ingredient, i = index
-         let ingredientItems = this.props.ingredients.map((ing, i) => {
-             return (
-                 <li key={i}>
-                     <Ingredient itemKey={i} ingredient={ing} clickFunc={this.props.add}/>
-                 </li>
-         )})
-         // console.log("props in ing list", this.props.ingredients)
-         return(
-             <>
-                 <section className='pane'>
-                     <h3>Ingredients List</h3>
-                     <ul>
-                         {ingredientItems}
-                     </ul>
-                 </section>
-             </>
+ const IngredientList = (props) => {
+
+         // this is how we're able to map over all our ingredients in order to 
+         // produce one ingredient 
+         // we have to do a map function
+         // parentheses after the arrow shows the inplied return 
+          let allIngredient = props.ingredient.map((ingredient, index) => (
+              //  produce a list item that displays and ingredient
+             //  we added the onClick property to the props in order to see what is being clicked
+              <li key={index}>
+                  <Ingredient itemKey={index} ingredient={ingredient} clickFunction={props.add}/>
+              </li>
+          ))
+         return (
+             // saying section in this way allows the content
+             // to be styled within the div 'panes'
+             <section className="pane">
+                 <h3>Ingredients List</h3>
+                 <ul>
+                     {allIngredient}
+                 </ul>
+             </section>
          )
-     }
-}
+
+ }
+ export default IngredientList 
