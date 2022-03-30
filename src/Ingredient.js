@@ -7,7 +7,13 @@ export default class Ingredient extends Component {
         // console.log('props in each color', color)
         // console.log('props in each name', name)
         return (
-            <p style={{backgroundColor: color}}>{name}</p>
+            <p 
+                style={{backgroundColor: color}}
+                id={this.props.itemKey}
+                onClick={this.props.clickFunc}
+            >
+                {name}
+            </p>
         )
     }
 }
