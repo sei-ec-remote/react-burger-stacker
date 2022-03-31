@@ -1,30 +1,23 @@
 import React, { Component } from 'react'
-import './App.css';
-import Ingredients from './Ingredient';
-import BurgerPane from './BurgerPane';
+import Ingredient from './Ingredient'
+
 
 export default class IngredientList extends Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            ingredientsToDisplay: this.props.ingredients
-        }
-    }
-    addIngredient = () => {
-        this.setState(
-            console.log('hello')
-        )
-    }
     // onClick={addIngredient}
     render () {
-        let foods = this.state.ingredientsToDisplay.map((f,i) => {
-            return <p key={i} ><Ingredients ingredients = {f}/></p>
-        })
+        let allIngredients = this.props.ingredients.map((ing, i) => (
+            <li key={i} onClick={this.props.add}>
+                <Ingredient itemKey={i} ingredients={ing} />
+            </li>
+        ))
+        console.log(allIngredients)
         return (
-            <div>
-                <h1>Ingredient List</h1>
-                {foods}
-            </div>
+            <section className='pane'>
+                <h2>Ingredient List</h2>
+                <ul>
+                    {allIngredients}
+                </ul>
+            </section>
         )
     }
 }

@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Ingredients extends Component {
+export default class Ingredient extends Component {
     render () {
-        // map over our ingredients(from props)
-        // display a list item for each of them
-        // in = ingredients, i = index
-        // const ingredients = this.props.ingredients.map((ing, i) => {
-        //     return <p key={i}>{ing}</p>
-        // })
+        // grabbing name and color from ingredients and giving it a variable
+        const { name, color } = this.props.ingredients
         return (
-            <p style={{backgroundColor: `${this.props.ingredients.color}`}}>
-                {this.props.ingredients.name}
-            </p>
+                <p style={{backgroundColor: color}}>{name}</p>
         )
     }
 }
