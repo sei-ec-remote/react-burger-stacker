@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import IngredientList from './IngredientList';
+import React, { useState} from 'react';
+import './App.css'
 import BurgerPane from './BurgerPane';
+import IngredientList from './IngredientList';
 
-export default class Burger extends Component {
-    constructor() {
-        super()
-        this.state = {
-            ingredients: [
+
+export default function Burger () {
+ 
+    const [ingredients, setIngredients] = useState([
                 {name: 'Kaiser Bun', color: 'saddlebrown'},
                 {name: 'Sesame Bun', color: 'sandybrown'},
                 {name: 'Gluten Free Bun', color: 'peru'},
@@ -19,49 +19,44 @@ export default class Burger extends Component {
                 {name: 'Tomato', color: 'tomato'},
                 {name: 'Bacon', color: 'maroon'},
                 {name: 'Onion', color: 'lightyellow'}
-              ],
-              burgerIngredients: []
-        }
-    }
+            ])
+            const [ burgerIngs, setBurgerIngs ] = useState ([])
+    
 
-    addToStack = (e) => {
+    const addToStack = (e) => {
         console.log("this is what was clicked", e.target)
         const ingColor = e.target.style.backgroundColor
         const ingName = e.target.innerText
-        this.setState({
-            burgerIngredients:[
-                { name: ingName, color: ingColor },
-                ...this.state.burgerIngredients
-            ]
-        })
+        setBurgerIngs([{name:ingName, color: ingColor}, ...burgerIngs]) 
+    } 
+
+
+    const clearBurger = () =>  {
+    setBurgerIngs([])
 
     }
 
 
-    clearBurger = () =>  {
-        this.setState({
-            burgerIngredients: []
-        })
 
-    }
+ 
 
-    render() {
-    console.log('these are the ingredients', this.state.ingredients)
+
+
     return (
     <> 
         <h1>burger stacker</h1>
         <div className='panes'>
-        <IngredientList ingredients={this.state.ingredients}
-                        addIngs={this.addToStack}
+        <IngredientList ingredients={ingredients}
+                        addIngs={addToStack}
         />
 
-        <BurgerPane ingredients={this.state.burgerIngredients }
-                    clear={this.clearBurger}
+        <BurgerPane ingredients={burgerIngs }
+                    clear={clearBurger}
                         
         />
         </div>
     </>
         )
     }
-}
+
  
