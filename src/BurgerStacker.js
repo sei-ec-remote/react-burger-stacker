@@ -6,12 +6,10 @@ import IngredientList from './IngredientList'
 // burger stacker component is the parent of BurgerPane and IngredientList
 // holds ingredients in state, sow we can pass them as props 
 
-export default class BurgerStacker extends Component {
+const BurgerStacker = () => {
         // state that will hold ingredients
-        constructor () {
-            super ()
-            this.state = {
-                ingredients: [
+        const [ingredients, setIngredients] = useState(
+                [
                     {name: 'Kaiser Bun', color: 'saddlebrown'},
                     {name: 'Sesame Bun', color: 'sandybrown'},
                     {name: 'Gluten Free Bun', color: 'peru'},
@@ -26,23 +24,19 @@ export default class BurgerStacker extends Component {
                     {name: 'Onion', color: 'lightyellow'},
                     {name: 'Cheese', color: 'gold'}
                 ],
-                burgerIngredients: []
-            }
-        }
+        )
+        
+        const [burgerIngredients, setBurgerIngredients] = useState([])
+
         // might want methods here to add ingredients, that will be passed to a child components
-        addToStack = (e) => {
+        const addToStack = (e) => {
             const ingColor = e.target.style.backgroundColor
             const ingName =  e.target.innerText
-            this.setState({
-                burgerIngredients: [
-                    { name: ingName, color: ingColor },
-                    ...this.state.burgerIngredients
-                ]
-            })
+            setBurgerIngredients([{name: ingName, color: ingColor},...this.state.burgerIngredients])
         }
 
         // remove from stack will find an ingredient and get it on outta there 
-        removeFromStack = (e) => {
+        const removeFromStack = (e) => {
             console.log('the old stack', this.state.burgerIngredients)
             console.log('the clicked item', e.target)
             // this is the location in the array
@@ -60,10 +54,8 @@ export default class BurgerStacker extends Component {
 
     
         // might want my clear function here, to pass down as prop 
-        clearBurger = () => {
-            this.setState({
-                burgerIngredients: []
-            })
+        const clearBurger = () => {
+                setBurgerIngredients: []
         }
 
         render () {
@@ -87,3 +79,5 @@ export default class BurgerStacker extends Component {
             )
         }
 }
+
+export default BurgerStacker

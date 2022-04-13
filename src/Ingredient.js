@@ -2,8 +2,8 @@
 // receives the props of an individual ingredient -> color and name
 import React, { Component } from 'react'
 
-export default class Ingredient extends Component {
-    render () {
+const Ingredient = (props) => {
+
         const { name, color } = this.props.ingredient
         // console.log('name in each ingredient', name)
         // console.log('color in each ingredient', color)
@@ -18,4 +18,5 @@ export default class Ingredient extends Component {
             </p>
         )
     }
-}
+
+export default Ingredient

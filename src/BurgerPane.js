@@ -3,7 +3,7 @@ import React, { Component } from "react"
 // burger pane needs to display ingredient components, similarly to how ingredientList does 
 import Ingredient from "./Ingredient"
 
-export default class BurgerPane extends Component {
+const BurgerPane = (props) => {
     // burger pane will eventually get props(ingredients), and should loop and display those similar to the ingredientList
     // the difference will be the clear button 
     render () {
@@ -11,7 +11,7 @@ export default class BurgerPane extends Component {
             <Ingredient
                 itemKey={i} 
                 ingredient={ing} 
-                clickFunc={this.props.remove}
+                clickFunc={props.remove}
             />
         ))
         return (
@@ -25,6 +25,8 @@ export default class BurgerPane extends Component {
         )
     }
 }
+
+export default BurgerPane
 
 
 

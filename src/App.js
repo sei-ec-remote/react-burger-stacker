@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 import BurgerStacker from './BurgerStacker'
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     <div className="App">
       <BurgerStacker />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

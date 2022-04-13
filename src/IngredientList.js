@@ -5,10 +5,9 @@ import Ingredient from './Ingredient'
 // ingredient list will loop over props(ingredients)
 // produce one ingredient component for each item in the array
 
-export default class IngredientList extends Component {
-    render () {
+const IngredientList = (props) => {
         // ing = ingredient, i = index of the array
-        let allIngredients = this.props.ingredients.map((ing, i) => (
+        let allIngredients = props.ingredients.map((ing, i) => (
             <li key={i}>
                 <Ingredient itemKey = {i} ingredient={ing} clickFunc={this.props.add}/>
             </li>
@@ -22,4 +21,5 @@ export default class IngredientList extends Component {
             </section>
         )
     }
-}
+
+export default IngredientList
