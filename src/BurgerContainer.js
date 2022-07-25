@@ -12,8 +12,17 @@ class BurgerContainer extends Component {
     // handle ingredientChange function which we will pass down to ingredients
     handleIngredientChange = (e) => {
         // we want to use the button VALUE as the includes function
-        filteredIngredientList.push(e.target.value)
-        console.log(filteredIngredientList)
+        const filterValue = e.target.value;
+        this.props.ingredients.map(ingredient => {
+            if (ingredient.name === filterValue) {
+                filteredIngredientList.push(ingredient)
+                return
+            } else {
+                return
+            }
+        })
+        // filteredIngredientList.push(e.target.value)
+        // console.log(filteredIngredientList)
         // and filter the ingredients list using that value
         // and concat to return new array and assign that to the state variable
         this.setState(() => {

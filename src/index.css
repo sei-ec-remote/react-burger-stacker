@@ -44,4 +44,5 @@ body {
 .burgerStackerArea {
   display: flex;
   flex-direction: column-reverse;
+  margin: auto 0
 }
