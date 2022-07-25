@@ -1,0 +1,42 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin: 5px;
+  text-align: center
+  
+}
+
+.grid-child {
+  border: 2px solid black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+
+.BurgerStackingLabel {
+  margin: 5px;
+  border: 2px solid grey;
+  color: white;
+  background-color: black;
+}
+
+.ing-list-row{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.ing-list-comp{
+  margin: 5px;
+}
+
+.clear-burger {
+  padding: 5px 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
