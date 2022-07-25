@@ -13,7 +13,8 @@ class BurgerStacker extends Component {
                 <BurgerStackingArea 
                     displayIngredients={this.props.displayIngredients}
                 />
-                <ClearBurger />
+                <ClearBurger 
+                    onClick={this.props.onChange}/>
             </div>
         );
     }

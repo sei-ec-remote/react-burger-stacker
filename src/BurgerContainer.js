@@ -21,16 +21,29 @@ class BurgerContainer extends Component {
                 return
             }
         })
-        // filteredIngredientList.push(e.target.value)
-        // console.log(filteredIngredientList)
-        // and filter the ingredients list using that value
-        // and concat to return new array and assign that to the state variable
         this.setState(() => {
             return {
                 ingredientsToDisplay: filteredIngredientList
             }
         })
-        console.log(this.state.ingredientsToDisplay)
+    }
+    // handle remove ingredients
+    handleRemoveIngredients = (e) => {
+        console.log('click')
+        // this is actually great for removing just the topmost entry!
+            // if (filteredIngredientList[0]) {
+            //     filteredIngredientList.pop()
+            // }
+        // remove ALL
+        while (filteredIngredientList[0]) {
+            filteredIngredientList.pop()
+        }
+        console.log(filteredIngredientList)
+        this.setState(() => {
+            return {
+                ingredientsToDisplay: filteredIngredientList
+            }
+        })
     }
     // render
     render() {
@@ -42,6 +55,7 @@ class BurgerContainer extends Component {
                 />
                 <BurgerStacker 
                     displayIngredients={this.state.ingredientsToDisplay}
+                    onChange={this.handleRemoveIngredients}
                 />
             </div>
         );
