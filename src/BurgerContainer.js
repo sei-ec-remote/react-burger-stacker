@@ -11,8 +11,7 @@ class BurgerContainer extends Component {
     }
     // handle ingredientChange function which we will pass down to ingredients
     handleIngredientChange = (e) => {
-        // we want the filter to use the button VALUE as the filter function
-        //console.log(e.target.value)
+        // we want to use the button VALUE as the includes function
         filteredIngredientList.push(e.target.value)
         console.log(filteredIngredientList)
         // and filter the ingredients list using that value

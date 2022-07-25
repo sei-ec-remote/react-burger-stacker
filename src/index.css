@@ -40,3 +40,8 @@ body {
   border-radius: 25px;
   margin: 20px;
 }
+
+.burgerStackerArea {
+  display: flex;
+  flex-direction: column-reverse;
+}
