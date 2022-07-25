@@ -10,7 +10,9 @@ class BurgerStacker extends Component {
     render() {
         return (
             <div class="container">
-                <BurgerStackingArea />
+                <BurgerStackingArea 
+                    displayIngredients={this.props.displayIngredients}
+                />
                 <ClearBurger />
             </div>
         );

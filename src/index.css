@@ -18,10 +18,16 @@ body {
 
 .App {
   display: flex;
-  margin: 0 auto;
+  margin: 100px auto;
   max-width: 1200px;
   background-color: whitesmoke;
   justify-content: space-between;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 25px;
 }
 
 .container {

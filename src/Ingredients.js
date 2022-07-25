@@ -6,10 +6,13 @@ import IngredientRow from './IngredientRow';
 
 class Ingredients extends Component {
     render() {
-        return (
+                return (
             <div class="container">
-                <IngredientRow />
-                <p>This container will hold the list of ingredients in rows</p>
+                <IngredientRow 
+                    ingredients={this.props.ingredients}
+                    onChange = {this.props.onChange} 
+                />
+                <p>Click the buttons above to add ingredients.</p>
             </div>
         );
     }
