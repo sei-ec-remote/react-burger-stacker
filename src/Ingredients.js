@@ -12,8 +12,8 @@ class Ingredients extends Component {
                     ingredients={this.props.ingredients}
                     onChange = {this.props.onChange} 
                 />
-                <p>Click the buttons above to add ingredients.</p>
-            </div>
+                <p>Click the ingredients above to add them to the burger!</p>
+                </div>
         );
     }
 }

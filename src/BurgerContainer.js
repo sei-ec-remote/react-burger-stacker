@@ -29,16 +29,20 @@ class BurgerContainer extends Component {
     }
     // handle remove ingredients
     handleRemoveIngredients = (e) => {
-        console.log('click')
-        // this is actually great for removing just the topmost entry!
-            // if (filteredIngredientList[0]) {
-            //     filteredIngredientList.pop()
-            // }
         // remove ALL
         while (filteredIngredientList[0]) {
             filteredIngredientList.pop()
         }
-        console.log(filteredIngredientList)
+        this.setState(() => {
+            return {
+                ingredientsToDisplay: filteredIngredientList
+            }
+        })
+    }
+    handleRemoveLastIngredient = (e) => {
+        if (filteredIngredientList[0]) {
+                filteredIngredientList.pop()
+            }
         this.setState(() => {
             return {
                 ingredientsToDisplay: filteredIngredientList
@@ -56,6 +60,7 @@ class BurgerContainer extends Component {
                 <BurgerStacker 
                     displayIngredients={this.state.ingredientsToDisplay}
                     onChange={this.handleRemoveIngredients}
+                    removeLast={this.handleRemoveLastIngredient}
                 />
             </div>
         );

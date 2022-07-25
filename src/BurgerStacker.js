@@ -14,7 +14,9 @@ class BurgerStacker extends Component {
                     displayIngredients={this.props.displayIngredients}
                 />
                 <ClearBurger 
-                    onClick={this.props.onChange}/>
+                    onClick={this.props.onChange}
+                    removeLast={this.props.removeLast}
+                />
             </div>
         );
     }
