@@ -5,6 +5,7 @@ class BurgerStackingArea extends Component {
         return (
             <div>
                 this is where ingredients will be put into once clicked!
+                <p>{this.props.displayIngredients}</p>
             </div>
         );
     }
