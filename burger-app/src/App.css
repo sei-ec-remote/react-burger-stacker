@@ -40,3 +40,8 @@
 li {
   width: 200px;
 }
+
+.hey {
+  display: flex;
+  flex-direction: column;
+}
