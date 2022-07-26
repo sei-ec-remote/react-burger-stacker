@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Burgerjs from './ingredients/burger';
+import BurgerStacker from './components/BurgerStacker';
 
 function App() {
   return (
-    <div className='bgcontent'>
-      <Burgerjs />
+    <div>
+      <BurgerStacker />
     </div>
   );
 }

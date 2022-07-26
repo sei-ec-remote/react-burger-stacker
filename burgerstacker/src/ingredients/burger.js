@@ -1,45 +1,45 @@
-import React, {Component} from 'react';
-import '../ingredients/burgerstyle.css'
+// import React, {Component} from 'react';
+// import '../ingredients/burgerstyle.css'
 
-export default class Burgerjs extends Component {
-    state = {
-        KaiserBun: 0,
-        SesameBun: 0,
-        GlutenFreeBun: 0,
-        LettuceWrap: 0,
-        BeefPatty: 0,
-        SoyPatty: 0,
-        BlackBeanPatty: 0,
-        ChickenPatty: 0,
-        Lettuce: 0,
-        Tomato: 0,
-        Bacon: 0,
-        Onion: 0
-    }
+// export default class Burgerjs extends Component {
+//     state = {
+//         KaiserBun: 0,
+//         SesameBun: 0,
+//         GlutenFreeBun: 0,
+//         LettuceWrap: 0,
+//         BeefPatty: 0,
+//         SoyPatty: 0,
+//         BlackBeanPatty: 0,
+//         ChickenPatty: 0,
+//         Lettuce: 0,
+//         Tomato: 0,
+//         Bacon: 0,
+//         Onion: 0
+//     }
 
-    render(){
-        return (
-            <>
-                        <div className='bgingredients'>
-                            Burger
+//     render(){
+//         return (
+//             <>
+//                         <div className='bgingredients'>
+//                             Burger
 
-                        </div>
-                        <div className='ingredientsblock'>
-                            ingredients
-                            <p>Lettuce</p>
-                            <button onClick={() => this.addRemoveIngredient('add', 'lettuce')} className='ingbtn'>Add</button>
-                            <button className='ingbtn'>Remove</button>
-
-
-                        </div>
-
-            </>
-        );
-    }
+//                         </div>
+//                         <div className='ingredientsblock'>
+//                             ingredients
+//                             <p>Lettuce</p>
+//                             <button onClick={() => this.addRemoveIngredient('add', 'lettuce')} className='ingbtn'>Add</button>
+//                             <button className='ingbtn'>Remove</button>
 
 
+//                         </div>
 
-}
+//             </>
+//         );
+//     }
+
+
+
+// }
 
 
 // [
