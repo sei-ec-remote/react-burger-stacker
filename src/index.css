@@ -48,3 +48,8 @@ body {
   flex-direction: column-reverse;
   margin: auto 0
 }
+
+button {
+  margin: 5px;
+  border-radius: 25px;
+}

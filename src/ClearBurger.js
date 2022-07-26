@@ -4,11 +4,11 @@ class ClearBurger extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <button onClick={this.props.removeLast}>Oops! Remove last ingredient</button>
+                <div class="button">
+                    <button onClick={this.props.removeLast}>Oops! Remove Last Ingredient</button>
                 </div>
-                <div>
-                    <button onClick={this.props.onClick}>This Button Will Clear Burger</button>
+                <div class="button">
+                    <button onClick={this.props.onClick}>Remove All Ingredients</button>
                 </div>
             </div>
         );
