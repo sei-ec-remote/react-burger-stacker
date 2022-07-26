@@ -1,5 +1,7 @@
 import './App.css';
-import IngredientList from './components/IngredientList'
+import IngredientList from './components/IngredientList';
+// import Ingredients from './components/Ingredients';
+// import BurgerPane from './components/BurgerPane';
 
 const indgredients = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
@@ -19,7 +21,12 @@ const indgredients = [
 function App() {
   return (
     <>
-    <IngredientList ingredients={indgredients}/>
+      <div id="boxOne">
+        <IngredientList ingredients={indgredients}/>
+      </div>
+      <div id="boxTwo">
+        PUT THE BURGER HERE???{/* <IngredientsList ingredients={burgerArray}/> */}
+      </div>
     </>
   );
 }
