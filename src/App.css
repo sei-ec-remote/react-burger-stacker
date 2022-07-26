@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.panes {
+  display: flex;
+  justify-content: center;
+}
+
+.panes>div {
+  border: 5px solid saddlebrown;
+  margin: 3em;
+  padding: 15px;
+  width: 15rem;
+}
+
+h1 {
+  color: saddlebrown;
+}
+
+h2 {
+  color: sandybrown;
+}
+
+p {
+  color: chocolate;
+  margin: 0px;
+  border: solid 1px rgb(114, 59, 11);
+}
+
