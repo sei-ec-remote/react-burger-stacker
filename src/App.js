@@ -1,5 +1,8 @@
+import React , { Component } from 'react'
 import './App.css';
-import IngredientList from './IngredientList';
+
+import BurgerStack from './components/BurgerStack';
+import Ingredients from './components/Ingredients';
 
 const ingredients = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
@@ -16,17 +19,76 @@ const ingredients = [
   {name: 'Onion', color: 'lightyellow'}
 ]
 
-function App() {
-  return (
-      <div>
-        <IngredientList 
-          ingredients={ingredients}
+class App extends Component {
+
+  state={
+    ingredientsToDisplay: []
+  }
+
+  handleStateChange = e => {
+    e.preventDefault()
+    const selectedIngredientName = e.target.name
+    const findIngredientName = ingredients.filter(ingredient => {
+      return ingredient.name.toLowerCase().includes(selectedIngredientName.toLowerCase())
+    })
+    this.setState((prevState) => {
+      return {
+        ingredientsToDisplay: [ findIngredientName, ...prevState.ingredientsToDisplay ]
+      }
+    })
+  }
+
+  handleStateReset = e => {
+    e.preventDefault()
+    this.setState(() => {
+      return {
+        ingredientsToDisplay: []
+      }
+    })
+  }
+
+  render() {
+
+    const allIngredients = ingredients.map((thisIngredient,i) => {
+      return (
+        <Ingredients
+          ingredient={thisIngredient}
+          key={i}
+          onClick={this.handleStateChange}
         />
-        <div className='burger-pane'>
-          <h1>Burger</h1>
-        </div>
+      )
+    })
+
+    const burgerStack = this.state.ingredientsToDisplay.map((addedIngredient,i) => {
+      return (
+        <BurgerStack 
+          addedIngredient={addedIngredient[0]}
+          key={i}
+        />
+      )
+    })
+
+    return (
+      <div className="App">
+          <div className='ingredient-list'>
+            <h1 className="section-title">Ingredients</h1>
+            <div className='ingredients'>
+              {allIngredients}
+            </div>
+          </div>
+
+          <div className='burger-stack'>
+            <div className='burger-ingredients'>
+                {burgerStack}
+              </div>
+            <div className='align-bottom'>
+              <h1 className='section-title'>Burger Stacking Area</h1>
+              <button onClick={this.handleStateReset}>Clear</button>
+            </div>
+          </div>
       </div>
-  );
+    );
+  }
 }
 
 export default App;

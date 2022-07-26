@@ -1,0 +1,8 @@
+.burger {
+    padding: 5px;
+}
+
+.one-ingredient {
+    height: fit-content;
+    border-bottom: 2px black solid;
+}
