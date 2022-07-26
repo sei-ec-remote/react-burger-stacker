@@ -2,7 +2,10 @@
 import React, { Component } from 'react' 
 import Ingredients from './Ingredients'
 
-class BurgerStack extends Component {
+class IngredientList extends Component {
+    state = {
+        ingredientsToDisplay: this.props.ingredients
+    }
     render () {
         return (
             <>
@@ -12,4 +15,4 @@ class BurgerStack extends Component {
     }
 }
 
-export default BurgerStack
+export default IngredientList
