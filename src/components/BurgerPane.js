@@ -3,27 +3,25 @@ import Ingredients from './Ingredients'
 
 class BurgerPane extends Component {
     render () {
-        let burgerParts = this.props.ingredients.map((ingredient, idx) => {
-            return (
-                <li key={idx}>
-                    < Ingredients 
-                        ingredientKey={idx}
-                        ingredient={ingredient}
-                        click={this.props.remove}
-                    />
-                </li>
-            )
-        })
+        // map over all the added burger bits
+        // still going to use the Ingredient Comp
+        let burgerBits = this.props.ingredients.map((ing, idx) => ( 
+            <li key={idx}>
+                <Ingredients 
+                    itemKey={idx}
+                    ingredient={ing}
+                    clickFunc={this.props.remove}
+                />
+            </li>
+        ))
         return (
-            <div>
+            <section>
                 <h3>Have it your way</h3>
                 <ul>
-                    {burgerParts}
+                    {burgerBits}
                 </ul>
-                <h3>Click on ingredient to remove</h3>
-                <p>or</p>
-                <button onClick={this.props.clear}>Start Over</button>
-            </div>
+                <button onClick={this.props.clear}>Clear Burger</button>
+            </section>
         )
     }
 }

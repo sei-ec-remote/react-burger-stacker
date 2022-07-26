@@ -21,30 +21,42 @@ class BurgerStacker extends Component {
           burgerIngredients: []
     }
 
-    addIngredient = (e) => {
-        const ingredientColor = e.target.style.backgroundColor
-        const ingredientName = e.target.innerText
+    // add to the burger
+    // click on an ing and use the `event` to target it
+    addToStack = (e) => {
+        // grab the color
+        const ingColor = e.target.style.backgroundColor
+        // grab the name
+        const ingName = e.target.innerText
+        // add to state
         this.setState({
             
             burgerIngredients: [
-                { name: ingredientName, color: ingredientColor },
-                // instead of creating a new obj, pass the object itself
+                { name: ingName, color: ingColor },
+                // spear op takes what was in the array and copies it over here
                 ...this.state.burgerIngredients
             ]
         })
     }
 
-    removeIngredient = (e) => {
+    // remove from burger
+    removeFromStack = (e) => {
+        // select an ing by id
         const clickIndex = e.target.id
-        const currentStack = this.state.burgerIngredients.slice()
-        currentStack.splice(clickIndex, 1)
+        // copy the whole burger
+        const currBurger = this.state.burgerIngredients.slice()
+        // remove that ing
+        currBurger.splice(clickIndex, 1)
 
+        // set that state
         this.setState({
-            burgerIngredients: currentStack
+            burgerIngredients: currBurger
         })
     }
 
-    clearIngredient = () => {
+    // clear said burger
+    clearBurger = () => {
+        // set state back to an empty array
         this.setState({
             burgerIngredients: []
         })
@@ -57,14 +69,14 @@ class BurgerStacker extends Component {
                 <div class="ingredients">
                     <IngredientList 
                         ingredients={this.state.ingredients}
-                        add={this.addIngredient}
+                        add={this.addToStack}
                     />
                 </div>
                 <div class="burger">
-                    < BurgerPane 
+                    <BurgerPane 
                         ingredients={this.state.burgerIngredients}
-                        remove={this.removeIngredient}
-                        clear={this.clearIngredient}
+                        remove={this.removeFromStack}
+                        clear={this.clearBurger}
                     />
                 </div>
             </div>

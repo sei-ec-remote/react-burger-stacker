@@ -3,20 +3,25 @@ import Ingredients from './Ingredients'
 
 class IngredientList extends Component {
     render () {
-        const ingredientItems = this.props.ingredients.map((ingredient, idx) => {
-            return (
-                <li key={idx}>
-                    <Ingredients ingredientKey={idx} ingredient={ingredient} click={this.props.add} />
-                </li>
-            )
-        })
+        // map over the ing
+        // mapped over and created form Ingredient Comp
+        let allIngredients = this.props.ingredients.map((ing, idx) => (
+            <li key={idx}>
+                <Ingredients 
+                    ingredient={ing} 
+                    clickFunc={this.props.add} 
+                    ingredientKey={idx} 
+                />
+            </li>
+        ))
         return (
             <div>
-                <h2>Ingredients</h2>
-                <ul>
-                    {ingredientItems}
-                </ul>
-                <h3>Click on Ingredient to Add</h3>
+                <section>
+                    <h3>Ingredient List</h3>
+                    <ul>
+                        {allIngredients}
+                    </ul>
+                </section>
             </div>
         )
     }
