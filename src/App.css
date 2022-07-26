@@ -24,9 +24,14 @@
 }
 
 .align-bottom {
-  border-top: 5px orange dotted;
   position: absolute;
   top: 400px;
+}
+
+.burger-box {
+  border: 5px orange dotted;
+  height: 325px;
+  overflow-y: auto;
 }
 
 .App-logo {

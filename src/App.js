@@ -79,8 +79,10 @@ class App extends Component {
 
           <div className='burger-stack'>
             <div className='burger-ingredients'>
-                {burgerStack}
-              </div>
+                <div className='burger-box'>
+                  {burgerStack}
+                </div>
+            </div>
             <div className='align-bottom'>
               <h1 className='section-title'>Burger Stacking Area</h1>
               <button onClick={this.handleStateReset}>Clear</button>

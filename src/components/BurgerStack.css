@@ -1,8 +1,10 @@
 .burger {
-    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .one-ingredient {
     height: fit-content;
-    border-bottom: 2px black solid;
+    padding: 10px;
 }
