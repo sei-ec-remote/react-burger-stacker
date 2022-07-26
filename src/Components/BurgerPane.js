@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import BurgerStack from './BurgerStack'
-import ClearBurger from './ClearBurger'
+
+// import ClearBurger from './ClearBurger'
 
 // As a user, I want to see all available burger ingredients listed on the left side.
 // I want the ability to add any ingredient onto the burger stack using a button.
@@ -8,12 +9,22 @@ import ClearBurger from './ClearBurger'
 
 
 class BurgerPane extends Component{
-   
+    state={
+        ingredientsToDisplay: this.props.ingredients
+    }
+
     render(){
+    //    const ingredientsList = this.props.ingredients.map((ingredient, index)=>{
+    //        return <li key={index}>{ingredient}</li>
+    //     })
+
         return(
             <>
-            <BurgerStack />
-            <ClearBurger />
+            <h1>Ingredients List:</h1>
+           
+            <BurgerStack 
+            ingredients={this.state.ingredientsToDisplay}/> 
+           
             </>
         )
     }
