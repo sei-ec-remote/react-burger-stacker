@@ -14,11 +14,12 @@
 }
 
 #IngredientsList {
-  
+  display: inline-flex;
   background-color: #61dafb;
 }
 
 #BurgerPane {
+  display: inline-flex;
   background-color: green;
 }
 
