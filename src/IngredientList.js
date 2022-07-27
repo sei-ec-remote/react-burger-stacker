@@ -16,12 +16,12 @@ class IngredientList extends Component {
         ))
 		return (
             <>
-            <section>
+            <div>
                 <h3>Ingredients list</h3>
                 <ul>
                     {allIngredients}
                 </ul>
-            </section>
+            </div>
             </>
         )
 	}

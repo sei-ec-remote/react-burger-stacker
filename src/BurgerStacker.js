@@ -64,7 +64,7 @@ class BurgerStacker extends Component {
 
 	render() {
 		return (
-            <>
+            <div class="container">
                 <IngredientList 
                     ingredients={this.state.ingredients} 
                     add={this.addToStack}
@@ -74,7 +74,7 @@ class BurgerStacker extends Component {
                     remove={this.removeFromStack}
                     clear={this.clearBurger}
                 />
-            </>
+            </div>
         )
 	}
 }
