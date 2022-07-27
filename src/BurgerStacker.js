@@ -61,6 +61,8 @@ const BurgerStacker = () => {
 
 		return (
             <div class="container">
+				<h1>🍔🍔🍔Welcome to BurgrStackr🍔🍔🍔</h1>
+				<h2><marquee><em>Your One-Stop Burger Stacking Oasis</em></marquee></h2>
                 <IngredientList 
                     ingredients={ingredients} 
                     add={addToStack}
