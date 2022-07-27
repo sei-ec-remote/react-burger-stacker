@@ -1,15 +1,15 @@
 import React from 'react'
 import Ingredient from './Ingredient'
 
-const BurgerPane = (props) => {
+const BurgerPane = ({stack, clear, remove}) => {
     // map over all the added burger bits
     // still going to use the Ingredient Comp
-let burgerBits = props.ingredients.map((ing, idx) => (
+let burgerBits = stack.map((ing, idx) => (
     <li key={idx}>
         <Ingredient 
             itemKey={idx}
             ingredient={ing}
-            clickFunc={props.remove}
+            clickFunc={remove}
         />
     </li>
 ))
@@ -19,7 +19,7 @@ let burgerBits = props.ingredients.map((ing, idx) => (
             <ul>
                 {burgerBits}
             </ul>
-            <button onClick={props.clear}>Clear Burger</button>
+            <button onClick={clear}>Clear Burger</button>
         </section>
     )
         

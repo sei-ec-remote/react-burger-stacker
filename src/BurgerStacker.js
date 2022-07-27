@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BurgerPane from './BurgerPane'
 import IngredientList from './IngredientList'
 
-const BurgerStacker = () => {
+const BurgerStacker = (props) => {
 		const ingredients = [
 			{ name: 'Kaiser Bun', color: 'saddlebrown' },
 			{ name: 'Sesame Bun', color: 'sandybrown' },
@@ -16,7 +16,8 @@ const BurgerStacker = () => {
 			{ name: 'Tomato', color: 'tomato' },
 			{ name: 'Bacon', color: 'maroon' },
 			{ name: 'Onion', color: 'lightyellow' }]
-			const [burgerIngredients, setBurgerIngredients] = useState([])
+			
+	const [stack, setStack] = useState([{name: '', color: ''}])
 
 	// add to the burger
 	// click on an ing and use the `event` to target it
@@ -26,10 +27,10 @@ const BurgerStacker = () => {
 		// grab the name
 		const ingName = e.target.innerText
 		// add to state
-		setBurgerIngredients([
+		setStack([
 				{ name: ingName, color: ingColor },
                 // spread op takes what was in the array and copies it over here
-				...burgerIngredients
+				...stack
 			])
 	}
 		
@@ -38,11 +39,11 @@ const BurgerStacker = () => {
         // select an ing by id
         const clickIndex = e.target.id
         // copy the whole burger
-        const currBurger = burgerIngredients.slice()
+        const currBurger = stack.slice()
         // remove that ing
         currBurger.splice(clickIndex, 1)
         // set that state
-        setBurgerIngredients({ burgerIngredients: currBurger})
+        setStack( currBurger )
     }
 
 	// clear said burger
@@ -53,7 +54,7 @@ const BurgerStacker = () => {
         //         burgerIngredients: []
         //     }
         // })
-        setBurgerIngredients([])
+        setStack([])
 }
 		return (
 			<>
@@ -61,7 +62,7 @@ const BurgerStacker = () => {
 					ingredients={ingredients}
 					add={addToStack}
 				/>
-				<BurgerPane ingredients={burgerIngredients} remove={removeFromStack} clear={clearBurger}/>
+				<BurgerPane stack={stack} remove={removeFromStack} clear={clearBurger}/>
 			</>
 		)}
 
