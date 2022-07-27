@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
-import Ingredients from './Ingredients'
-
+import Ingredient from './Ingredient'
 
 class BurgerPane extends Component {
+    
 	render() {
-        console.log('burger', {thing: this.props.burgerArray})
-
+    // map over all the added burger bits
+    // still going to use the Ingredient Comp
+    let burgerBits = this.props.ingredients.map((ing, idx) => (
+        <li key={idx}>
+            <Ingredient 
+                itemKey={idx}
+                ingredient={ing}
+                clickFunc={this.props.remove}
+            />
+        </li>
+    ))
 		return (
-            <>
-                {/* in one child component I am getting user input
-                in anouther child component I am rendering the fruits and the filter fruits */}
-                {/* <Input value={this.state.filterValue} onChange={this.handleFilterChange}/> */}
-                <ul>{this.props.Ingredients}</ul>
-            </>
+            <section>
+                <h3>Burger Pane</h3>
+                <ul>
+                    {burgerBits}
+                </ul>
+                <button onClick={this.props.clear}>Clear Burger</button>
+            </section>
         )
+			
 	}
 }
 
 export default BurgerPane
-
