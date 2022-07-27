@@ -53,7 +53,7 @@ const BurgerStacker = () => {
 			console.log(newIng)
 				//{ name: ingName, color: ingColor },
                 // spread op takes what was in the array and copies it over here
-			return [{ ...prevBurgIng, ...newIng}]
+			return [{ name: ingName, color: ingColor }, ...prevBurgIng]
 			//],
 		})
 	}
