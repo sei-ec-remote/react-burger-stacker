@@ -1,67 +1,63 @@
-import React, { Component } from 'react'
-import App from './App.js'
-import Ingredients from './Ingredients.js'
-import BurgerStack from './BurgerStack.js'
-import ClearBurger from './ClearBurger.js'
-import './Display.css';
+// import React, { Component } from 'react'
+// import './Display.css';
 
-class Display extends Component{
+// class Display extends Component{
 
-    render() {
+//     render() {
 
-        const state = {
-            colorOne: this.props.burgerData.color
+//         const state = {
+//             colorOne: this.props.burgerData.color
 
-        }
+//         }
 
         
-        return (
-            <> 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
+//         return (
+//             <> 
+//             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
 
-                <div className='center'>
-                    Ingredients:
-                        <div className='bg-color-smoky'>
-                            div for stuff
+//                 <div className='center'>
+//                     Ingredients:
+//                         <div className='bg-color-smoky'>
+//                             div for stuff
 
 
-                        </div>
-                </div>
-            <div></div>
+//                         </div>
+//                 </div>
+//             <div></div>
 
-                <div className='center' >
-                    Burger:
-                        <div className='bg-color-blue'>
+//                 <div className='center' >
+//                     Burger:
+//                         <div className='bg-color-blue'>
 
-                            <div className='bunTest' style={{backgroundColor: this.props.burgerData[0].color}}>
-                                    bunTest
+//                             <div className='bunTest' style={{backgroundColor: this.props.burgerData[0].color}}>
+//                                     bunTest
                                     
 
-                                </div>
-                                <div className='lettuctest' style={{backgroundColor: this.props.burgerData[8].color}}>
-                                    lettucetest
+//                                 </div>
+//                                 <div className='lettuctest' style={{backgroundColor: this.props.burgerData[8].color}}>
+//                                     lettucetest
                                     
 
-                                </div>
-                                <div className='bunTest' style={{backgroundColor: this.props.burgerData[0].color}}>
-                                    bunTest
+//                                 </div>
+//                                 <div className='bunTest' style={{backgroundColor: this.props.burgerData[0].color}}>
+//                                     bunTest
                                     
 
-                                </div>
+//                                 </div>
 
-                        </div>
+//                         </div>
                 
                 
-                </div>
-            </div>
+//                 </div>
+//             </div>
                 
-            </>
+//             </>
 
 
-        )
-    }
-}
+//         )
+//     }
+// }
 
 
-// !!!!!!!!!!!
-export default Display
+// // !!!!!!!!!!!
+// export default Display
