@@ -8,12 +8,12 @@ import BurgerStacker from './BurgerStacker';
 // I want to be able to add as many ingredients of any type as I want (ingredients don't go away.)
 
 function App() {
-  return (
-    <div>
-      <BurgerStacker 
-      />      
-    </div>
-  );
+	return (
+		<div>
+		<BurgerStacker 
+		/>      
+		</div>
+	);
 }
 
 export default App;

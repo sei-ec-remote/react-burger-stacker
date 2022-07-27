@@ -3,24 +3,7 @@ import IngredientList from './IngredientList'
 import BurgerPane from "./BurgerPane";
 
 const BurgerStacker = () => {
-	// state = {
-	// 	ingredients: [
-	// 		{ name: 'Kaiser Bun', color: 'saddlebrown' },
-	// 		{ name: 'Sesame Bun', color: 'sandybrown' },
-	// 		{ name: 'Gluten Free Bun', color: 'peru' },
-	// 		{ name: 'Lettuce Wrap', color: 'olivedrab' },
-	// 		{ name: 'Beef Patty', color: '#3F250B' },
-	// 		{ name: 'Soy Patty', color: '#3F250B' },
-	// 		{ name: 'Black Bean Patty', color: '#3F250B' },
-	// 		{ name: 'Chicken Patty', color: 'burlywood' },
-	// 		{ name: 'Lettuce', color: 'lawngreen' },
-	// 		{ name: 'Tomato', color: 'tomato' },
-	// 		{ name: 'Bacon', color: 'maroon' },
-	// 		{ name: 'Onion', color: 'lightyellow' },
-	// 	],
-	// 	burgerIngredients: [],
-	// }
-	
+	// ingredients!
 	const ingredients = [
 		{ name: 'Kaiser Bun', color: 'saddlebrown' },
 		{ name: 'Sesame Bun', color: 'sandybrown' },
@@ -35,11 +18,8 @@ const BurgerStacker = () => {
 		{ name: 'Bacon', color: 'maroon' },
 		{ name: 'Onion', color: 'lightyellow' },
 	]
-
 	// here are newly declared states 
 	const [burgerIngredients, setBurgerIngredients] = useState([])
-	
-
 	// add to the burger
 	// click on an ing and use the `event` to target it
 	const addToStack = (e) => {
@@ -49,10 +29,8 @@ const BurgerStacker = () => {
 		const ingName = e.target.innerText
 		// add to state
 		setBurgerIngredients((prevBurgIng) => {
-			const newIng = { name: ingName, color: ingColor }
-			console.log(newIng)
 				//{ name: ingName, color: ingColor },
-                // spread op takes what was in the array and copies it over here
+                // spread operator takes what was in the array and copies it over here
 			return [{ name: ingName, color: ingColor }, ...prevBurgIng]
 			//],
 		})

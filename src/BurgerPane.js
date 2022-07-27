@@ -5,7 +5,6 @@ const BurgerPane = (props) => {
     // map over all the added burger bits
     // still going to use the Ingredient component that we created
     // we WILL need to pass down the ingredient ID
-
     let burgerBits = props.ingredients.map((ing,idx) => (
         <li key={idx}>
             <Ingredient 
@@ -21,7 +20,9 @@ const BurgerPane = (props) => {
             <ul>
                 {burgerBits}
             </ul>
-            <button onClick={props.clear}>Clear Burger</button>
+            <div id="clearBurger">
+                <button onClick={props.clear}>Clear Burger</button>
+            </div>
         </div>
     );
 
