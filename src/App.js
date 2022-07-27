@@ -4,6 +4,8 @@ import './App.css';
 import BurgerStack from './components/BurgerStack';
 import Ingredients from './components/Ingredients';
 
+// SWITCHED ALL COMPONENTS FROM CLASS TO FUNCTIONAL COMPONENTS
+
 const ingredients = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
   {name: 'Sesame Bun', color: 'sandybrown'},
