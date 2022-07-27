@@ -1,10 +1,28 @@
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-class IngredientContainer extends Component {
-    state = {
-        ingredients: [
+const IngredientContainer = () => {
+    // state = {
+    //     ingredients: [
+    //         {name: 'Kaiser Bun', color: 'saddlebrown'},
+    //         {name: 'Sesame Bun', color: 'sandybrown'},
+    //         {name: 'Gluten Free Bun', color: 'peru'},
+    //         {name: 'Lettuce Wrap', color: 'olivedrab'},
+    //         {name: 'Beef Patty', color: '#3F250B'},
+    //         {name: 'Soy Patty', color: '#3F250B'},
+    //         {name: 'Black Bean Patty', color: '#3F250B'},
+    //         {name: 'Chicken Patty', color: 'burlywood'},
+    //         {name: 'Lettuce', color: 'lawngreen'},
+    //         {name: 'Tomato', color: 'tomato'},
+    //         {name: 'Bacon', color: 'maroon'},
+    //         {name: 'Onion', color: 'lightyellow'}
+    //     ],
+    //     filteredIngredients: []
+    // }
+
+    const [ingredients, setIngredients] = useState(
+        [
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
             {name: 'Gluten Free Bun', color: 'peru'},
@@ -17,14 +35,14 @@ class IngredientContainer extends Component {
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-        ],
-        filteredIngredients: []
-    }
+        ]
+    )
+    const [filteredIngredients, setFilteredIngredients] = useState(null)
 
-    addIngredient = (event) => {
+    const addIngredient = (event) => {
         const ingredientToAdd = event.target.value
         
-        this.setState(() => {
+        setFilteredIngredients(() => {
             return {
                 filteredIngredients: ingredientToAdd
             }
@@ -32,14 +50,12 @@ class IngredientContainer extends Component {
     }
 
     // render function
-    render () {
         return(
             <>
-                <IngredientList ingredients={this.state.ingredients} addIngredient={this.addIngredient}/>
-                <BurgerPane ingredients={this.state.filteredIngredients}/>
+                <IngredientList ingredients={ingredients} addIngredient={addIngredient}/>
+                <BurgerPane ingredients={filteredIngredients}/>
             </>
         )
-    }
 }
 
 export default IngredientContainer

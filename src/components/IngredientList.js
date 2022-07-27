@@ -1,11 +1,10 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Ingredient from './Ingredient'
 
-class IngredientList extends Component {
-    render(){
-        const allIngredients = this.props.ingredients.map((ingredient, index) => {
+const IngredientList = (props) => {
+        const allIngredients = props.ingredients.map((ingredient, index) => {
             return(
-                <p key={index}><button style={{backgroundColor: ingredient.color}} value={ingredient.name} onClick={(event) => this.props.addIngredient(event)}>
+                <p key={index}><button style={{backgroundColor: ingredient.color}} value={ingredient.name} onClick={props.addIngredient}>
                     <Ingredient name={ingredient.name} color={ingredient.color}/>
                 </button>
                 </p>
@@ -19,7 +18,6 @@ class IngredientList extends Component {
             {allIngredients}
             </>
         )
-    }
 }
 
 export default IngredientList
