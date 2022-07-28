@@ -9,8 +9,8 @@ class IngredientList extends Component {
             <li key={idx}>
                 <Ingredient 
                     ingredient={ing}
-                    add={this.props.clickFunc}
-                    id={this.props.itemkey}
+                    clickFunc={this.props.add}
+                    itemKey={idx}
                 />
             </li>
         ))

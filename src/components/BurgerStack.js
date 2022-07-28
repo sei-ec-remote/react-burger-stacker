@@ -29,7 +29,7 @@ class BurgerStack extends Component {
         this.setState({
             burgerIngredients: [
                 { name: ingName, color: ingColor }, 
-                ...this.state.burgerIngredients
+                ...this.state.burgerIngredients,
             ]
         })
     }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
-
 class Ingredient extends Component {
-    render () {
+	render() {
         const { name, color } = this.props.ingredient
-        return (
+		return (
             <p 
                 style={{backgroundColor: color}}
                 onClick={this.props.clickFunc}
@@ -13,7 +12,7 @@ class Ingredient extends Component {
                 {name}
             </p>
         )
-    }
+	}
 }
 
-export default Ingredient 
+export default Ingredient
