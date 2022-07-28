@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-class BurgerStacker extends Component {
-    state = {
-        ingredients: [
+const BurgerStacker = () => {
+const [ingredients] = useState([
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
             {name: 'Gluten Free Bun', color: 'peru'},
@@ -17,53 +16,43 @@ class BurgerStacker extends Component {
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-          ],
-          burgerIngredients: []
-    }
+          ])
+const [burgerIngredients, setBurgerIngredients] = useState([])
 
     // add to burger
-    handleIngredientAdd = (e) => {
+    const handleIngredientAdd = (e) => {
         const ingColor = e.target.style.backgroundColor
         const ingName = e.target.innerText
-        this.setState({
-            burgerIngredients: [
-                {name: ingName, color: ingColor},
-                // spread operator (...) takes what was in the array and copies it over here
-                ...this.state.burgerIngredients,
-            ]
-        })
+        setBurgerIngredients([{name: ingName, color: ingColor},...burgerIngredients]
+        )
     }
     // remove from burger
-    handleIngredientDelete = (e) => {
+    const handleIngredientDelete = (e) => {
         const clickIndex = e.target.id
-        const currentBurger = this.state.burgerIngredients.slice()
+        const currentBurger = burgerIngredients.slice()
         currentBurger.splice(clickIndex, 1)
-        this.setState({
+        setBurgerIngredients({
             burgerIngredients: currentBurger
         })
     }
     // clear burger
-    handleBurgerClear = () => {
-        this.setState({
-            burgerIngredients: []
-        })
+    const handleBurgerClear = () => {
+        setBurgerIngredients([])
     }
 
-    render () {
         return (
             <>
                 <IngredientList 
-                    ingredients={this.state.ingredients}
-                    add={this.handleIngredientAdd}
+                    ingredients={ingredients}
+                    add={handleIngredientAdd}
                     />  
                 <BurgerPane
-                    ingredients={this.state.burgerIngredients}
-                    remove={this.handleIngredientDelete}
-                    clear={this.handleBurgerClear}
+                    ingredients={burgerIngredients}
+                    remove={handleIngredientDelete}
+                    clear={handleBurgerClear}
                 />
             </>
         )
-    }
 }
 
 export default BurgerStacker
