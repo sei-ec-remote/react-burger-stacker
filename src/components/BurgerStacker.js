@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-const BurgerStacker = () => {
-// class BurgerStacker extends Component {
-	const [ingredients, setIngredients] = useState( [
+const BurgerStacker = (props) => {
+	
+		const ingredients = [
 			{ name: 'Kaiser Bun', color: 'saddlebrown' },
 			{ name: 'Sesame Bun', color: 'sandybrown' },
 			{ name: 'Gluten Free Bun', color: 'peru' },
@@ -17,59 +17,60 @@ const BurgerStacker = () => {
 			{ name: 'Tomato', color: 'tomato' },
 			{ name: 'Bacon', color: 'maroon' },
 			{ name: 'Onion', color: 'lightyellow' },
-		])
-		const [burgerIngredients, setBurgerIngredients] = useState([]) 
-	
+		]
+
+		const [stack, setStack] = useState ([{name: "", color: ""}])
+		// burgerIngredients: [],
+
 
 	// add to the burger
 	// click on an ing and use the `event` to target it
 	const addToStack = (e) => {
-		e.persist()
+		console.log("Hey")
 		// grab the color
 		const ingColor = e.target.style.backgroundColor
 		// grab the name
 		const ingName = e.target.innerText
 		// add to state
-		setBurgerIngredients({
-			burgerIngredients: [
-				{ name: ingName, color: ingColor },
-                // spread op takes what was in the array and copies it over here
-				...burgerIngredients,
-			],
-		})
+		setStack([{
+				 name: ingName, color: ingColor,
+                // spread operation takes what was in the array and copies it over here
+				// ...stack
+			
+		},	...stack])
 	}
-
+	console.log(stack)
 	// remove from burger
     const removeFromStack = (e) => {
         // select an ing by id
         const clickIndex = e.target.id
         // copy the whole burger
-        const currBurger = burgerIngredients.slice()
+        const currBurger = stack.slice()
         // remove that ing
         currBurger.splice(clickIndex, 1)
         // set that state
-        setBurgerIngredients({burgerIngredients: currBurger})
+        setStack( currBurger )
     }
 
 	// clear said burger
-    const clearBurger = () => {
+   const clearBurger = () => {
         // set state back to an empty array
         // this.setState(() => {
         //     return {
         //         burgerIngredients: []
         //     }
         // })
-        setBurgerIngredients({ burgerIngredients: [] })
+        setStack( [] )
     }
 
-	
-		return (
+
+	return (
 			<>
 				<IngredientList
 					ingredients={ingredients}
 					add={addToStack}
 				/>
-				<BurgerPane ingredients={burgerIngredients} remove={removeFromStack} clear={clearBurger}/>
+				<BurgerPane stack={stack} remove={removeFromStack} clear={clearBurger}/>
 			</>
 		)
 	
