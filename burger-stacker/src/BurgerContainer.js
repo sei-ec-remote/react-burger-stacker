@@ -1,20 +1,18 @@
-import React, { Component } from 'react'
-import App from './App.js'
-import Ingredients from './Ingredients.js'
-import BurgerStack from './BurgerStack.js'
-import ClearBurger from './ClearBurger.js'
+import React from 'react'
+
+
 import Ingredient from './Ingredient.js'
 
-class BurgerContainer extends Component{
-    
+const BurgerContainer = ({ingredients,remove,clear}) => { // still using props, just destucturing it
+    // no JSx really. For JS functions or State. Can map up here but can't return a li
 
-    render() {
-        let burgerBits = this.props.ingredients.map((ing, idx) => (
-            <li key={idx}>
+        console.log("ingredients@@@@@",ingredients);
+        let burgerBits = ingredients.map((ing, idx) => (
+            <li key={idx}>  
                 <Ingredient
                     itemKey={idx}
                     ingredient={ing}
-                    clickFunc={this.props.remove}
+                    clickFunc={remove}
                 
                 />
                     </li>
@@ -26,12 +24,12 @@ class BurgerContainer extends Component{
             <ul>
                 {burgerBits}
             </ul>
-            <button onClick={this.props.clear}>Clear Burger</button>
+            <button onClick={clear}>Clear Burger</button>
         </section>
 
         )
     }
-}
+
 
 
 // !!!!!!!!!!!

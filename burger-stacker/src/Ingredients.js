@@ -1,25 +1,24 @@
-import React, { Component } from 'react'
-import App from './App.js'
-import BurgerContainer from './BurgerContainer.js'
-import BurgerStack from './BurgerStack.js'
+import React from 'react'
+// not using state
+
 import Ingredient from './Ingredient.js'
 
 // buttons here
 
-class Ingredients extends Component{
+const Ingredients = ({ingredients, add}) => {
 
-    
-    render () {
+        // add is sibling to ingredients in props
+
 
         // implicit return. We are returning JSX, so we need () not {}
-        let allIngredients = this.props.ingredients.map((ing, idx)=>(
+        let allIngredients = ingredients.map((ing, idx)=>(
 
             // need an unique id for each so app AND us can grab it
             // need parentheses for JSX
             < li key={idx}>
                 <Ingredient
                     ingredient={ing}
-                    clickFunc={this.props.add}
+                    clickFunc={add} // getting even from clickfunc  add is just a name for the function
                     itemKey={idx}
                 />
 
@@ -37,7 +36,7 @@ class Ingredients extends Component{
             
             </>
         )
-    }
+
 }
 
 

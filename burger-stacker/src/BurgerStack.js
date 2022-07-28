@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import BurgerContainer from './BurgerContainer.js'
-import App from './App.js'
+
 import Ingredients from './Ingredients.js'
-import ClearBurger from './ClearBurger.js'
-import Ingredient from './Ingredient.js'
 
 
 
-class BurgerStack extends Component{
+const BurgerStack = () => {
 
     //react 16 way:
 
-    state = {
-        ingredients: [
+    // this is NOT state
+const ingredients = [
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
             {name: 'Gluten Free Bun', color: 'peru'},
@@ -25,58 +23,71 @@ class BurgerStack extends Component{
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-          ],
-          burgerIngredients : []
-    }
+]
+
+    
 
     // add to the burger
     // click on an ing and use the 'event' to target it
+    // burgerStack = []  -its just declaring an array as empty
 
-	addToStack = (e) => {
+const [burgerStack, setBurgerStack] = useState([]) 
+// burgerstack is used for calling, but setBurgerStack is used to change it
+
+
+    // don't have to change this inside
+const addToStack = (e) => {
 		// grab the color
 		const ingColor = e.target.style.backgroundColor
 		// grab the name
 		const ingName = e.target.innerText
 		// add to state
-		this.setState({
-			burgerIngredients: [
-				{ name: ingName, color: ingColor },
+
+        // its like running a function
+        // setting burgerStack, its clearer
+    setBurgerStack(
+
+				[{ name: ingName, color: ingColor },  // spread helps to stack it and not just change it in place - YES
+
                 // spread op takes what was in the array and copies it over here
-				...this.state.burgerIngredients,
-			],
-		})
+				...burgerStack] // grabs everything in the array. It has to be iterable usually on array Can map to obj using index as key
+
+		) 
 	}
 
+    const array = [1, 2, 3];
+    const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+
+
     // remove from burger
-    removeFromStack = (e) => {
+
+    // remove is not being used here, its passing down the function and using it down there
+    const removeFromStack = (e) => {
         // select an ing by id
         const clickIndex = e.target.id
         // copy the whole burger
-        const currBurger = this.state.burgerIngredients.slice()
+        const currBurger = burgerStack.slice()
         // remove that ing
         currBurger.splice(clickIndex, 1)
         // set that state
-        this.setState({burgerIngredients: currBurger})
+        setBurgerStack(currBurger)
     }
 
     // clear said burger
-    clearBurger = () => {
-
-        this.setState({burgerIngredients: []})
-
+    const clearBurger = () => { 
+        setBurgerStack([])
     }
 
 
-    render() {
 		return (
 			<>
-				<Ingredients ingredients={this.state.ingredients}
-					add={this.addToStack}
+				<Ingredients ingredients={ingredients}
+					add={addToStack}
 				/>
-				<BurgerContainer ingredients={this.state.burgerIngredients} remove={this.removeFromStack} clear={this.clearBurger}/>
+				<BurgerContainer ingredients={burgerStack} remove={removeFromStack} clear={clearBurger}/> 
 			</>
 		)
-	}
+
 
 }
 
