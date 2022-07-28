@@ -4,7 +4,7 @@ import IngredientList from "./IngredientList";
 import BurgerPane from "./BurgerPane";
 
 const BurgerStack = () => {
-  const [ingredients, setIngredients] = useState([
+  const [ingredients] = useState([
     { name: "Kaiser Bun", color: "saddlebrown" },
     { name: "Sesame Bun", color: "sandybrown" },
     { name: "Gluten Free Bun", color: "peru" },
@@ -29,20 +29,13 @@ const BurgerStack = () => {
     ]);
   };
 
-  //remove from burder
   const removeFromStack = (e) => {
-    console.log('hit')
-    //select an ingredient by id
     const clickIndex = e.target.id;
-    console.log(clickIndex)
-    //copy whole burger
     const currBurger = burgIngredients.slice();
-    //remove that ingredient
-    
     currBurger.splice(clickIndex, 1);
-    //set state
+    setBurgIngredients(currBurger)
   };
-  //clear burger
+  
   const clearBurger = () => {
     setBurgIngredients([]);
   };
