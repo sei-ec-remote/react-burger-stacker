@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import BurgerPane from './BurgerPane'
 import IngredientList from './IngredientList'
 
 
-class BurgerStack extends Component {
-    state = {
-        ingredients: [
+const BurgerStack = () => {
+    const [ingredients, stackIngredients] = useState([
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
             {name: 'Gluten Free Bun', color: 'peru'},
@@ -18,52 +17,51 @@ class BurgerStack extends Component {
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-          ],
-        burgerIngredients: []
-    }
+          ])
+    const burgerIngredients = []
 
-    addtoStack = (e) => {
+
+    const addtoStack = (e) => {
         const ingColor = e.target.style.backgroundColor
         const ingName = e.target.innerText
 
-        this.setState({
+        stackIngredients({
             burgerIngredients: [
                 { name: ingName, color: ingColor }, 
-                ...this.state.burgerIngredients,
+                ...stackIngredients.burgerIngredients,
             ]
         })
     }
 
-    removeFromStack = (e) => {
+    const removeFromStack = (e) => {
         const clickIndex = e.target.id
 
-        const currBurger = this.state.burgerIngredients.slice()
+        const currBurger = stackIngredients.burgerIngredients.slice()
 
         currBurger.splice(clickIndex, 1)
 
-        this.setState({ burgerIngredients: currBurger })
+        stackIngredients({ burgerIngredients: currBurger })
     }
 
-    clearBurger = () => {
-        this.setState(() => {
+    const clearBurger = () => {
+        stackIngredients(() => {
             return {
                 burgerIngredients: []
             }
         })
     }
-    render () {
-        return (
-            <>
-            <IngredientList ingredients={this.state.ingredients} add={this.addtoStack}
-            />
-            
-            <BurgerPane 
-            ingredients={this.state.burgerIngredients} 
-            remove={this.removeFromStack}
-            clear={this.clearBurger}
-            />
-            </>
-        )
-    }
+    return (
+        <>
+        <IngredientList ingredients={ingredients} add={addtoStack}
+        />
+        
+        <BurgerPane 
+        ingredients={burgerIngredients} 
+        remove={removeFromStack}
+        clear={clearBurger}
+        />
+        </>
+    )
+
 }
 export default BurgerStack 
