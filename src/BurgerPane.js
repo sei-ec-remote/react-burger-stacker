@@ -15,8 +15,10 @@ const BurgerPane = (props) => {
         </li>
     ))
     return (
-        <div class='sideBySide'>
-            <h3>Burger Pane</h3>
+        <div class='sideBySide burgerPane'>
+            <div id="paneTitle">
+                <h3>Burger Pane</h3>
+            </div>
             <ul>
                 {burgerBits}
             </ul>
