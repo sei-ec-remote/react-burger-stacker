@@ -15,7 +15,7 @@ const IngredientList = (props) => {
     ))
     return (
         <>
-        <div>
+        <div class='sideBySide'>
             <h3>Ingredients list</h3>
             <ul>
                 {allIngredients}

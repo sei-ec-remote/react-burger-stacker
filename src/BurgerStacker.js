@@ -60,18 +60,20 @@ const BurgerStacker = () => {
     }
 
 		return (
-            <div class="container">
+            <div className="main">
 				<h1>🍔🍔🍔Welcome to BurgrStackr🍔🍔🍔</h1>
 				<h2><marquee><em>Your One-Stop Burger Stacking Oasis</em></marquee></h2>
-                <IngredientList 
-                    ingredients={ingredients} 
-                    add={addToStack}
-                />
-                <BurgerPane 
-                    ingredients={burgerIngredients}
-                    remove={removeFromStack}
-                    clear={clearBurger}
-                />
+				<div className="container">
+					<IngredientList 
+						ingredients={ingredients} 
+						add={addToStack}
+					/>
+					<BurgerPane 
+						ingredients={burgerIngredients}
+						remove={removeFromStack}
+						clear={clearBurger}
+					/>
+				</div>
             </div>
         )
 }

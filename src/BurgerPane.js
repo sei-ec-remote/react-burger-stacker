@@ -15,7 +15,7 @@ const BurgerPane = (props) => {
         </li>
     ))
     return (
-        <div>
+        <div class='sideBySide'>
             <h3>Burger Pane</h3>
             <ul>
                 {burgerBits}
