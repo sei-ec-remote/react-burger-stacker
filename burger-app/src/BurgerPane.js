@@ -8,7 +8,7 @@ const BurgerPane = (props) => {
             <Ingredient 
                 itemKey={index}
                 ingredient={ing}
-                clickFunc={this.props.remove}
+                clickFunc={props.remove}
             />
         </li>
         ))
