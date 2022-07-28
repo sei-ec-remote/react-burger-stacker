@@ -1,23 +1,22 @@
-import React , { Component } from 'react'
+import React from 'react'
 import './Ingredients.css'
 
-class Ingredients extends Component {
+const Ingredients = (props) => {
 
-  render() {
-    return (
-      <div className='ingredient'>
-          <span className='ingredient'>
-              {this.props.ingredient.name}
-              {' '}
-          </span>
-          <input type="button"
-              name={this.props.ingredient.name}
-              value='+'
-              onClick={this.props.onClick}
-          />
-      </div>
-    );
-  }
+  return (
+    <div className='ingredient'>
+        <span className='ingredient'>
+            {props.ingredient}
+            {' '}
+        </span>
+        <input type="button"
+            name={props.ingredient}
+            color={props.color}
+            value='+'
+            onClick={props.handleStateChange}
+        />
+    </div>
+  );
 }
   
 export default Ingredients;

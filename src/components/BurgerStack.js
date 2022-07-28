@@ -1,19 +1,17 @@
-import React , { Component } from 'react'
+import React from 'react'
 import './BurgerStack.css'
 
-class BurgerStack extends Component {
+const BurgerStack = (props) => {
     
-    render() {
-        const white = 'white'
-        const textShadow = '1px 1px 3px black'
-        return (
-            <div className="burger">
-                <div className="one-ingredient" style={{backgroundColor: this.props.addedIngredient.color, color: white, textShadow: textShadow}}> 
-                    {this.props.addedIngredient.name}
-                </div>
+    const white = 'white'
+    const textShadow = '1px 1px 3px black'
+    return (
+        <div className="burger">
+            <div className="one-ingredient" style={{backgroundColor: props.addedIngredientColor, color: white, textShadow: textShadow}}> 
+                {props.addedIngredientName}
             </div>
-        );
-    }
+        </div>
+    );
 }
   
-  export default BurgerStack;
+export default BurgerStack;

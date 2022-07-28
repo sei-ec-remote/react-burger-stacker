@@ -1,4 +1,4 @@
-import React , { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css';
 
 import BurgerStack from './components/BurgerStack';
@@ -21,78 +21,86 @@ const ingredients = [
   {name: 'Onion', color: 'lightyellow'}
 ]
 
-class App extends Component {
+const App = () => {
 
-  state={
-    ingredientsToDisplay: []
-  }
+  // state={
+  //   ingredientsToDisplay: []
+  // }
 
-  handleStateChange = e => {
+  const [ ingredientsToDisplay, setIngredientsToDisplay ] = useState([])
+
+  const handleStateChange = e => {
     e.preventDefault()
-    const selectedIngredientName = e.target.name
-    const findIngredientName = ingredients.filter(ingredient => {
-      return ingredient.name.toLowerCase().includes(selectedIngredientName.toLowerCase())
-    })
-    this.setState((prevState) => {
-      return {
-        ingredientsToDisplay: [ findIngredientName, ...prevState.ingredientsToDisplay ]
-      }
+    const selectedIngredientName = e.target.name.toLowerCase()
+    console.log(selectedIngredientName)
+    const findIngredientName = ingredients.filter(ingredient => ingredient.name.toLowerCase() === selectedIngredientName)
+    // this.setState((prevState) => {
+    //   return {
+    //     ingredientsToDisplay: [ findIngredientName, ...prevState.ingredientsToDisplay ]
+    //   }
+    // })
+    setIngredientsToDisplay ((prevIngredientsToDisplay) => {
+      return [ findIngredientName, ...prevIngredientsToDisplay ]
     })
   }
 
-  handleStateReset = e => {
+  const handleStateReset = e => {
     e.preventDefault()
-    this.setState(() => {
-      return {
-        ingredientsToDisplay: []
-      }
-    })
+    console.log('clear added ingredients hit')
+    // this.setState(() => {
+    //   return {
+    //     ingredientsToDisplay: []
+    //   }
+    // })
+    setIngredientsToDisplay([])
   }
 
-  render() {
+  // render() {
 
-    const allIngredients = ingredients.map((thisIngredient,i) => {
-      return (
-        <Ingredients
-          ingredient={thisIngredient}
-          key={i}
-          onClick={this.handleStateChange}
-        />
-      )
-    })
-
-    const burgerStack = this.state.ingredientsToDisplay.map((addedIngredient,i) => {
-      return (
-        <BurgerStack 
-          addedIngredient={addedIngredient[0]}
-          key={i}
-        />
-      )
-    })
-
+  const allIngredients = ingredients.map((thisIngredient,i) => {
     return (
-      <div className="App">
-          <div className='ingredient-list'>
-            <h1 className="section-title">Ingredients</h1>
-            <div className='ingredients'>
-              {allIngredients}
-            </div>
-          </div>
+      <Ingredients
+        ingredient={thisIngredient.name}
+        color={thisIngredient.color}
+        key={i}
+        handleStateChange={handleStateChange}
+      />
+    )
+  })
 
-          <div className='burger-stack'>
-            <div className='burger-ingredients'>
-                <div className='burger-box'>
-                  {burgerStack}
-                </div>
-            </div>
-            <div className='align-bottom'>
-              <h1 className='section-title'>Burger Stacking Area</h1>
-              <button onClick={this.handleStateReset}>Clear</button>
-            </div>
+  const burgerStack = ingredientsToDisplay.map((addedIngredient,i) => {
+    return (
+      <BurgerStack 
+        addedIngredientName={addedIngredient[0].name}
+        addedIngredientColor={addedIngredient[0].color}
+        key={i}
+      />
+    )
+  })
+
+  return (
+    <div className="App">
+        <div className='ingredient-list'>
+          <h1 className="section-title">Ingredients</h1>
+          <div className='ingredients'>
+            {allIngredients}
           </div>
-      </div>
-    );
-  }
+        </div>
+
+        <div className='burger-stack'>
+          <div className='burger-ingredients'>
+              <div className='burger-box'>
+                {burgerStack}
+              </div>
+          </div>
+          <div className='align-bottom'>
+            <h1 className='section-title'>Burger Stacking Area</h1>
+            <button onClick={handleStateReset}>Clear</button>
+          </div>
+        </div>
+    </div>
+  );
+  // }
 }
 
 export default App;
