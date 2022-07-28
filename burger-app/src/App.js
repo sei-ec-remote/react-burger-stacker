@@ -4,14 +4,14 @@ import BurgerStack from "./BurgerStack";
 import Ingredient from "./Ingredient";
 import IngredientList from "./IngredientList";
 import ClearBurger from "./ClearBurger";
-import React, { Component } from "react";
+import React from "react";
 
-class App extends Component {
-  render(){
+const App = () => {
+  
   return(
   <div>
     <BurgerStack />
   </div>
-)}}
+)}
 
 export default App;
