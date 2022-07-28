@@ -1,12 +1,12 @@
 import './App.css';
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import IngredientList from './components/IngredientList'
 import BurgerPane from './components/BurgerPane'
 
-class App extends Component { 
-  state = {
-    IngredientsStack: [],
-    availableIngredients: [
+const App = () => { 
+  const [IngredientsStack, setIngredientsStack] = useState([])
+  const [availableIngredients, setAvailableIngredients] = useState(
+    [
       {name: 'Kaiser Bun', color: 'saddlebrown'},
       {name: 'Sesame Bun', color: 'sandybrown'},
       {name: 'Gluten Free Bun', color: 'peru'},
@@ -20,31 +20,29 @@ class App extends Component {
       {name: 'Bacon', color: 'maroon'},
       {name: 'Onion', color: 'lightyellow'}
     ]
-  }
+  )
 
-  add = (e) => {
+  const add = (e) => {
     const name = e.target.innerText
     const color = e.target.style.backgroundColor
     // console.log(this.state.IngredientsStack)
-    this.setState({IngredientsStack: [{name: name, color: color}, ...this.state.IngredientsStack]})
+    setIngredientsStack([{name: name, color: color}, ...IngredientsStack])
+    // this.setState({IngredientsStack: })
   }
-  remove = (e) => {
-    console.log('REMOVE')
-    let copy = [...this.state.IngredientsStack]
-    copy.splice(e.target.key, 1) //Why?
-    this.setState({IngredientsStack: copy})
+  const remove = (e) => {
+    let copy = [...IngredientsStack]
+    copy.splice(e.target.key, 1) // kow why now.
+    setIngredientsStack(copy)
   }
-  nukeAll = () => {
-    this.setState({IngredientsStack: []})
+  const nukeAll = () => {
+    setIngredientsStack([])
   }
-  render() {
-    return (
-      <div className="App">
-        <IngredientList availableIngredients={this.state.availableIngredients} add={this.add} />
-        <BurgerPane ingredients={this.state.IngredientsStack} remove={this.remove} removeAll={this.nukeAll} />
-      </div>
-    )
-  }
+  return (
+    <div className="App">
+      <IngredientList availableIngredients={availableIngredients} add={add} />
+      <BurgerPane ingredients={IngredientsStack} remove={remove} removeAll={nukeAll} />
+    </div>
+  )
 }
 
 export default App;
