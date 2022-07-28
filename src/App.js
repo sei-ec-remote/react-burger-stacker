@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import IngredientList from './components/IngredientList';
 import BurgerPane from './components/BurgerPane';
@@ -19,46 +19,36 @@ const ingredients = [
     {name: 'Onion', color: 'lightyellow'}
 ]
 
-class App extends Component {
-    state = {
-        chosenIngredients: []
-    }
+const App = () => {
+    const [chosenIngredients, updateChosenIngredients] = useState([])
 
-    addIngredient = (event) => {
+    const addIngredient = (event) => {
         const newIngredient = event.target.value
         const newColor = event.target.style.backgroundColor
         // console.log(`I heard something, it was ${newIngredient}`)
         // console.log(`this is the event target: ${event.target.value}`)
         // console.log(`this is the color: ${event.target.style.backgroundColor}`)
-        const newStack = [{name: newIngredient, color: newColor}].concat(this.state.chosenIngredients)
+        const newStack = [{name: newIngredient, color: newColor}].concat(chosenIngredients)
         // console.log(newStack)
-        this.setState(() => {
-            return {
-                chosenIngredients: newStack
-            }
-        })
+        updateChosenIngredients(newStack)
+        console.log(chosenIngredients)
+            
     }
 
-    clearBurger = () => {
-        this.setState(() => {
-            return {
-                chosenIngredients: []
-            }
-        })
+    const clearBurger = () => {
+        updateChosenIngredients([])
     }
 
-    render() {
-        return (
-            <div className='App'>
-                <div className='Ingredients'>
-                    <IngredientList ingredients={ingredients} addIngredient={this.addIngredient}/>
-                </div>
-                <div className='Stack'>
-                    <BurgerPane chosenIngredients={this.state.chosenIngredients} clearBurger={this.clearBurger}/>
-                </div>
+    return (
+        <div className='App'>
+            <div className='Ingredients'>
+                <IngredientList ingredients={ingredients} addIngredient={addIngredient}/>
             </div>
-        );
-    }
+            <div className='Stack'>
+                <BurgerPane chosenIngredients={chosenIngredients} clearBurger={clearBurger}/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
