@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Ingredient from './Ingredient'
 
-class IngredientList extends Component {
-	render() {
-		// map over the ing
-		// mapped over and created from Ingredient Comp
-        let allIngredients = this.props.ingredients.map((ing, idx) => (
+const IngredientList = (props) => {
+
+        let allIngredients = props.ingredients.map((ing, idx) => (
             <li key={idx}>
                 <Ingredient 
                     ingredient={ing}
-                    clickFunc={this.props.add}
+                    clickFunc={props.add}
                     itemKey={idx}
                 />
             </li>
@@ -25,6 +23,6 @@ class IngredientList extends Component {
             </>
         )
 	}
-}
+
 
 export default IngredientList
