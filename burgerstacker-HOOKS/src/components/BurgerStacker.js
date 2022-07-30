@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import IngredientList from './IngredientList'
 import BurgerPane from './Burgerpane'
 
-class BurgerStacker extends Component {
-	state = {
-		ingredients: [
+const BurgerStacker = () => {
+	// state = {
+		const ingredients = [
 			{ name: 'Kaiser Bun', color: 'saddlebrown' },
 			{ name: 'Sesame Bun', color: 'sandybrown' },
 			{ name: 'Gluten Free Bun', color: 'peru' },
@@ -17,62 +17,65 @@ class BurgerStacker extends Component {
 			{ name: 'Tomato', color: 'tomato' },
 			{ name: 'Bacon', color: 'maroon' },
 			{ name: 'Onion', color: 'lightyellow' },
-		],
-		burgerIngredients: [],
-	}
+		]
+
+		const [burgerIngredients, setBurgerIngredients] = useState([])
+
 
 	// add to the burger
 	// click on an ing and use the `event` to target it
-	addToStack = (e) => {
+	const addToStack = (e) => {
 		// grab the color
 		const ingColor = e.target.style.backgroundColor
 		// grab the name
 		const ingName = e.target.innerText
 		// add to state
-		this.setState({
-			burgerIngredients: [
-				{ name: ingName, color: ingColor },
-                // spread op takes what was in the array and copies it over here
-				...this.state.burgerIngredients,
-			],
-		})
+		setBurgerIngredients(
+			[{ name: ingName, color: ingColor }, ...burgerIngredients]
+		)
 	}
 
 	// remove from burger
-    removeFromStack = (e) => {
+    const removeFromStack = (e) => {
         // select an ing by id
-        const clickIndex = e.target.id
+        let clickIndex = e.target.id
         // copy the whole burger
-        const currBurger = this.state.burgerIngredients.slice()
+        const currBurger = burgerIngredients.slice()
         // remove that ing
         currBurger.splice(clickIndex, 1)
         // set that state
-        this.setState({burgerIngredients: currBurger})
+        setBurgerIngredients(currBurger)
     }
 
 	// clear said burger
-    clearBurger = () => {
-        // set state back to an empty array
-        // this.setState(() => {
-        //     return {
-        //         burgerIngredients: []
-        //     }
-        // })
-        this.setState({ burgerIngredients: [] })
+    const clearBurger = () => {
+        setBurgerIngredients([])
     }
 
 
-	render() {
+
 		return (
-			<>
-				<IngredientList
-					ingredients={this.state.ingredients}
-					add={this.addToStack}
-				/>
-				<BurgerPane ingredients={this.state.burgerIngredients} remove={this.removeFromStack} clear={this.clearBurger}/>
-			</>
+			<main>
+				<h1>Burger Stacker</h1>
+				<div className="panes">
+					<IngredientList
+						ingredients={ingredients}
+						add={addToStack}
+					/>
+					<BurgerPane 
+					ingredients={burgerIngredients} 
+					remove={removeFromStack} 
+					clear={clearBurger}
+					/>
+
+
+				</div>
+				
+			</main>
+				
+			
 		)
-	}
+	
 }
 
 export default BurgerStacker
