@@ -12,7 +12,7 @@ const IngredientList = (props) => {
                     clickFunc={props.add}
                     itemKey={idx}
                 />
-            </li>
+            </li>  
         ))
 		return (
             <>
