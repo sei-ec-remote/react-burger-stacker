@@ -13,10 +13,23 @@ class App extends Component {
 
   handleAddToBurger = (event) => {
     const ingredientName = event.target.innerText;
-    this.state.burgerStack.push(ingredientName);
+    const burgerStack = [ ...this.state.burgerStack, ingredientName ];
+    this.setState({
+      burgerStack: burgerStack
+    })
+  }
+
+  handleUndoIngredient = () => {
+    const burgerStack = [ ...this.state.burgerStack ];
+    burgerStack.pop();
+    this.setState({
+      burgerStack
+    })
+    console.log(this.state);
   }
 
   render() {
+    console.log(this.state.burgerStack);
     return (
       <div className="App">
         <div className="bubble">
@@ -30,6 +43,7 @@ class App extends Component {
           <BurgerBubble
             ingredients={ ingredients }
             burgerStack={ this.state.burgerStack }
+            undo={ this.handleUndoIngredient }
           />
         </div>
       </div>

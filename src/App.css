@@ -73,7 +73,7 @@ div.flex-break {
 /* burger stuff */
 #burger-bubble {
   display: grid;
-  grid-template: 1fr 8fr / 1fr;
+  grid-template: 1fr 7fr 1fr / 1fr;
 }
 
 #burger-stack-container {
@@ -87,7 +87,7 @@ div.flex-break {
 }
 
 #burger-stack-container > li {
-  margin: 15px;
+  margin: 10px;
 }
 
 #burger-stack-container > li > span {
