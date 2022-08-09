@@ -10,7 +10,10 @@ class Ingredient extends Component {
   render() {
     return (
       <li key={ this.state.key }>
-        <span style={{backgroundColor: this.state.color}}>
+        <span
+          style={{backgroundColor: this.state.color}}
+          onClick={ this.props.clickHandler }
+        >
           { this.state.name }
         </span>
       </li>

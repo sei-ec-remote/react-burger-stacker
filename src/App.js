@@ -1,25 +1,40 @@
+import React, { Component } from "react";
 import './App.css';
+
 import IngredientsBubble from "./components/IngredientsBubble.js";
 import BurgerBubble from "./components/BurgerBubble.js";
 
 import ingredients from "./data/ingredientList.js";
 
-function App() {
-  return (
-    <div className="App">
-      <div className="bubble">
-        <IngredientsBubble
-          ingredients={ingredients}
-        />
-      </div>
+class App extends Component {
+  state = {
+    burgerStack: []
+  }
 
-      <div className="bubble">
-        <BurgerBubble
-        
-        />
+  handleAddToBurger = (event) => {
+    const ingredientName = event.target.innerText;
+    this.state.burgerStack.push(ingredientName);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="bubble">
+          <IngredientsBubble
+            ingredients={ ingredients }
+            addToBurger={ this.handleAddToBurger }
+          />
+        </div>
+
+        <div className="bubble">
+          <BurgerBubble
+            ingredients={ ingredients }
+            burgerStack={ this.state.burgerStack }
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

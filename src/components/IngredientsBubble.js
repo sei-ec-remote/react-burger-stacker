@@ -4,16 +4,21 @@ import Ingredient from "./Ingredient.js";
 class IngredientsBubble extends Component {
   state = {
     ingredients: this.props.ingredients
-  };
+  }
 
   parseIngredient = (ingredient, key) => {
     const name = ingredient.name;
     const color = ingredient.color;
 
     return (
-      <Ingredient key={key} name={name} color={color} />
-    )
-  };
+      <Ingredient
+        key={key}
+        name={name}
+        color={color}
+        clickHandler={this.props.addToBurger}
+      />
+    );
+  }
 
   render() {
     const ingredientDomList = this.state.ingredients.map((ing, i) => (
