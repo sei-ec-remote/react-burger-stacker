@@ -2,12 +2,13 @@ import React, {Component} from "react";
 import IngredientsList from "./IngredientsList"
 
 class BurgerStacker extends Component{
-    
+    state = {
+        platedItems: ['test']
+    }
     render(){
         return(
             <>
-                Ready for ingredients
-                <div className="plate"></div>
+                
             </>
         )
     }

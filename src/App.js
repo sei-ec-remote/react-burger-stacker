@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <IngredientsList ingredients={ingredients}/>
+
       <BurgerPane ingredients={ingredients}/>
     </>
   );
