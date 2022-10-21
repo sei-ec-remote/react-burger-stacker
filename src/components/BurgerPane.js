@@ -20,10 +20,10 @@ class BurgerPane extends Component {
 
     render () {
         return (
-            <div>
+            <>
                 <IngredientList ingredients={this.props.ingredients} addItem={this.addItem}/>
                 <BurgerStack ingredients={this.state.burgerIngredients}/>
-            </div>
+            </>
         )
     }
 }

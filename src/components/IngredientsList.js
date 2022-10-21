@@ -5,6 +5,7 @@ class IngredientList extends Component {
         const allIngs = this.props.ingredients.map(item => {
             return(
                 <button 
+                    key={item.name}
                     value = {item}
                     onClick = {this.props.addItem}
                 >{item.name}</button>
