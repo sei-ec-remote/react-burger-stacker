@@ -21,7 +21,7 @@ const ingredients = [
 
 function App() {
   return (
-    <div className="burger-screen">
+    <div>
       <BurgerPane ingredients={ingredients}/>
     </div>
   );

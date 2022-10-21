@@ -19,16 +19,22 @@ class BurgerPane extends Component {
     }
 
     clear = () => {
-        this.state.burgerIngredients = []
+        this.setState(
+            {burgerIngredients: []}
+        )
     }
 
     render () {
         return (
             <>
-                <IngredientList ingredients={this.props.ingredients} addItem={this.addItem}/>
-                <BurgerStack ingredients={this.state.burgerIngredients}/>
+                <div className="burger-screen">
+                    <IngredientList ingredients={this.props.ingredients} addItem={this.addItem}/>
+                    <BurgerStack ingredients={this.state.burgerIngredients}/>
+                </div>
+
                 <button
-                    onClick = {(e) => this.clear()}
+                    className = 'clear'
+                    onClick = {this.clear}
                 >Clear Burger</button>
             </>
         )
