@@ -3,7 +3,7 @@ import './App.css';
 import Ingredients from './components/Ingredients';
 import Burger from './components/Burger';
 
- ingredientArr = [
+ const ingredientArr = [
   {name: 'Kaiser Bun', color: 'saddlebrown'},
   {name: 'Sesame Bun', color: 'sandybrown'},
   {name: 'Gluten Free Bun', color: 'peru'},
