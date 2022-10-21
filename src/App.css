@@ -1,8 +1,17 @@
 .burger-screen {
-  height: 10px;
-  width: 100px;
-  border: black solid 2px;
+  border: green solid 2px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.ingredients {
+  border: black solid 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients > button {
+  margin: 0.3vh 0 0.3vh 0;
+  width: 150px;
 }
 

@@ -14,7 +14,7 @@ class BurgerPane extends Component {
         let value = e.target.value
         // Push ingredient into burger ingredients array
         this.setState(prevState => ({
-            burgerIngredients: [...prevState.burgerIngredients, {name: {value}}]
+            burgerIngredients: [...prevState.burgerIngredients, {value}]
         }))
     }
 
