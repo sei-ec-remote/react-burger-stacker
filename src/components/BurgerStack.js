@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import IngredientList from './IngredientList'
-import Ingredient from  './Ingredient'
+// import IngredientList from './IngredientList'
+// import Ingredient from  './Ingredient'
 
-class BurgerStacker extends Component {
+class BurgerStack extends Component {
     render(){
         const allBurgerItems = this.props.burgerItems.map((item, index) => <div key= {index}>{item}</div>)
         return(
@@ -15,4 +15,4 @@ class BurgerStacker extends Component {
     }
 }
 
-export default BurgerStacker
+export default BurgerStack

@@ -23,13 +23,14 @@ const IngredientArr =
 function App() {
   return (
     <>
-   <h1>Don't fret, it still works</h1> 
+   <h1>Burger Stacker</h1> 
    <div>
-   <IngredientList ingredients ={IngredientArr}/>
-   </div>
-   <div>
-    <BurgerPane ingredient={ingredientArray}/>
-   </div>
+      <BurgerPane className='burgerMaker'ingredients ={IngredientArr}/>
+   </div> 
+  
+   {/* <div>
+      <BurgerPane allburgerItems={burgerItems}/>
+   </div>  */}
    </>
   )
 }

@@ -1,6 +1,7 @@
 import React,{ Component } from "react"
 import IngredientList from './IngredientList'
-import BurgerStacker from "./BurgerStacker"
+import BurgerStack from "./BurgerStack"
+import Ingredient from "./Ingredient"
 
 class BurgerPane extends Component {
     state = {
@@ -8,23 +9,25 @@ class BurgerPane extends Component {
     }
     
     addItem =(item) => {
-        let newItems = [...this.state.platedItems,newItems]
+        let newItems = [...this.state.burgerItems,item]
         this.setState(
-            {platedItems: newItems}
+            {burgerItems: newItems}
         )
     }
     removeItems =() => {
         this.setState(
-            {platedItems: []}
+            {burgerItems: []}
         )
     }  
     render(){
         return(
             <>
-            <IngredientList ingredients={this.props.ingredients}
-            addItem={this.additem}/>
-                <button onClick={this.removeItems}>Clear the Plate</button>
-                <BurgerStacker platedItems={this.state.platedItems}/>
+            <div className = 'builder'>
+                <IngredientList ingredients={this.props.ingredients}
+                addItem={this.additem}/>
+                <button className = 'clearButton'onClick={this.removeItems}>Clear the Plate</button>
+                <BurgerStack burgerItems={this.state.burgerItems}/>
+            </div>
             </>
         )
     }
