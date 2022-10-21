@@ -3,15 +3,6 @@ import IngredientList from './IngredientList'
 import BurgerIngredients from './BurgerIngredients'
 
 class BurgerStack extends Component {
-    // state = {
-    //     stack: []
-    // }
-
-    // addIngredient = (ingredient) => {
-    //     this.setState((state, props) => {
-    //         stack: state.unshift(ingredient)
-    //     })        
-    // }
 
     render() {
 

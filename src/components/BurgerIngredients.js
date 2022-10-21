@@ -1,16 +1,7 @@
 import React, {Component} from 'react'
 
 class BurgerIngredients extends Component {
-    state = {
-        onBurger: [],
-        ingredients: []
-    }
 
-    // addIngredient = (ingredient) => {
-    //     this.setState((state, props) => {
-    //         onBurger: state.ingredients.push(ingredient)
-    //     })        
-    // }
 
     render() {
         const burger = this.props.ingredients.map((ingredient, ind) => (

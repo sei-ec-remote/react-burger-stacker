@@ -25,11 +25,11 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <main>
         <IngredientList ingredients={Ingredients} addIngredient={this.addIngredient} />
         <BurgerPane ingredients={this.state.onBurger} clearIngredient = {this.clearIngredient}/>
 
-      </>
+      </main>
     )
   }
 }

@@ -7,10 +7,11 @@ class IngredientList extends Component {
             <li key={ind} ><button onClick={() => this.props.addIngredient(ingredient)}>{ingredient.name}</button></li>
         ))
         return (
-            <ul>Click to Add
-                {allIngredients}
-            </ul>
-
+            <div className="container">
+                <ul>Click to Add
+                    {allIngredients}
+                </ul>
+            </div>
         )
     }
 }
