@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Ingredient from './Ingredient'
-import ClearBurger from './ClearBurger'
 
 class BurgerPane extends Component {
     render() {

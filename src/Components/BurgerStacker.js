@@ -29,7 +29,7 @@ class BurgerStacker extends Component {
         console.log(ingName)
 
         this.setState({
-            burgerIngredients:[
+            burgerIngredients: [
                 {name: ingName, color: ingColor},
                 ...this.state.burgerIngredients
             ]
@@ -65,7 +65,7 @@ class BurgerStacker extends Component {
                 <div className='panes'>
                     <IngredientList 
                         ingredients={this.state.ingredients} 
-                        add={this.addtoStack} 
+                        add={this.addToStack} 
                     />
                     <BurgerPane 
                         ingredients={this.state.burgerIngredients} 
