@@ -1,14 +1,22 @@
 import React, { Component } from 'react' 
 
-import Ingredients from './Ingredients'
-
 class IngredientList extends Component {
     render () {
-        const allIngs = this.props.ingredients.map((items) => {
-            //Buttosn
+        const allIngs = this.props.ingredients.map(items => {
+            // <button 
+            //     onClick = {this.props.addItem}
+            // >{items.name}</button>
+
+            <h1>{items.name}</h1>
+            console.log(items.name)
         })
         return (
-            <> {allIngs} </>
+            <> 
+                {allIngs} 
+                {/* {this.props.ingredients[0].name} */}
+            
+            
+            </>
         )
     }
 }
