@@ -30,8 +30,8 @@ class BurgerStacker extends React.Component {
       color: color,
       textColor: textColor
     }
-    const currentStack = this.state.stackIngredients
-    currentStack.push(ingredient)
+    let currentStack = this.state.stackIngredients
+    currentStack = [ingredient, ...currentStack]
     this.setState({
       stackIngredients: currentStack
     })
@@ -39,7 +39,7 @@ class BurgerStacker extends React.Component {
 
   removeFromStack = () => {
     let currentStack = this.state.stackIngredients
-    currentStack.pop()
+    currentStack.shift()
     this.setState({
       stackIngredients: currentStack
     })
