@@ -24,15 +24,18 @@ body {
   height: 470px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #FullList {
   height: 400px;
   margin: 25px auto;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.Ingredient:first-child {
+  margin-top: auto;
 }
 
 .Ingredient {
