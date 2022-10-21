@@ -2,9 +2,7 @@ import React, {Component} from "react";
 
 
 class IngredientsList extends Component {
-    // state = {
-    //     items: this.props.ingredients
-    // }
+
 
     render(){
 

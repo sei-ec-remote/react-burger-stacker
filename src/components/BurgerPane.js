@@ -10,23 +10,22 @@ class BurgerPane extends Component {
 
 
     addItem = (item) => {
-   
         let newItems = [...this.state.platedItems,item]
-
         this.setState(
             {platedItems: newItems}
-            
         )
     }
-
+    removeItems = () => {
+        this.setState(
+            {platedItems: []}
+        )
+    }
     render(){
         return(
             <>
-            <IngredientsList ingredients={this.props.ingredients} addItem={this.addItem}/>
-                <div className='burger-pane'>
-                    Ready for ingredients
-                    <div className="plate"> {this.state.platedItems}</div>
-                </div>
+                <IngredientsList ingredients={this.props.ingredients} addItem={this.addItem}/>
+                    <button onClick={this.removeItems}>Clear the plate</button>
+                <BurgerStacker platedItems={this.state.platedItems}/>
 
             </>
         )

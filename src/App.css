@@ -37,7 +37,9 @@
   }
 }
 /* .plate {
+  display: flex;
+  flex-direction: column-reverse;
   width: 360px;
   height: 20px;
-  background-color: black;
+
 } */
