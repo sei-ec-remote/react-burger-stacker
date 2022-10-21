@@ -3,16 +3,20 @@ import Ingredient from './Ingredient'
 
 class IngredientList extends Component {
     render() {
-        let menu = this.props.ingredients.map(ingredient => (
-            <li onClick={this.props.add}>
-                <Ingredient ingredient={ingredient} />
+        let allIngredients = this.props.ingredients.map((ing, i) => (
+            <li key={i}>
+                <Ingredient 
+                    itemkey={i}
+                    ingredient={ing}
+                    clickFunc={this.props.add}
+                />
             </li>
         ))
         return (
             <section className='pane'>
-                <h1>INGREDIENT LIST</h1>
-                <ul className='ingredient-list'>
-                    {menu}
+                <h3>INGREDIENT LIST</h3>
+                <ul>
+                    {allIngredients}
                 </ul>
             </section>
         )

@@ -1,9 +1,9 @@
 import BurgerStacker from './Components/BurgerStacker'
-import './App.css';
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       < BurgerStacker/>
     </div>
   );
