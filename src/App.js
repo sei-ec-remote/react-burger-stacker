@@ -45,11 +45,11 @@ class App extends Component {
   render() {
     return (
       <div className='burger-plate'>
-        
-        <IngredientList ingredients={ingredientsArr} 
-        handleClickedIngredient={this.handleClickedIngredient} />
         <BurgerPane ingredients={this.state.stackedIngredients} 
         clearStack={this.clearStack}/>
+        <IngredientList ingredients={ingredientsArr} 
+        handleClickedIngredient={this.handleClickedIngredient} />
+        
       </div>
     )
   }
