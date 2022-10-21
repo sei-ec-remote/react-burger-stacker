@@ -6,18 +6,15 @@ class IngredientList extends Component {
             return(
                 <button 
                     key={item.name}
-                    value = {item}
-                    onClick = {this.props.addItem}
+                    onClick={(e) => this.props.addItem(e.target.textContent)}
                 >{item.name}</button>
 
-                // <h1>{items.name}</h1>
                 )
 
         })
         return (
             <div className = "ingredients"> 
                 {allIngs} 
-                {/* {this.props.ingredients[0].name} */}
             </div>
         )
     }
