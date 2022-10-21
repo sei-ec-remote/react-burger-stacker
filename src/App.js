@@ -28,7 +28,7 @@ function App () {
         >
 
          
-          <Burger ingredients={ingredientArr} />
+          <Burger ingredients={ingredientArr}/>
 
         </div>
       </div>

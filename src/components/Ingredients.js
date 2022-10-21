@@ -12,7 +12,7 @@ class Ingredients extends Component {
         // console.log(this.props.ingredients)
         return (
             <>
-            <div className="Ingredients">
+            <div className="pane">
                 <h1 className="section-title">Ingredients</h1>
                 <ul>{ingredientItems}</ul>
              </div>

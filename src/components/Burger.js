@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Ingredients from './Ingredients';
 // import ClearBurger from './ClearBurger';
+import BurgerPane from './BurgerPane';
 class Burger extends Component {
 
     state = {
@@ -14,7 +15,9 @@ class Burger extends Component {
             burgerItems: [...prevState.burgerItems, item.target.textContent]
          }))
         )
-
+        
+       
+        
     }
 clearBurger = () => {
     this.setState({burgerItems: []
@@ -27,7 +30,9 @@ clearBurger = () => {
         })
             return (
                 <>
-            <div flexDirection='row'>
+                <h1>Burger Stacker</h1>
+                {/* <BurgerPane /> */}
+            <div className= 'panes'>
                 <Ingredients Ingredients={this.props.ingredients} addItem={this.addItem}/>
                 {allBurgerItems}
              </div>
