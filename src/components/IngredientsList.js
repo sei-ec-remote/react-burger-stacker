@@ -14,7 +14,7 @@ class IngredientsList extends Component {
             <>
                 <div className='Ingredients-list'>
                     Ingredients List
-                    <ul>{allIngredients}</ul>
+                    {allIngredients}
                 </div>
             </>
         )

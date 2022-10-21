@@ -22,8 +22,8 @@ function App() {
 
   return (
     <>
-
-      <BurgerPane ingredients={ingredients}/>
+      
+      <BurgerPane className="burgerapp" ingredients={ingredients}/>
     </>
   );
 }

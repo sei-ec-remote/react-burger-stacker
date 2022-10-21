@@ -23,10 +23,14 @@ class BurgerPane extends Component {
     render(){
         return(
             <>
-                <IngredientsList ingredients={this.props.ingredients} addItem={this.addItem}/>
-                    <button onClick={this.removeItems}>Clear the plate</button>
-                <BurgerStacker platedItems={this.state.platedItems}/>
+                <h1>BYOBurger</h1>
+                <div className="burgerbuilder">
 
+                    <IngredientsList className="ingredients-list" ingredients={this.props.ingredients} addItem={this.addItem}/>
+                        
+                    <BurgerStacker platedItems={this.state.platedItems}/>
+                    <button onClick={this.removeItems}>Clear the plate</button>
+                </div>
             </>
         )
     }
