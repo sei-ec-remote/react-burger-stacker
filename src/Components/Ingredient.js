@@ -7,7 +7,7 @@ class Ingredient extends React.Component {
            color: this.props.textColor
         }
         return (
-            <div className="Ingredient" style={Style} onClick={() => this.props.clickItem(this.props.name, this.props.color, this.props.textColor)}>
+            <div className="Ingredient" style={Style} onClick={() => this.props.clickItem(this.props.name, this.props.color, this.props.textColor, this.props.index)}>
                 <h5>{this.props.name}</h5>
             </div>
         )

@@ -37,9 +37,9 @@ class BurgerStacker extends React.Component {
     })
   }
 
-  removeFromStack = () => {
+  removeFromStack = (a,b,c,index) => {
     let currentStack = this.state.stackIngredients
-    currentStack.shift()
+    currentStack.splice(index, 1)
     this.setState({
       stackIngredients: currentStack
     })
