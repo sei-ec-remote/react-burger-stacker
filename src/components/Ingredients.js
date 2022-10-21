@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 class Ingredients extends Component {
 
     render() {
-       const ingredientItems = this.props.ingredients.map(ingredient => 
+       const ingredientItems = this.props.Ingredients.map(ingredient => 
             
-             <ul><button onClick={(event)=> this.props.addItem(event)} key={ingredient}>{ingredient.name}</button></ul>)
+             <ul><button onClick={(e)=> this.props.addItem(e)} key={ingredient}>{ingredient.name}</button></ul>)
                 
                 
         // console.log(this.props.ingredients)

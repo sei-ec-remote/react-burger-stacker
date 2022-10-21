@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Ingredients from './components/Ingredients';
+// import Ingredients from './components/Ingredients';
 import Burger from './components/Burger';
 
  const ingredientArr = [
@@ -15,14 +15,17 @@ import Burger from './components/Burger';
   {name: 'Lettuce', color: 'lawngreen'},
   {name: 'Tomato', color: 'tomato'},
   {name: 'Bacon', color: 'maroon'},
-  {name: 'Onion', color: 'lightyellow'}
+  {name: 'Onion', color: 'lightyellow'},
+  {name: 'American Cheese', color: 'White'},
+  {name: 'Cheddar Cheese', color: 'cheddah'}
 ]
 
 function App () {
   
     return (
       <div className="Burger">
-        <div className="Ingredients">
+        <div className="Ingredients"
+        >
 
          
           <Burger ingredients={ingredientArr} />
