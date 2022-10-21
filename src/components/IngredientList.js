@@ -1,26 +1,27 @@
 import React, {Component} from 'react'
-import Ingredient from './Ingredient(s)'
+import Ingredient from './Ingredient'
 
 
 
 class IngredientList extends Component{
 	render(){
-		//let because it needs to change
-		let list = this.props.ingredients.map(ingredient =>(
-			<li onClick = {this.props.add}> 
-				<Ingredient ingredient={ingredient}/>
-			</li>
+		let allIngredients = this.props.ingredients.map((ing, i) =>(
+			<p key = {i}>
+				<Ingredient
+					itemKey={i}
+					ingredient={ing}
+					clickFunc = {this.props.add}
+				/>
+			</p>
 		))
 
 		return(
-			<div>
-				 <section className='ingredient-container'>
-                <h1>INGREDIENT LIST</h1>
-                <ul className="ingredient-list">
-                    {list}
-                </ul>
-            </section>
-			</div>
+		<section className="ingredient-container">
+			<h3>Ingredients List</h3>
+			<section>
+				{allIngredients}
+			</section>
+		</section>
 		)
 	}
 }

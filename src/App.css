@@ -1,9 +1,7 @@
 * {
   text-align: center;
 }
-body{
-  margin: 30px;
-}
+
 ul {
   list-style: none;
 }
@@ -19,9 +17,13 @@ ul {
   flex-direction:column ;
   justify-content: center;
   align-items: center;
+  text-align:center;
  
-  padding: 0 2em;
+
   width: 45%;
   border: 2px solid black;
   border-radius: 10px;
+}
+li{
+  margin:0px;
 }
