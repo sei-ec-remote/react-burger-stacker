@@ -8,7 +8,7 @@ class BurgerPane extends Component {
 
 		let burger = this.props.ingredients.map(ingredient =>(
 			<li> 
-				<Ingredient ingredient={ingredient}/>
+				<Ingredient ingredient={ingredient} key ={ingredient.name}/>
 			</li>
 		))
 		return (
