@@ -21,6 +21,7 @@ const ingredientsArr = [
 
 class App extends Component {
   state = {
+    ingredients: ingredientsArr,
     stackedIngredients: []
   }
 
@@ -33,20 +34,36 @@ class App extends Component {
   }
 
   handleClickedIngredient = (event) => {
-    const clickedIngredient = event.target.innerText
-    console.log('app.js', clickedIngredient)
+    const clickedIngredient = event.target.textContent
+    const color = event.target.style.backgroundColor
+    const eachIngredient = {}
+    eachIngredient.name = clickedIngredient
+    eachIngredient.color = color
+    // console.log(color)
+    // console.log(clickedIngredient)
+    // console.log(eachIngredient)
     this.setState(() => {
       return {
-        stackedIngredients: [clickedIngredient, ...this.state.stackedIngredients]
+        stackedIngredients: [eachIngredient, ...this.state.stackedIngredients]
       }
     })
   }
+
+  // removeFromStack = (event) => {
+  //   const removeIngredient = event.target.id
+  //   console.log(removeIngredient)
+  //   const currBurger = this.state.stackedIngredients.slice()
+  //   currBurger.splice(removeIngredient, 1)
+  //   this.setState({
+  //     stackedIngredients: currBurger
+  //   })
+  // }
 
   render() {
     return (
       <div className='burger-plate'>
         <IngredientList ingredients={ingredientsArr} handleClickedIngredient={this.handleClickedIngredient} />
-        <BurgerPane ingredients={this.state.stackedIngredients} clearStack={this.clearStack}/>
+        <BurgerPane ingredients={this.state.stackedIngredients} clearStack={this.clearStack} removeFromStack={this.removeFromStack} />
       </div>
     )
   }
