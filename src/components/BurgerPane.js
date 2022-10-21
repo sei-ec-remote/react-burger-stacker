@@ -18,11 +18,18 @@ class BurgerPane extends Component {
         }))
     }
 
+    clear = () => {
+        this.state.burgerIngredients = []
+    }
+
     render () {
         return (
             <>
                 <IngredientList ingredients={this.props.ingredients} addItem={this.addItem}/>
                 <BurgerStack ingredients={this.state.burgerIngredients}/>
+                <button
+                    onClick = {(e) => this.clear()}
+                >Clear Burger</button>
             </>
         )
     }
