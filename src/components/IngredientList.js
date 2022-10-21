@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../App';
+import AssembledApp from '../AssembledApp';
 import '../index.css'
 
 
@@ -19,16 +19,7 @@ const food = [
     {name: 'Onion', color: 'lightyellow'}
   ]
 
-class IngredientList extends Component {
-    render() {
-        return (
-            <>
-                <div className='ingredients'>
-                    <>{food}</>
-                </div>
-            </>
-        )
-    }
-}
-
-export default IngredientList
+ReactDOM.render(
+    <AssembledApp theBurger={food} />,
+    document.getElementById('root')
+);
