@@ -13,7 +13,7 @@ class BurgerStack extends Component {
         return(
             <div className='burger-stack'>
                 <h1>Burger Stack</h1>
-                <ul>{allIngredients}</ul>
+                <div>{allIngredients}</div>
                 <ClearBurger clearStack={this.props.clearStack} />
             </div>
         )

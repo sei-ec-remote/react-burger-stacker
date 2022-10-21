@@ -11,7 +11,7 @@ class IngredientList extends Component {
         return(
             <div className='ingredients-list'>
                 <h1>Ingredients List: </h1>
-                <ol>{allIngredients}</ol>
+                <div>{allIngredients}</div>
             </div>
         )
     }
