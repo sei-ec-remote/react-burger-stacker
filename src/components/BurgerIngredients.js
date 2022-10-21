@@ -9,7 +9,7 @@ class BurgerIngredients extends Component {
         ))
         return (
             <>
-            {burger}
+                {burger}
             </>
         )
     }

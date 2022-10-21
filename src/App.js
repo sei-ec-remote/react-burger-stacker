@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import BurgerPane from './components/BurgerPane';
 import IngredientList from './components/IngredientList';
 import Ingredients from './Ingredients';
-import BurgerIngredients from './components/BurgerIngredients';
+
 
 class App extends Component {
   state = {
@@ -23,11 +23,17 @@ class App extends Component {
     
   }
 
+  removeLastIngredient = () => {
+    this.setState((state, props) => {
+      return this.onBurger = state.onBurger.shift()
+    })
+  }
+
   render() {
     return (
       <main>
         <IngredientList ingredients={Ingredients} addIngredient={this.addIngredient} />
-        <BurgerPane ingredients={this.state.onBurger} clearIngredient = {this.clearIngredient}/>
+        <BurgerPane ingredients={this.state.onBurger} clearIngredient = {this.clearIngredient} removeLastIngredient = {this.removeLastIngredient}/>
 
       </main>
     )

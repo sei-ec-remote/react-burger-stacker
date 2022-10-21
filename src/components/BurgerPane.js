@@ -7,6 +7,7 @@ class BurgerPane extends Component {
             <div className = "container">
                 <BurgerStack ingredients={this.props.ingredients} />
                 <button onClick={this.props.clearIngredient}>Clear Burger</button>
+                <button onClick={this.props.removeLastIngredient}>Undo</button>
             </div>
         )
     }
