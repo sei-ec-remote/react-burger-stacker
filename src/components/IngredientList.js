@@ -6,16 +6,18 @@ class IngredientList extends Component {
     //     ingredientsToDisplay: this.props.ingredients
     // }
     render(){
-        const allItems = this.props.ingredients.map((ingredient, index) =>{
+        let allItems = this.props.ingredients.map((ingredient, index) =>{
             return <Ingredient ingredient ={ingredient} key={index} addItem={this.props.addItem} isBurger={false}/>
         })
        
         return (
             <>
-            <div className = 'ingredient-List'>
-                {allItems}
-                {/* <Ingredient ingredients={this.state.ingredientsToDisplay}/> */}
-            </div>
+            <section>
+                <div className = 'ingredient-List'>
+                    {allItems}
+                    {/* <Ingredient ingredients={this.state.ingredientsToDisplay}/> */}
+                 </div>
+            </section>
             </>
         )
     }

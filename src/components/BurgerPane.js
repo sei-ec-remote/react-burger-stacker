@@ -25,7 +25,8 @@ class BurgerPane extends Component {
             <div className = 'builder'>
                 <IngredientList ingredients={this.props.ingredients}
                 addItem={this.additem}/>
-                <button className = 'clearButton'onClick={this.removeItems}>Clear the Plate</button>
+                <h3 className='stackArea'>Burger Stacking Area</h3>
+                <button className = 'clearButton'onClick={this.removeItems}>Clear </button>
                 <BurgerStack burgerItems={this.state.burgerItems}/>
             </div>
             </>

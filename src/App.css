@@ -47,7 +47,11 @@
 .ingredient-List {
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 150px;
+  border: 2px solid black;
+  margin: 0, 3em;
+  margin-left: 5px;
+  padding: 0, 3em;
 }
 .builder {
   display: flex;
@@ -56,7 +60,18 @@
 .clearButton {
   position: absolute;
   bottom: 65%;
-  width: 50%;
+  width: 150px;
   height: 30px;
-  right: 50px;
+  right: 20%;
+  border-radius: 40%;
+  font-size: 18px; 
+  padding: 5px;
+}
+.stackArea{
+  position: absolute;
+  bottom: 66%;
+  /* width: 50%; */
+  height: 30px;
+  right: 20%;
+
 }
