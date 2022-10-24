@@ -1,13 +1,13 @@
-import React from "react"
+import React, {useState} from "react"
 
-class ClearBurger extends React.Component {
-    render () {
-        return (
-          <>
-            <button onClick={this.props.clearStack}>Clear</button>
-          </>  
-        )
-    }
+const ClearBurger = () => {
+
+  return (
+    <>
+      <button onClick={this.props.clearStack}>Clear</button>
+    </>  
+  )
+
 }
 
 export default ClearBurger
