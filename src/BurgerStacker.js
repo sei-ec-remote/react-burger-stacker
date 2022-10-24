@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Burger from './components/Burger'
 import IngredientList from './components/IngredientList'
 import './App.css'
@@ -19,39 +19,33 @@ const ingredientArray = [
 ]
 
 
-export default class BurgerStacker extends Component {
+const BurgerStacker = () => {
 
-  state = {
-    addedIngredients: []
-  }
+  const [addedIngredients, setAddedIngredients] = useState([])
 
-  addToStack = (event) => {
+  
+  const addToStack = (event) => {
     const ingredientToAdd = ingredientArray.find(ingredient => ingredient.name === event.target.dataset.target)
-    console.log(ingredientToAdd)
-    this.setState((state) => {
-      return {
-      addedIngredients: [...state.addedIngredients, ingredientToAdd]
-      }
+    setAddedIngredients((ingredient) => {
+      return [...addedIngredients, ingredientToAdd]
     })
   }
 
-  clear = () => {
-    this.setState({
-      addedIngredients:[]
-    })
+  const clear = () => {
+    setAddedIngredients([])
   }
 
-  render () {
-    return (
-      <>
-        <div className="burger-area">
-          <IngredientList ingredients={ingredientArray} addHandler={this.addToStack} />
-          <Burger ingredients={this.state.addedIngredients} clearHandler={this.clear}/>
-        </div>
-      </>
+  return (
+    <>
+      <div className="burger-area">
+        <IngredientList ingredients={ingredientArray} addHandler={addToStack} />
+        <Burger ingredients={addedIngredients} clearHandler={clear}/>
+      </div>
+    </>
 
-    );
-  }
+  );
+  
 }
 
 
+export default BurgerStacker
