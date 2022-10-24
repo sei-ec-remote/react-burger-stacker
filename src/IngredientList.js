@@ -1,10 +1,10 @@
-// loops over ingredients from props and displays one ingredient component per item
-import React, {Component} from 'react'
+// loops over ingredients from props and displays one Ingredient component per item
+import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 
 export default class IngredientList extends Component {
     render () {
-        let allIngredients = this.props.ingedients.map((ing, i) => (
+        let allIngredients = this.props.ingredients.map((ing, i) => (
             <li key={i}>
                 <Ingredient
                     itemKey={i}
@@ -14,8 +14,8 @@ export default class IngredientList extends Component {
             </li>
         ))
         return (
-            <section>
-                <h3>Ingredient List</h3>
+            <section className='pane'>
+                <h3>Ingredients List</h3>
                 <ul>
                     {allIngredients}
                 </ul>
