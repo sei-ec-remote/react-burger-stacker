@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import IngredientList from './components/IngredientList';
+import IngredientList from './IngredientList';
 import BurgerPane from './BurgerPane';
 
 const BurgerStacker = () => {
@@ -25,15 +25,16 @@ const BurgerStacker = () => {
     // this function adds items to the burgerIngredients array, which allows burgerPane to render them
     const addToStack = (e) => {
         let newIngredient = {
-            name = e.target.innerText
-            color = e.target.style.backgroundColor
+            name: e.target.innerText,
+            color: e.target.style.backgroundColor
         }
-        setBurger({
-            ingredients: [
+        setBurger(
+            [
                 ...burger,
-                ...newIngredients
+                newIngredient
             ]
-        })
+        )
+        console.log(burger)
     }
 
     // this function will clear the burgerPane, passed as a prop to that component, but lives here so it can setState
@@ -43,20 +44,20 @@ const BurgerStacker = () => {
 
     // this function will remove one ingredient from the burger
     const removeFromStack = (e) => {
-        console.log('the old stack', burgerIngredients)
+        console.log('the old stack', burger)
         console.log('this is the clicked item \n', e.target)
         // we need to find the ingredient's location within the array
         const clickIndex = e.target.id
         console.log('this is clickIndex', clickIndex)
         // then, its helpful to have a copy of the original array
-        const currBurger = burgerIngredients.slice()
+        const currBurger = burger.slice()
         console.log('this is the current burger', currBurger)
         // then we need to remove an item from the copy of the array
         currBurger.splice(clickIndex, 1)
         console.log('this is the current burger after splice', currBurger)
         // then we can set state with the copy.
-        useState({
-            burgerIngredients: currBurger
+        setBurger({
+            burger: currBurger
         })
     }
 

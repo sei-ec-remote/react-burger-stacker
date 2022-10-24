@@ -3,11 +3,12 @@
 // since burger pane needs to display ingredients components, we'll import those as well
 
 import React from 'react';
-import Ingredient from './components/Ingredient';
+import ClearBurger from './ClearBurger';
+import Ingredient from './Ingredient';
 
 const BurgerPane = (props) => {
-    
-    let burgerbits = props.ingredients.map((ing, i) => (
+    console.log(props)
+    let burgerbits = props.burgerIngredients.map((ing, i) => (
         // the virtual DOM NEEDS a KEY to identify this
         <li key={i}> 
             <Ingredient 
@@ -23,7 +24,7 @@ const BurgerPane = (props) => {
             <ul>
                 {burgerbits}
             </ul>
-            <button onClick={props.clear}>Clear Burger</button>
+            <ClearBurger clearBurger={props.clearBurger} />
         </section>
     )
     

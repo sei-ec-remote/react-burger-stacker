@@ -9,7 +9,7 @@ const Ingredient = (props) => {
     return (
         <p
             style={{backgroundColor: color}}
-            id={this.props.itemKey}
+            id={props.itemKey}
             onClick={props.clickFunc}
         >
             {name}

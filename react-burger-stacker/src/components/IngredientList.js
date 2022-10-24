@@ -1,6 +1,6 @@
 // loops over ingredients from props and displays one Ingredient component per item
 import React from 'react';
-import Ingredient from './components/Ingredient';
+import Ingredient from './Ingredient';
 
 const IngredientList = (props) => {
    
