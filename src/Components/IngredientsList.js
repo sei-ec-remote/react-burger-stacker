@@ -1,42 +1,39 @@
 import React, {useState} from "react"
 import Ingredient from "./Ingredient"
 
-class IngredientsList extends React.Component {
+const IngredientsList = (props) => {
 
-    state = {
-        name: "",
-        color: "#00ff00",
-        textColor: "#000000",
-    }
+    const [ingredient, setIngredient] = useState({name: "", color: "#00ff00", textColor: "#000000" })
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
+    const handleChange = (e) => {
+        setIngredient(prev => {
+            const updatedValue = {[e.target.name]: e.target.value}
+            return { ...prev,
+            ...updatedValue }
         })
     }    
 
-    render () {
-        const listItems = this.props.ingredients.map((item, index) => (
-            <Ingredient key={index} name={item.name} color={item.color} textColor={item.textColor} clickItem={this.props.addToStack} />
-        ))
-                 
+    
+    const listItems = props.ingredients.map((item, index) => (
+        <Ingredient key={index} name={item.name} color={item.color} textColor={item.textColor} clickItem={props.addToStack} />
+    ))
+                
 
-        return (
-            <div className="Card">
-                <div id="FullList">{listItems}</div>
-                <label className="Form">Ingredient Name:</label>
-                <input className="Form" type="text" name="name" placeholder="Ingredient Name" onChange={this.handleChange}/>
-                <br></br>
-                <label className="Form">Ingredient Color:</label>
-                <input className="Form" type="color" name="color"  placeholder="#00ff00" onChange={this.handleChange}/>
-                <br></br>
-                <label className="Form">Text Color:</label>
-                <input className="Form" type="color" name="textColor" placeholder="#000000" onChange={this.handleChange}/>
-                <br></br>
-                <button onClick={() => {this.props.newIngredient(this.state)}} >New Ingredient</button>
-            </div>
-        )
-    }
+    return (
+        <div className="Card">
+            <div id="FullList">{listItems}</div>
+            <label className="Form">Ingredient Name:</label>
+            <input className="Form" type="text" name="name" placeholder="Ingredient Name" onChange={handleChange}/>
+            <br></br>
+            <label className="Form">Ingredient Color:</label>
+            <input className="Form" type="color" name="color"  value={ingredient.color} onChange={handleChange}/>
+            <br></br>
+            <label className="Form">Text Color:</label>
+            <input className="Form" type="color" name="textColor" value={ingredient.textColor} onChange={handleChange}/>
+            <br></br>
+            <button onClick={() => {props.newIngredient(ingredient)}} >New Ingredient</button>
+        </div>
+    )
 }
 
 export default IngredientsList
