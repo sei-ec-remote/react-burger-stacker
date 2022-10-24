@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css';
-import BurgerPane from './components/BurgerPane';
 import IngredientList from './components/IngredientList';
+import BurgerStack from './components/BurgerStack';
 
 
 const ingredientsArr = [
@@ -19,54 +19,44 @@ const ingredientsArr = [
   { name: 'Onion', color: 'lightyellow' }
 ]
 
-class App extends Component {
-  state = {
-    ingredients: ingredientsArr,
-    stackedIngredients: []
+function App() {
+  const [stackedIngredients, setStackedIngredients] = useState([])
+  // state = {
+  //   ingredients: ingredientsArr,
+  //   stackedIngredients: []
+  // }
+
+  const clearStack = () => {
+    setStackedIngredients([])
+    // this.setState(() => {
+    //   return {
+    //     stackedIngredients: []
+    //   }
+    // })
   }
 
-  clearStack = () => {
-    this.setState(() => {
-      return {
-        stackedIngredients: []
-      }
-    })
-  }
-
-  handleClickedIngredient = (event) => {
+  const handleClickedIngredient = (event) => {
     const clickedIngredient = event.target.textContent
     const color = event.target.style.backgroundColor
     const eachIngredient = {}
     eachIngredient.name = clickedIngredient
     eachIngredient.color = color
-    // console.log(color)
-    // console.log(clickedIngredient)
-    // console.log(eachIngredient)
-    this.setState(() => {
-      return {
-        stackedIngredients: [eachIngredient, ...this.state.stackedIngredients]
-      }
-    })
+    setStackedIngredients([eachIngredient, ...stackedIngredients])
+    // this.setState(() => {
+    //   return {
+    //     stackedIngredients: [eachIngredient, ...this.state.stackedIngredients]
+    //   }
+    // })
   }
 
-  // removeFromStack = (event) => {
-  //   const removeIngredient = event.target.id
-  //   console.log(removeIngredient)
-  //   const currBurger = this.state.stackedIngredients.slice()
-  //   currBurger.splice(removeIngredient, 1)
-  //   this.setState({
-  //     stackedIngredients: currBurger
-  //   })
-  // }
 
-  render() {
-    return (
-      <div className='burger-plate'>
-        <IngredientList ingredients={ingredientsArr} handleClickedIngredient={this.handleClickedIngredient} />
-        <BurgerPane ingredients={this.state.stackedIngredients} clearStack={this.clearStack} removeFromStack={this.removeFromStack} />
-      </div>
-    )
-  }
+  return (
+    <div className='burger-plate'>
+      <IngredientList ingredients={ingredientsArr} handleClickedIngredient={handleClickedIngredient} />
+      <BurgerStack ingredients={stackedIngredients} clearStack={clearStack} />
+    </div>
+  )
+
 }
 
 

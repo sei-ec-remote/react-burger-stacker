@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Ingredient extends Component {
+const Ingredient = ({ ingredient, clickFunc }) => {
     // this component recieves one ingredient as a prop and displays said ingredient
-    render() {
-        const { name, color } = this.props.ingredient
+    
+        const { name, color } = ingredient
         return(
             <>
-                <p style={{backgroundColor: color}} onClick={this.props.clickFunc}>{this.props.ingredient.name}</p>
+                <p style={{backgroundColor: color}} onClick={clickFunc}>{name}</p>
             </>
         )
     }
-}
+
 
 
 export default Ingredient
