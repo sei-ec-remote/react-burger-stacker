@@ -1,39 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-// import Ingredients from './components/Ingredients';
-import Burger from './components/Burger';
+import './App.css'
+import BurgerStacker from './components/BurgerStacker'
 
- const ingredientArr = [
-  {name: 'Kaiser Bun', color: 'saddlebrown'},
-  {name: 'Sesame Bun', color: 'sandybrown'},
-  {name: 'Gluten Free Bun', color: 'peru'},
-  {name: 'Lettuce Wrap', color: 'olivedrab'},
-  {name: 'Beef Patty', color: '#3F250B'},
-  {name: 'Soy Patty', color: '#3F250B'},
-  {name: 'Black Bean Patty', color: '#3F250B'},
-  {name: 'Chicken Patty', color: 'burlywood'},
-  {name: 'Lettuce', color: 'lawngreen'},
-  {name: 'Tomato', color: 'tomato'},
-  {name: 'Bacon', color: 'maroon'},
-  {name: 'Onion', color: 'lightyellow'},
-  {name: 'American Cheese', color: 'White'},
-  {name: 'Cheddar Cheese', color: 'cheddah'}
-]
-
-function App () {
-  
-    return (
-      <div className="Burger">
-        <div className="Ingredients"
-        >
-
-         
-          <Burger ingredients={ingredientArr}/>
-
-        </div>
-      </div>
-    );
-  }
-
+function App() {
+  return (
+    <div className="App">
+      <BurgerStacker/>
+    </div>
+  );
+}
 
 export default App;
