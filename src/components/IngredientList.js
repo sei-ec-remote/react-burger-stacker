@@ -1,28 +1,25 @@
-import React, {Component} from "react";
+// loops over ingredients from props and displays one Ingredient component per item
+import React, { Component } from 'react'
+import Ingredient from './Ingredient'
 
-
-class IngredientList extends Component {
-    state = [
-        {name: 'Kaiser Bun', color: 'saddlebrown'},
-        {name: 'Sesame Bun', color: 'sandybrown'},
-        {name: 'Gluten Free Bun', color: 'peru'},
-        {name: 'Lettuce Wrap', color: 'olivedrab'},
-        {name: 'Beef Patty', color: '#3F250B'},
-        {name: 'Soy Patty', color: '#3F250B'},
-        {name: 'Black Bean Patty', color: '#3F250B'},
-        {name: 'Chicken Patty', color: 'burlywood'},
-        {name: 'Lettuce', color: 'lawngreen'},
-        {name: 'Tomato', color: 'tomato'},
-        {name: 'Bacon', color: 'maroon'},
-        {name: 'Onion', color: 'lightyellow'}
-      ]
-    render() {
+export default class IngredientList extends Component {
+    render () {
+        let allIngredients = this.props.ingredients.map((ing, i) => (
+            <li key={i}>
+                <Ingredient
+                    itemKey={i}
+                    ingredient={ing}
+                    clickFunc={this.props.add}
+                />
+            </li>
+        ))
         return (
-            <>
-             
-            </>
+            <section className='pane'>
+                <h3>Ingredients List</h3>
+                <ul>
+                    {allIngredients}
+                </ul>
+            </section>
         )
     }
 }
-
-export default IngredientList
