@@ -1,10 +1,10 @@
 import React, {useState} from "react"
 
-const ClearBurger = () => {
+const ClearBurger = (props) => {
 
   return (
     <>
-      <button onClick={this.props.clearStack}>Clear</button>
+      <button onClick={props.clearStack}>Clear</button>
     </>  
   )
 
