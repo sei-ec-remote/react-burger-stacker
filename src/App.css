@@ -10,7 +10,8 @@ h1 {
   align-items: center;
 }
 
-.plate {height: 400px;
+.plate {
+  height: 400px;
   width: 400px;
   border: black solid 1px;
 }
