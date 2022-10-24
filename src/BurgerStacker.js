@@ -18,59 +18,44 @@ const ingredientsArray = [
   {name: 'Onion', color: 'lightyellow', textColor: "black"}
 ]
 
-class BurgerStacker extends React.Component {
-  state = {
-    allIngredients: ingredientsArray,
-    stackIngredients: []
-  }
+const BurgerStacker = () => {
 
-  addToStack = (name, color, textColor) => {
+  const [allIngredients, setAllIngredients] = useState(ingredientsArray)
+  const [stackIngredients, setStack] = useState([])
+
+  const addToStack = (name, color, textColor) => {
     const ingredient = {
       name: name,
       color: color,
       textColor: textColor
     }
-    let currentStack = this.state.stackIngredients
-    currentStack = [ingredient, ...currentStack]
-    this.setState({
-      stackIngredients: currentStack
-    })
+    setStack(prevStack => {return [ingredient, ...prevStack]})
   }
 
-  removeFromStack = (a,b,c,index) => {
-    let currentStack = this.state.stackIngredients
-    currentStack.splice(index, 1)
-    this.setState({
-      stackIngredients: currentStack
-    })
+  const removeFromStack = (a,b,c,index) => {
+    let currentStack = stackIngredients
+    let newStack = currentStack.splice(index, 1)
+    setStack(newStack)
   }
 
-  clearStack = () => {
-    this.setState({
-      stackIngredients: []
-    })
+  const clearStack = () => {
+    setStack([])
   }
 
-  newIngredient = (object) => {
+  const newIngredient = (object) => {
     if (object.name === ""){
       return
     } else {
-      const currentIngredients = this.state.allIngredients
-      this.setState({
-        allIngredients: [object, ...currentIngredients]
-      })
+      setAllIngredients(prevIngredients => {return [object, ...prevIngredients]})
     }
   }
 
-  render () { 
-    return (
-      <div id="App">
-        <IngredientsList ingredients={this.state.allIngredients} stack={this.state.stackIngredients} addToStack={this.addToStack} newIngredient={this.newIngredient}/>
-        <BurgerPane stack={this.state.stackIngredients} clearStack={this.clearStack} removeItem={this.removeFromStack}/>
-      </div>
-    )
-  }
-  
+  return (
+    <div id="App">
+      <IngredientsList ingredients={allIngredients} stack={stackIngredients} addToStack={addToStack} newIngredient={newIngredient}/>
+      <BurgerPane stack={stackIngredients} clearStack={clearStack} removeItem={removeFromStack}/>
+    </div>
+  )  
 }
 
 export default BurgerStacker;

@@ -6,7 +6,7 @@ const BurgerPane = (props) => {
 
     return (
         <div className="Card">
-            <BurgerStack stack={props.stack} removeItem = {props.removeItem}/>
+            <BurgerStack stack={props.stack} removeItem={props.removeItem}/>
             <h3>Burger Stacking Area</h3>
             <ClearBurger clearStack={props.clearStack}/>
         </div>
