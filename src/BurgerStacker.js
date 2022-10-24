@@ -33,9 +33,11 @@ const BurgerStacker = () => {
   }
 
   const removeFromStack = (a,b,c,index) => {
-    let currentStack = stackIngredients
-    let newStack = currentStack.splice(index, 1)
-    setStack(newStack)
+    setStack(prevStack => {
+      let currentStack = prevStack.slice()
+      currentStack.splice(index, 1)
+      return currentStack
+    })
   }
 
   const clearStack = () => {
