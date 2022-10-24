@@ -1,19 +1,17 @@
-import React, {useState} from "react"
+import React from "react"
 import BurgerStack from "./BurgerStack"
 import ClearBurger from "./ClearBurger"
 
-class BurgerPane extends React.Component {
+const BurgerPane = (props) => {
 
+    return (
+        <div className="Card">
+            <BurgerStack stack={props.stack} removeItem = {props.removeItem}/>
+            <h3>Burger Stacking Area</h3>
+            <ClearBurger clearStack={props.clearStack}/>
+        </div>
+    )
 
-    render () {
-        return (
-            <div className="Card">
-                <BurgerStack stack={this.props.stack} removeItem = {this.props.removeItem}/>
-                <h3>Burger Stacking Area</h3>
-                <ClearBurger clearStack={this.props.clearStack}/>
-            </div>
-        )
-    }
 }
 
 export default BurgerPane
