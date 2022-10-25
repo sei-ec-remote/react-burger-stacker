@@ -61,7 +61,6 @@ const BurgerStacker = () => {
         })
     }
 
-    
     return (
         <div>
             <h1>Burger Stacker</h1>
