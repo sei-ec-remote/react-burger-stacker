@@ -1,39 +1,33 @@
-import React, {Component} from "react";
-import BurgerStacker from "./BurgerStacker";
-import IngredientsList from "./IngredientsList";
 
-class BurgerPane extends Component {
+import React from 'react'
+import Ingredient from './Ingredient'
 
-    state = {
-        platedItems: []
-    }
+const BurgerPane = (props) =>  {
+
+    // console.log("these",props.ingredients)
+    let burgerBits =  props.ingredients.map((ing, i) => (
+
+            <li key ={i}>
+                <Ingredient
+                    itemKey={i}
+                    ingredient={ing}
+                    // clickFunc={props.remove}
+                />
+            </li>
+        ))
 
 
-    addItem = (item) => {
-        let newItems = [...this.state.platedItems,item]
-        this.setState(
-            {platedItems: newItems}
+
+        return (
+            <section className='pane'>
+                <h3>Burger Pane</h3>
+                <ul>
+                    { burgerBits }
+                </ul>
+                <button onClick={props.clear}>Clear Burger</button>
+            </section>
         )
-    }
-    removeItems = () => {
-        this.setState(
-            {platedItems: []}
-        )
-    }
-    render(){
-        return(
-            <>
-                <h1>BYOBurger</h1>
-                <div className="burgerbuilder">
-
-                    <IngredientsList className="ingredients-list" ingredients={this.props.ingredients} addItem={this.addItem}/>
-                        
-                    <BurgerStacker platedItems={this.state.platedItems}/>
-                    <button onClick={this.removeItems}>Clear the plate</button>
-                </div>
-            </>
-        )
-    }
+    
+    
 }
-
 export default BurgerPane
