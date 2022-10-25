@@ -2,7 +2,7 @@ import React from 'react'
 import Ingredient from './Ingredient'
 
 const BurgerPane = (props) => {
-    
+    console.log('these are the burgerPane props', props.ingredients)
     let burgerParts = props.ingredients.map((ing, i) => (
         <li key={i}>
             <Ingredient
@@ -11,7 +11,7 @@ const BurgerPane = (props) => {
                 clickFunc={props.remove}
             />
         </li>
-    ))
+        ))
 
     return (
         <section className='pane'>

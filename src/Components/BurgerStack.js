@@ -3,10 +3,12 @@ import IngredientList from './IngredientList'
 
 const BurgerStack = (props) => {
     
-    let burgerParts = props.ingredients.map(ingredient => 
+    let burgerParts = props.ingredients.map((ing,i) => {
+        return(
         <li>
             <IngredientList ingredient={ingredient} />
         </li>)
+        })
 
     return (
         <div>
@@ -15,7 +17,7 @@ const BurgerStack = (props) => {
                 {burgerParts}
             </ul>
         </div>
-    )
-}
+    )}
+
 
 export default BurgerStack

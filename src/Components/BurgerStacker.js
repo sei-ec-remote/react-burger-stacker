@@ -4,7 +4,7 @@ import IngredientList from './IngredientList'
 
 const BurgerStacker = () => {
    
-    const [ingredients, setIngredients] = useState(
+    const [ingredients, setIngredients] = useState([
         {name: 'Kaiser Bun', color: 'saddlebrown'},
         {name: 'Sesame Bun', color: 'sandybrown'},
         {name: 'Gluten Free Bun', color: 'peru'},
@@ -18,21 +18,15 @@ const BurgerStacker = () => {
         {name: 'Bacon', color: 'maroon'},
         {name: 'Onion', color: 'lightyellow'},
         {name: 'Cheese', color: 'gold'}
-    )
+    ])
     const [burgerIngredients, setBurgerIngredients] = useState([])
 
     // this function adds items to the burgerIngredients array, which allows burgerPane to render them
-    const addToStack = (e) => {
-        const ingName = e.target.innerText
-        const ingColor = e.target.style.backgroundColor
-        console.log(ingName)
+    const addToStack = (ingredient) => {
+        
 
-        setBurgerIngredients({
-            burgerIngredients: [
-                {name: ingName, color: ingColor},
-                ...burgerIngredients
-            ]
-        })
+       setBurgerIngredients([...burgerIngredients, ingredient])
+        
     }
 
     // this function will clear the burger pane, passed as a prop to that comp. but lives her to set state
