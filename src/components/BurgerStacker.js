@@ -20,7 +20,6 @@ const BurgerStacker = () => {
         {name: 'Cheese', color: 'gold'}
     ]
 
-    //const [allIngredients, setAllIngredients] = useState(ingredients) ---> didn't end up needing this line
     const [burgerIngredients, setBurgerIngredients] = useState([])
     
     
@@ -45,24 +44,22 @@ const BurgerStacker = () => {
         setBurgerIngredients([])
     }
     
-    // // this function will remove one ingredient from the burger
-    // removeFromStack = (e) => {
-    //     console.log('the old stack', burgerIngredients)
-    //     console.log('this is the clicked item \n', e.target)
-    //     // we need to find the ingredient's location within the array
-    //     const clickIndex = e.target.id
-    //     console.log('this is clickIndex', clickIndex)
-    //     // then, its helpful to have a copy of the original array
-    //     const currBurger = burgerIngredients.slice()
-    //     console.log('this is the current burger', currBurger)
-    //     // then we need to remove an item from the copy of the array
-    //     currBurger.splice(clickIndex, 1)
-    //     console.log('this is the current burger after splice', currBurger)
-    //     // then we can set state with the copy.
-    //     this.setState({
-    //         burgerIngredients: currBurger
-    //     })
-    // }
+    // this function will remove one ingredient from the burger
+    const removeFromStack = (e) => {
+        console.log('the old stack', burgerIngredients)
+        console.log('this is the clicked item \n', e.target)
+        // we need to find the ingredient's location within the array
+        const clickIndex = e.target.id
+        console.log('this is clickIndex', clickIndex)
+        // then, its helpful to have a copy of the original array
+        const currBurger = burgerIngredients.slice()
+        console.log('this is the current burger', currBurger)
+        // then we need to remove an item from the copy of the array
+        currBurger.splice(clickIndex, 1)
+        console.log('this is the current burger after splice', currBurger)
+        // then we can set state with the copy.
+        setBurgerIngredients(currBurger)
+    }
 
     return (
         <div>
@@ -74,7 +71,7 @@ const BurgerStacker = () => {
                 />
                 <BurgerPane 
                     ingredients={burgerIngredients}
-                    // remove={this.removeFromStack()}
+                    remove={removeFromStack}
                     clear={clearBurger}
                 />
             </div>

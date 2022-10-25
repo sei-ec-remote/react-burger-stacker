@@ -10,7 +10,7 @@ import Ingredient from './Ingredient'
             <Ingredient
                 itemKey={i}
                 ingredient={ing}
-                // clickFunc={this.props.remove}
+                clickFunc={props.remove}
             />
         </li>
     ))
