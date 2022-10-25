@@ -1,30 +1,33 @@
+// this is where the burger happens
 import React from 'react'
+// burger pane needs to display ingredient components, similarly to how ingredientlist does
 import Ingredient from './Ingredient'
 
-const BurgerPane = (props) => {
-    console.log('these are the burgerPane props', props.ingredients)
-    let burgerParts = props.ingredients.map((ing, i) => (
-        <li key={i}>
-            <Ingredient
-                itemkey={i}
-                ingredient={ing}
-                clickFunc={props.remove}
-            />
-        </li>
-        ))
+const BurgerPane = ({ ingredients, remove, clear }) => {
+    // burger pane will eventually get props(ingredients), and should loop and display those similar to the ingredientList
+    // the difference will be the clear button
 
-    return (
-        <section className='pane'>
-            <h1>BURGER PANE</h1>
-            <ul>
-                {burgerParts}
-            </ul>
-            <button onClick={props.clear}>Clear Burger</button> 
-            
-                
-        </section>
-    )
-    
+
+        // console.log(this.props)
+        let burgerBits = ingredients.map((ing, i) => (
+            <li key={i}>
+                <Ingredient 
+                    itemKey={i} 
+                    ingredient={ing} 
+                    clickFunc={remove}
+                />
+            </li>
+        ))
+        return (
+            <section className='pane'>
+                <h3>Burger Pane</h3>
+                <ul>
+                    {burgerBits}
+                </ul>
+                <button onClick={clear}>Clear Burger</button>
+            </section>
+        )
+
 }
 
 export default BurgerPane

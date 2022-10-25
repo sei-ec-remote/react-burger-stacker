@@ -1,21 +1,19 @@
-// this displays an individual ingredient
-import React  from 'react'
+// Ingredient is a child of Ingredient List
+// receives the props of an individual ingredient -> color and name
+import React from 'react'
 
-// this component recieves ONE ingredient as a prop and displays said ingredient
-const Ingredient = (props) => {
-    console.log('these are the Ingredient props', props)
-    const { name, color } = props.ingredient
-
-    return (
-        <p
-            style={{backgroundColor: color}}
-            id={props.itemKey}
-            onClick={() => props.clickFunc(props.ingredient)}
-        >
-            {name}
-        </p>
-    )
-    
+const Ingredient = ({ ingredient, itemKey, clickFunc }) => {
+	const { name, color } = ingredient
+	// console.log('name in each ingredient', name)
+	// console.log('color in each ingredient', color)
+	return (
+		<p
+			style={{ backgroundColor: color }}
+			id={itemKey}
+			onClick={clickFunc}>
+			{name}
+		</p>
+	)
 }
 
 export default Ingredient
