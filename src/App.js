@@ -17,18 +17,6 @@ const IngredientList = [
   {name: 'Onion', color: 'lightyellow'}
 ]
 
-
-
-const burgStack = []
-
-const addIng = () => {
-  this.setState((state, prop) => {
-    return {
-      
-    }
-  })
-}
-
 function App() {
   return (
     <div className="App">
