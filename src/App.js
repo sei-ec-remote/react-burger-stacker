@@ -1,43 +1,48 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import BurgerPane from './components/BurgerPane';
 import IngredientList from './components/IngredientList';
 import Ingredients from './Ingredients';
 
 
-class App extends Component {
-  state = {
-    onBurger: []
-  }
+const App = () => {
+  // state = {
+  //   onBurger: []
+  // }
 
-  addIngredient = (ingredient) => {
-    // console.log(e.target.innerText)
-    
-    this.setState((state, props) => {
-      return this.onBurger = state.onBurger.unshift(ingredient)
+  const [onBurger, setOnBurger] = useState([])
+
+
+  const addIngredient = (ingredient) => {
+    console.log('before add:', onBurger )
+    setOnBurger(prevOnBurger => {
+      return [ingredient, ...prevOnBurger]
     })
   }
 
-  clearIngredient = () => {
-    this.setState({ onBurger : []})
+  const clearIngredient = () => {
+    setOnBurger([])
     
   }
 
-  removeLastIngredient = () => {
-    this.setState((state, props) => {
-      return this.onBurger = state.onBurger.shift()
+  const removeLastIngredient = () => {
+    console.log(onBurger)
+    setOnBurger(prevOnBurger => {
+      const arr = prevOnBurger.slice()
+      arr.shift()
+      return arr
     })
   }
 
-  render() {
-    return (
-      <main>
-        <IngredientList ingredients={Ingredients} addIngredient={this.addIngredient} />
-        <BurgerPane ingredients={this.state.onBurger} clearIngredient = {this.clearIngredient} removeLastIngredient = {this.removeLastIngredient}/>
 
-      </main>
-    )
-  }
+  return (
+    <main>
+      <IngredientList ingredients={Ingredients} addIngredient={addIngredient} />
+      <BurgerPane ingredients={onBurger} clearIngredient = {clearIngredient} removeLastIngredient = {removeLastIngredient}/>
+
+    </main>
+  )
+  
 }
 
 

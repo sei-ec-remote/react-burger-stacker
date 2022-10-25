@@ -1,18 +1,17 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class BurgerIngredients extends Component {
+const BurgerIngredients = (props) => {
 
 
-    render() {
-        const burger = this.props.ingredients.map((ingredient, ind) => (
-            <div className='burger' key={ind} style={{backgroundColor: ingredient.color}}>{ingredient.name}</div>
-        ))
-        return (
-            <>
-                {burger}
-            </>
-        )
-    }
+    const burger = props.ingredients.map((ingredient, ind) => (
+        <div className='burger' key={ind} style={{backgroundColor: ingredient.color}}>{ingredient.name}</div>
+    ))
+    return (
+        <>
+            {burger}
+        </>
+    )
+    
 }
 
 export default BurgerIngredients
