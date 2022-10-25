@@ -1,77 +1,28 @@
-/* .App {
+* {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  margin: 15px
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-.burgerMaker {
+.panes {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.ingredient-List {
+.pane {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  justify-content: space-between;
+  margin: 1em .3em;
+  padding: 0 2em;
+  width: 45%;
   border: 2px solid black;
-  margin: 0, 3em;
-  margin-left: 5px;
-  padding: 0, 3em;
-}
-.builder {
-  display: flex;
-
-}
-.clearButton {
-  position: absolute;
-  bottom: 65%;
-  width: 150px;
-  height: 30px;
-  right: 20%;
-  border-radius: 40%;
-  font-size: 18px; 
-  padding: 5px;
-}
-.stackArea{
-  position: absolute;
-  bottom: 66%;
-  /* width: 50%; */
-  height: 30px;
-  right: 20%;
-
+  border-radius: 10px;
 }

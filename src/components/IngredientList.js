@@ -1,28 +1,39 @@
-import React,{ Component } from "react"
+// loops over ingredients from props and displays one Ingredient component per item
+import React, { useState } from 'react'
 import Ingredient from './Ingredient'
 
-class IngredientList extends Component {
-    // state = {
-    //     ingredientsToDisplay: this.props.ingredients
-    // }
-    render(){
-        let allItems = this.props.ingredients.map((ingredient, index) =>{
-            return <Ingredient ingredient ={ingredient} key={index} addItem={this.props.addItem} isBurger={false}/>
+ const IngredientList = (props) => {
+    
+    let allIngredients = () => {
+        
+        props.ingredients.map((ing, i) => {
+            return(
+        <li key={i}>{ing.name}
+            <Ingredient
+                itemKey={i}
+                ingredient={ing}
+                clickFunc={props.add}
+            />
+        </li>
+            )
         })
-       
-        return (
-            <>
-            <section>
-                <div className = 'ingredient-List'>
-                    {allItems}
-                    {/* <Ingredient ingredients={this.state.ingredientsToDisplay}/> */}
-                 </div>
-            </section>
-            </>
-        )
+        
     }
+    
+    // const allIngredients = 
+    // props.ingredients.map((ing, i) =>{
+    //     return <Ingredient ingredients={ing} key={i} clickFunc ={props.add}/>
+    // })
+    
+    return (
+        <section className='pane'>
+            <h3>Ingredients List</h3>
+            <ul>
+                {allIngredients}
+                
+            </ul>
+        </section>
+    )
+    
 }
-
-// const IngredientItems = this.props.Ingredients.map(ingredient => <li key ={ingredient}>{ingredient}</li>)
-
 export default IngredientList

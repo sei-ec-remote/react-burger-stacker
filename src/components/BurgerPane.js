@@ -1,38 +1,31 @@
-import React,{ Component } from "react"
-import IngredientList from './IngredientList'
-import BurgerStack from "./BurgerStack"
-import Ingredient from "./Ingredient"
+// this is where we're going to display the burger that we are stacking
+// items clicked in the ingredient list will be added to this component
+import React, { useState} from 'react'
+// since burger pane needs to display ingredient components, we'll import those as well
+import Ingredient from './Ingredient'
 
-class BurgerPane extends Component {
-    state = {
-        burgerItems: []
+ const BurgerPane = (props) => {
+    console.log(props.ingredients, 'burgerpane')
+    let burgerBits = ()=> {
+        props.ingredients.map((ing, i) => (
+        <li key={i}>
+            <Ingredient
+                itemKey={i}
+                ingredient={ing}
+                clickFunc={props.remove}
+            />
+        </li>
+        ))
     }
+    return (
+        <section className='pane'>
+            <h3>Burger Pane</h3>
+            <ul>
+                { burgerBits }
+            </ul>
+            <button onClick={props.clear}>Clear Burger</button>
+        </section>
+    )
     
-    addItem =(item) => {
-        let newItems = [...this.state.burgerItems,item]
-        this.setState(
-            {burgerItems: newItems}
-        )
-    }
-    removeItems =() => {
-        this.setState(
-            {burgerItems: []}
-        )
-    }  
-    render(){
-        return(
-            <>
-            <div className = 'builder'>
-                <IngredientList ingredients={this.props.ingredients}
-                addItem={this.additem}/>
-                <h3 className='stackArea'>Burger Stacking Area</h3>
-                <button className = 'clearButton'onClick={this.removeItems}>Clear </button>
-                <BurgerStack burgerItems={this.state.burgerItems}/>
-            </div>
-            </>
-        )
-    }
 }
-
 export default BurgerPane
-
