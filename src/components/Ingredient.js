@@ -1,5 +1,5 @@
 // this displays an individual ingredient
-import React, { useState} from 'react'
+import React from 'react'
 
 // this component recieves ONE ingredient as a prop and displays said ingredient
 const Ingredient = (props) => {

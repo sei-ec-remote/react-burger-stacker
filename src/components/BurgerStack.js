@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-const  BurgerStack = () => {
-    const ingredients = 
+const  BurgerStack = (props) => {
+    const [ingredients, setIngredients] = useState ( 
         [
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
@@ -20,13 +20,13 @@ const  BurgerStack = () => {
             {name: 'Cheese', color: 'gold'}
             
         ]
-    
+    )
      
     // const [ingredients, setIngredients] = useState 
     // (ingredientsA)
     // ({ name: '', color: '' })
     const [burgerIngredients, setBurgerIngredients] = useState([])
-        console.log('these are the ingredient', ingredients)
+        // console.log('these are the ingredient', ingredients)
     // this function adds items to the burgerIngredients array, which allows burgerPane to render them
     const addToStack = (e) => {
         const ingName = e.target.innerText
