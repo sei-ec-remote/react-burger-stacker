@@ -1,11 +1,10 @@
-    import React, { Component, useState } from "react"
-    import IngredientList from "./IngredientList"
+    import React, { useState } from "react"
     import BurgerPane from "./BurgerPane"
+    import IngredientList from './IngredientList'
 
     const BurgerStacker = (props) =>  {
-    
-            
-           const ingredientsList = [
+     
+           const ingredientList = [
                 {name: 'Kaiser Bun', color: 'saddlebrown'},
                 {name: 'Sesame Bun', color: 'sandybrown'},
                 {name: 'Gluten Free Bun', color: 'peru'},
@@ -20,18 +19,31 @@
                 {name: 'Onion', color: 'lightyellow'}
         ]
 
-        }
+        
         // this function adds items to the burgerIngredients array, which allows burgerPane to render them
 
 
-       const [ingredients, setIngredients] = useState(ingredientsList)
+       const [ingredients] = useState(ingredientList)
        const[burgerIngredients, setburgerIngredients] = useState([])
 
 
         // this function will clear the burgerPane, passed as a propb
 
+        const addToStack = (e) => {
+            const ingName = e.target.innerText
+            const ingColor = e.target.backgroundColor
+        setburgerIngredients([
+            {name:ingName, color: ingColor},
+            ...burgerIngredients
+        ])
+        }
+
+
+
         const clearBurger = () => {
-            setburgerIngredients([])
+            setburgerIngredients({
+                burgerIngredients:[]
+            })
         }
 
 
@@ -42,21 +54,23 @@
         
 
         const currBurger = burgerIngredients.slice()
-        currBuger.splice(clickIndex, 1)
+        currBurger.splice(clickIndex, 1)
 
-        }
-        setburgerIngredients(currBuger)
-
+        
+        setburgerIngredients({
+            burgerIngredients: currBurger 
+        })
+    }
             return (
                 <div>
                 <h1>Burger Stacker</h1>
                 <div className='panes'>
                 <IngredientList
-                            ingredients={state.ingredients}
+                            ingredients={ingredients}
                             add={addToStack}
                             />
                         <BurgerPane
-                            ingredients={state.burgerIngredients}
+                            ingredients={burgerIngredients}
                             remove={removeFromStack}
                             clear={clearBurger}
                         />
@@ -65,4 +79,5 @@
                 
 
             )
+     }
             export default BurgerStacker

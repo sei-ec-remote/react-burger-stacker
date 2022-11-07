@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React from "react"
 
-const ingredient = (props) => {
+const Ingredient = (props) => {
 
     const { name, color } = props.ingredient
        
@@ -13,3 +13,5 @@ const ingredient = (props) => {
                 {name}
             </p>
      ) }
+
+export default Ingredient
