@@ -6,10 +6,6 @@ class IngrediantContainer extends Component {
     render() {
         let myList = this.props.list.map((item, index) => {
             
-            // console.log(item.name)
-            // console.log(item.color)
-            // console.log(index)
-
             return <IngrediantItem name={item.name} color={item.color} key={index} index={index}/>
         })
         return(
