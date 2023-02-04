@@ -36,12 +36,19 @@ class App extends Component {
     // add the removed ingredient to the burger array
   }
   
+  handleClear = (e) => {
+    e.preventDefault()
+    this.setState({
+      burger: []
+    })
+  }
+
   render() {
     return (
-      <>
-        <BurgerPane burger={this.state.burger} />
-        <IngredientList ingredients={this.state.ingredientArray} onClick={this.handleClick} />
-      </>
+        <div className='container'>
+          <BurgerPane burger={this.state.burger} onClick={this.handleClear} />
+          <IngredientList ingredients={this.state.ingredientArray} onClick={this.handleClick} />
+        </div>
     )
   }
 }

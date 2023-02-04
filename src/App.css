@@ -1,6 +1,7 @@
 body {
   background-color: black;
   color: white;
+  text-align: center;
 }
 
 button {
@@ -8,4 +9,14 @@ button {
   border: none;
   width: 150px;
   padding: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+.clear {
+  margin-top: 20px;
 }

@@ -6,7 +6,7 @@ class BurgerPane extends Component {
         return (
             <div>
                 <h1>Burger Pane:</h1>
-                <BurgerStack burger={this.props.burger}  />
+                <BurgerStack burger={this.props.burger} onClick={this.props.onClick}/>
             </div>
         )
     }

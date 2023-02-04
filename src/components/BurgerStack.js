@@ -13,6 +13,7 @@ class BurgerStack extends Component {
         return (
             <div>
                 {burger}
+                <button className='clear' type="submit" onClick={this.props.onClick}>Clear Burger</button>
             </div>
         )
     }
