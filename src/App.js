@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import BurgerContainer from './components/BurgerContainer'
 import IngrediantContainer from './components/IngrediantContainer'
+import { render } from '@testing-library/react';
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
     {name: 'Onion', color: 'lightyellow'}
 
   ]
+
+
 
   return (
     <div className="App">
