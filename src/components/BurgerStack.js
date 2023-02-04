@@ -2,18 +2,36 @@ import React, { Component } from 'react'
 
 class BurgerStack extends Component {
     render() {
-        console.log(this.)
         const burgerIngredientItems = this.props.burgerIngredients.map(
             (ingredient, index) => {
-                return <li key={`burger-ingredient-${index}`}>
-                   <img src={ingredient.image} alt={ingredient.name}></img>
-                    </li>
+                if(ingredient.name == 'Top Bun' || ingredient.name == 'Bottom Bun') {
+                    const imgStyle = {
+                        backgroundImage: 'url(' + ingredient.image + ')',
+                        backgroundPosition: 'center',
+                        backgroundSize: '100%',
+                        backgroundRepeat: 'no-repeat',
+                        padding: '5px',
+                        marginTop: '-10px',
+                        marginBottom: '-5px'
+                    }
+                    return <div key={index} className='image-div' alt ={ingredient.name} style={imgStyle}></div>
+                } else {
+                    const imgStyle = {
+                        backgroundImage: 'url(' + ingredient.image + ')',
+                        backgroundPosition: 'center',
+                        backgroundSize: '70%',
+                        backgroundRepeat: 'no-repeat',
+                        padding: '5px',
+                        marginTop: '-10px',
+                        marginBottom: '-5px',
+                    }
+                    return <div key={index} className='image-div' alt ={ingredient.name} style={imgStyle}></div>
+                }
+                
             })
         return (
             <>
-            <ul className="burger-stack">
                 {burgerIngredientItems}
-            </ul>
             </>
         )
     }

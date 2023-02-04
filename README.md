@@ -71,3 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - Top Bun: <a href="https://www.flaticon.com/free-icons/bun" title="bun icons">Bun icons created by DinosoftLabs - Flaticon</a>
 - Bottom Bun: <a href="https://www.flaticon.com/free-icons/food-and-restaurant" title="food and restaurant icons">Food and restaurant icons created by DinosoftLabs - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/food" title="food icons">Food icons created by Freepik - Flaticon</a>
+- Black Bean Patty: <a href="https://www.flaticon.com/free-icons/patty" title="patty icons">Patty icons created by Mihimihi - Flaticon</a>
+- Fried Chicken: <a href="https://www.flaticon.com/free-icons/chicken" title="chicken icons">Chicken icons created by Freepik - Flaticon</a>
+- Chicken Breast: <a href="https://www.flaticon.com/free-icons/chicken-breast" title="chicken breast icons">Chicken breast icons created by surang - Flaticon</a>
+- Tomato slice: <a href="https://www.flaticon.com/free-icons/tomato" title="tomato icons">Tomato icons created by smashingstocks - Flaticon</a>
+- Cheese slice: <a href="https://www.flaticon.com/free-icons/cheese" title="cheese icons">Cheese icons created by Freepik - Flaticon</a>
+- Onion: <a href="https://www.flaticon.com/free-icons/onion" title="onion icons">Onion icons created by Ferdinand - Flaticon</a>

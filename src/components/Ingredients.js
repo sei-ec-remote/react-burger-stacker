@@ -5,16 +5,21 @@ class Ingredients extends Component {
         console.log(this.props.ingredients)
         const ingredientItems = this.props.ingredients.map(
             (ingredient, index) => {
+                const buttonStyle = {
+                    backgroundColor: ingredient.color,
+                    textShadow: '1px 1px 2px white',
+                    borderRadius: '5px',
+                    padding: '2px 10px 2px 10px', 
+                    height: '30px',
+                    width: '150px'
+
+                }
                 return <li key={`ingredient-list-${index}`}>
                     <form>
                         {/* Resource for JSON.stringify recommendation: https://salesforce.stackexchange.com/questions/328075/event-target-value-returning-object-object-instead-of-the-value */}
-                        <button type="submit" value={JSON.stringify(ingredient)} onClick={this.props.onClick}>{ingredient.name}</button>
+                        <button type="submit" value={JSON.stringify(ingredient)} onClick={this.props.onClick} style={buttonStyle}>{ingredient.name}</button>
                     </form>
                 </li>
-                    // <li key={`ingredient-list-${index}`}>
-                    // <button type="submit" onClick={this.props.addIngredient}>{ingredient.name}</button>
-                    // </li>
-                    
             })
         return (
             <>

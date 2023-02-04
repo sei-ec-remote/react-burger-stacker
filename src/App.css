@@ -30,21 +30,26 @@
 
 .main {
     display: grid;
-    grid-template: 1fr / 1fr 1fr;
+    grid-template: 1fr / 1fr .4fr;
+    column-gap: 0;
+    margin: 0 auto;
+    max-width: 500px;
 }
 .ingredient-list {
     list-style-type: none;
 }
 .ingredient-pane {
-    border: 1px solid black;
-    margin: 0 auto;
     grid-area: 1 / 1 / 2 / 2;
 }
-.burger-list {
-    list-style-type: none;
-}
 .burger-pane {
-    border: 1px solid black;
-    margin: 0 auto;
     grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+}
+.image-div {
+    height: 60px;
+    width: 120px;
+}
+.clear-button {
+    margin-bottom: 10px;
 }

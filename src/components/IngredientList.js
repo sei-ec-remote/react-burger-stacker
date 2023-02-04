@@ -7,6 +7,7 @@ class IngredientList extends Component {
         return (
             <>
                 <div className='ingredient-pane'>
+                    <h3>Ingredients</h3>
                     <Ingredients ingredients={this.props.ingredients} onClick={this.props.onClick}/>
                 </div>
             </>
