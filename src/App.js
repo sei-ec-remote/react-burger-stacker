@@ -1,24 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import BurgerContainer from './components/BurgerContainer'
+import IngrediantContainer from './components/IngrediantContainer'
 
 function App() {
+
+  const list = [
+
+    {name: 'Kaiser Bun', color: 'saddlebrown'},
+    {name: 'Sesame Bun', color: 'sandybrown'},
+    {name: 'Gluten Free Bun', color: 'peru'},
+    {name: 'Lettuce Wrap', color: 'olivedrab'},
+    {name: 'Beef Patty', color: '#3F250B'},
+    {name: 'Soy Patty', color: '#3F250B'},
+    {name: 'Black Bean Patty', color: '#3F250B'},
+    {name: 'Chicken Patty', color: 'burlywood'},
+    {name: 'Lettuce', color: 'lawngreen'},
+    {name: 'Tomato', color: 'tomato'},
+    {name: 'Bacon', color: 'maroon'},
+    {name: 'Onion', color: 'lightyellow'}
+
+  ]
+
   return (
     <div className="App">
-      <div className="container">
-        <h2>Ingrediants</h2>
-        <ul>
-          <li><span className="ingrediantName">Item Name</span><div className="button">Add</div></li>
-        </ul>
-      </div>
-      <div className="container">
-        <h2>Burger Stack</h2>
-        <div className="burgerStackArea">
-          <div className="burgerIngrediant">
-              <p>Ingrediant Name</p>
-          </div>
-        </div>
-        <div className="button clear">Clear Stack</div>
-      </div>
+      <IngrediantContainer list={list}/>
+      <BurgerContainer />
     </div>
   );
 }
