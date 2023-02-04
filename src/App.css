@@ -28,11 +28,23 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+}
+.ingredient-list {
+    list-style-type: none;
+}
+.ingredient-pane {
+    border: 1px solid black;
+    margin: 0 auto;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.burger-list {
+    list-style-type: none;
+}
+.burger-pane {
+    border: 1px solid black;
+    margin: 0 auto;
+    grid-area: 1 / 2 / 2 / 3;
 }

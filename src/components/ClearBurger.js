@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class IngredientList extends Component {
+class ClearBurger extends Component {
     render() {
         return (
             <>
@@ -9,4 +9,4 @@ class IngredientList extends Component {
     }
 }
 
-export default IngredientList
+export default ClearBurger
