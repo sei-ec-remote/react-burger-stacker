@@ -6,7 +6,8 @@ class IngredientList extends Component {
     render () {
         return (
             <div>
-                <p>Ingredient List</p>
+                <h2>Ingredients</h2>
+                <Ingredient ingredients={this.props.ingredients}/>
             </div>
         )
     }

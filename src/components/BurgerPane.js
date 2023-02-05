@@ -4,7 +4,7 @@ class BurgerPane extends Component {
     render () {
         return (
             <div>
-                <p>Burger Pane</p>
+                <h2>Burger Pane</h2>
             </div>
         )
     }
