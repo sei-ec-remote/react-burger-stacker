@@ -7,7 +7,26 @@
 }
 
 .burger-stacker__ingredient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: hsl(0 0% 50%);
     text-shadow: 0px 0px 1px hsl(0 0% 0%);
+}
+
+.burger-stacker__remove {
+    width: 2rem;
+    font-size: 1.5rem;
+    aspect-ratio: 1;
+    margin-inline-start: 1rem;
+    margin-block: 0.25rem;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.burger-stacker__ingredient:not(:first-child) .burger-stacker__remove {
+    visibility: hidden;
 }

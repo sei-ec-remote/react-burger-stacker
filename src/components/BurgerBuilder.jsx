@@ -30,7 +30,15 @@ const BurgerBuilder = () => {
         setIngredientStack([JSON.parse(e.target.value), ...ingredientStack])
     }
 
-    console.log(ingredientStack)
+    const handleRemove = e => {
+        // console.log('e.target: ', e)
+        e.preventDefault()
+        const removeFirst = ingredientStack.slice(1)
+        console.log(removeFirst)
+        setIngredientStack([...removeFirst])
+    }
+
+    // console.log(ingredientStack)
     return (
         <div className='burger-builder'>
             <ul className='ingredient-list-constainer'>
@@ -39,7 +47,10 @@ const BurgerBuilder = () => {
                     handleClick={handleClick}
                 />
             </ul>
-            <BurgerStacker ingredientStack={ingredientStack} />
+            <BurgerStacker
+                ingredientStack={ingredientStack}
+                handleRemove={handleRemove}
+            />
         </div>
     )
 }

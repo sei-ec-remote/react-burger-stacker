@@ -1,16 +1,22 @@
 import './BurgerStacker.css'
 
-const BurgerStacker = ({ ingredientStack }) => {
+const BurgerStacker = ({ ingredientStack, handleRemove }) => {
     return (
         <div className='burger-stacker'>
             {ingredientStack.map(ing => {
                 return (
-                    <h3
+                    <div
                         className='burger-stacker__ingredient'
                         style={{ backgroundColor: `${ing.color}` }}
                     >
-                        {ing.name}
-                    </h3>
+                        <h3>{ing.name}</h3>
+                        <button
+                            className='burger-stacker__remove'
+                            onClick={handleRemove}
+                        >
+                            -
+                        </button>
+                    </div>
                 )
             })}
         </div>
