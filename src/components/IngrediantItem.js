@@ -10,15 +10,14 @@ class IngrediantItem extends Component {
 
         let newBurgerStack;
 
-        this.setState((prevState, props) => {
+        this.setState((state, props) => {
             let newBurgerStack;
 
-            newBurgerStack = [...prevState.burgerStack, this.props.name]
+            newBurgerStack = [...state.burgerStack, this.props.name]
+
             return {
                 burgerStack: newBurgerStack
                 
-                // burgerStack: newBurgerStack.push(this.props.name)
-                // burgerStack
             }
         }, () => console.log('inside setState', this.state))
         
@@ -29,6 +28,7 @@ class IngrediantItem extends Component {
         
         return (
             <li className="ingredientItem" key={this.props.index}>
+                <span>{this.props.myState}</span>
                 <span className="ingrediantName">{this.props.name}</span>
                 {/* <span className="ingrediantName">{this.props.color}</span> */}
                 <button className="button" id={this.props.index} onClick={this.addToStack}>Add</button>
