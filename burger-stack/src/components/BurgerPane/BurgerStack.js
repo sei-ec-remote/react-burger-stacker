@@ -1,13 +1,20 @@
-import {useState} from 'react'
-import Ingredients from '../IngredientsList/Ingredients'
-
-function BurgerStack () {
-    const [stack, setStack] = useState([ {name: 'Kaiser Bun', color: 'saddlebrown'},
-    {name: 'Sesame Bun', color: 'sandybrown'}])
+function BurgerStack ({value, click}) {
+    console.log(value)
+    const burgerStack = value.map(item => {
+        return (
+            <li style={{backgroundColor:`${item.color}`}}>
+                {item.name}
+            </li>
+        )
+    })
     return (
         <>
-        {stack.map((item, idx) =><p>{item.name}</p>)}
+            <ul>
+                {burgerStack}
+            </ul>
+            <button onClick={click} >Clear</button>
         </>
+      
     )
 }
 export default BurgerStack

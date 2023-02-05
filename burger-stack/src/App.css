@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.ingredients-list{
+  display: inline-block;
+  margin-right: 100px;
+}
+
+.burger-stack {
+  display: inline-block;
+}

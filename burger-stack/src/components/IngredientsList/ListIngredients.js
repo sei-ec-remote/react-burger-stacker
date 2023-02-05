@@ -1,16 +1,14 @@
-import AddStack from "../BurgerPane/AddStack"
-
-
+import  './ListIngredients.css'
 function ListIngredients ({ingredients, click}) {
         return (
             <>
+            <ul>
             {ingredients.map((item, idx) =>  
                 <>
-                <p>{item.name}</p>
-                <button value={item.name} onClick={click}>Add</button>
-                {console.log(idx)}
+                <li onClick={click} style={{backgroundColor: `${item.color}`}} >{item.name}</li>
                 </>
                 )}
+            </ul>
             </>
            )
 }
