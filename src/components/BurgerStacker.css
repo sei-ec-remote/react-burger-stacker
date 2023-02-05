@@ -1,0 +1,13 @@
+.burger-stacker {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.burger-stacker__ingredient {
+    text-align: center;
+    color: hsl(0 0% 50%);
+    text-shadow: 0px 0px 1px hsl(0 0% 0%);
+}

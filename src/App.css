@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+}
+
+.app {
+    width: min(640px, 97%);
+    margin-block-start: 3rem;
+    margin-inline: auto;
+}
