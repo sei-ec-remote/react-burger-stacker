@@ -9,7 +9,7 @@ class BurgerPane extends Component{
           </li>
     ))
             return(
-                <section className="column">
+                <div className="column">
                     <h3>Burger Pane</h3>
                     <ul>
                         { burgerIngredients }
@@ -17,7 +17,7 @@ class BurgerPane extends Component{
                     <div className="pan"></div>
                     <p>Burger Stacking Area</p>
                     <button onClick={this.props.clear}>Clear </button>
-                </section>
+                </div>
             )
 }
 }

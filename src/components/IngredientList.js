@@ -10,13 +10,13 @@ class IngredientList extends Component {
       </li>
     ))
     return (
-      <section className="column">
+      <div className="column">
 
         <h3> Ingredient List</h3>
         <ul>
           {Ingredients}
         </ul>
-      </section>
+      </div>
     )
 
   }
