@@ -1,24 +1,24 @@
-import React, { Component } from "react"
+import React, {useState} from "react";
 
-class IngredientList extends Component {
-  render() {
-    let Ingredients = this.props.Ingredients.map(ing => (
+const IngredientList = (props) => {
+  
+    let Ingredients = props.Ingredients.map(ing => (
       <li >
-        <p className="ingredient" style={{backgroundColor: ing.color}} onClick={this.props.add}> 
+        <p className="ingredient" style={{backgroundColor: ing.color}} onClick={props.add}> 
             {ing.name} 
             </p>
       </li>
     ))
     return (
-      <section className="column">
+      <div className="column">
 
         <h3> Ingredient List</h3>
         <ul>
           {Ingredients}
         </ul>
-      </section>
+      </div>
     )
 
   }
-}
+
 export default IngredientList
