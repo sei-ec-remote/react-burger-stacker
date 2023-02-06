@@ -7,3 +7,22 @@ h1 {
     margin-block-start: 3rem;
     margin-inline: auto;
 }
+
+.btn {
+    width: fit-content;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem auto;
+    padding: 0.5rem 0.75rem;
+    color: bisque;
+    background-color: hsl(0 0% 25%);
+    border-radius: 0.5rem;
+    transition: background-color 180ms ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: hsl(0 0% 33%);
+    transition: background-color 180ms ease;
+}
