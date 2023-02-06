@@ -1,40 +1,50 @@
 * {
   text-align: center;
-  background-color: lightBlue;
+}
+.ingredient{
+  border-width: 2px ;
+  border-style: solid;
+  font-weight: 600;
 }
 
-.pane{
+.burger{
+  height: 15px;
+  width: 70%;
+  margin-top: 0;
+  margin-bottom: 1px;
+  border: 1px solid black;
+}
+
+.container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 2px solid black;
   border-radius: 10px;
-  padding: 5px;
-  margin: 1em .3em;
+  margin: 5px;
   width: 49%;
+  background-color: lightgray;
 }
-
-.panes{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
+button{
+  margin: 15px;
+  height: 40px;
+  width: 20%;
+  border-radius: 50px;
+  margin: 5px auto;
 }
 
 ul{
   list-style: none;
 }
 
-button{
-  margin: 15px;
-  height: 40px;
-  width: 20%;
-  align-self: center;
-  background-color: bisque;
-  border-radius: 10px;
-}
 
 p{
-  color: blue;
-  font-size: 15px;
   padding: 5px;
+  border-radius: 5px
 }
