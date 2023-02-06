@@ -2,6 +2,12 @@ import { Component } from "react";
 import BurgerIngrediant from './BurgerIngrediant'
 
 class BurgerContainer extends Component {
+
+    clearStack = () => {
+        this.setState({
+            burgerStack: []
+        }, () => console.log('inside setState', this.state))
+    }
     
     render() {
         let myStackList = this.props.data.burgerStack.map((item, index) => {
@@ -12,11 +18,11 @@ class BurgerContainer extends Component {
             <div className="container">
                 <h2>Burger Stack</h2>
                 <div className="burgerStackArea">
-                    <span>{this.props.data.myState}</span>
+                    <span>My State: {this.props.data.myState}</span><br></br>
                     <span>Burger Stack: {this.props.data.burgerStack}</span>
                     { myStackList }
                 </div>
-                <div className="button clear">Clear Stack</div>
+                <div className="button clear" onClick={this.clearStack}>Clear Stack</div>
             </div>
         )
     }
