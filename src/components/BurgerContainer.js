@@ -1,18 +1,25 @@
 import { Component } from "react";
-import BurgerIngrediant from './BurgerIngrediant'
+import BurgerIngrediant from './BurgerIngrediant' 
+
+import IngrediantItem from "./IngrediantItem";
 
 class BurgerContainer extends Component {
 
-    clearStack = () => {
-        this.setState({
-            burgerStack: []
-        }, () => console.log('inside setState', this.state))
-    }
+    // needs to be at the parent level
+
+    // clearStack = () => {
+    //     this.setState({
+    //         burgerStack: []
+    //     }, () => console.log('inside setState', this.state))
+    // }
     
     render() {
-        let myStackList = this.props.data.burgerStack.map((item, index) => {
+        let myStackList = this.props.ingrediants.map((ing, i) => {
             
-            return <BurgerIngrediant item={item} onClick={this.handleClick} key={index} />
+            return <BurgerIngrediant 
+                        ingrediant={ing} 
+                        onClick={this.props.removeFromStack} 
+                        key={i} />
         })
         return(
             <div className="container">
@@ -21,6 +28,7 @@ class BurgerContainer extends Component {
                     { myStackList }
                 </div>
                 <div className="button clear" onClick={this.clearStack}>Clear Stack</div>
+                <button onClick={this.clearBurger}></button>
             </div>
         )
     }
