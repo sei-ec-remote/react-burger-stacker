@@ -25,7 +25,7 @@ class App extends Component {
         // Reformat to JSON
         const selectedIngredient = JSON.parse(e.target.value)
         this.setState({
-            burgerIngredients: [...this.state.burgerIngredients, selectedIngredient]
+            burgerIngredients: [selectedIngredient, ...this.state.burgerIngredients]
         })
     }
     handleClear = (e) => {
