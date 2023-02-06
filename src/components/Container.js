@@ -6,6 +6,11 @@ import IngrediantContainer from './IngrediantContainer'
 
 class Container extends Component {
     
+    state = {
+        myState: 'This is my current state',
+
+        burgerStack: ['item', 'item2']
+    } 
 
     render () {
 
@@ -27,9 +32,9 @@ class Container extends Component {
         ]
 
         return (
-            <>
-                <IngrediantContainer list={list}/>
-                <BurgerContainer /> 
+            <> 
+                <IngrediantContainer data={this.state} list={list}/>
+                <BurgerContainer data={this.state} /> 
             </>
         )
     }

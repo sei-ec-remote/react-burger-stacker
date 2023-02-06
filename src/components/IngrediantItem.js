@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
 
 class IngrediantItem extends Component {
-    state = {
-        burgerStack: []
-    }
 
-    addToStack = () => {
-        console.log('adding to stack...')
+    addToStack = (props) => {
+        let joined;
 
-        let newBurgerStack;
+        console.log('adding to stack...', this.props)
 
-        this.setState((state, props) => {
-            let newBurgerStack;
+        this.setState({
 
-            newBurgerStack = [...state.burgerStack, this.props.name]
+            // myState: "Here's the new state",
 
-            return {
-                burgerStack: newBurgerStack
-                
-            }
+            // joined : this.state.burgerStack.concat('new value'),
+
+            // burgerStack: joined,
+
         }, () => console.log('inside setState', this.state))
+
+        // this.setState((state, props) => {
+        //     let newBurgerStack;
+
+        //     newBurgerStack = [...state.burgerStack, this.state.name]
+
+        //     return {
+        //         burgerStack: newBurgerStack
+                
+        //     }
+        // }, () => console.log('inside setState', this.state))
         
-        console.log(this.state.burgerStack)
+        // console.log(this.props.burgerStack)
     }
     
     render() {
         
         return (
             <li className="ingredientItem" key={this.props.index}>
-                <span>{this.props.myState}</span>
                 <span className="ingrediantName">{this.props.name}</span>
                 {/* <span className="ingrediantName">{this.props.color}</span> */}
                 <button className="button" id={this.props.index} onClick={this.addToStack}>Add</button>

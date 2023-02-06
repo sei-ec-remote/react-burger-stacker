@@ -6,7 +6,12 @@ class BurgerIngrediant extends Component {
         return (
             <>
                 <div className="burgerIngrediant">
-                    {/* <p>{this.props.name}</p> */}
+                    <li className="ingredientItem" key={this.props.index}>
+                        <span className="ingrediantName">{this.props.item}</span>
+                        {/* <span className="ingrediantName">{this.props}</span> */}
+                        {/* <span className="ingrediantName">{this.props.color}</span> */}
+                        {/* <button className="button" id={this.props.index} onClick={this.addToStack}>Add</button> */}
+                    </li>
                 </div>
             </>
         )
