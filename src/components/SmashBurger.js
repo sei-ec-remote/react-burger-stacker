@@ -5,8 +5,8 @@ class SmashBurger extends Component {
         return (
             <>
                 <span>  
-                    <button className="clear-button" id="up" type="Submit" onClick={this.props.onClick}>Up</button>
-                    <button className="clear-button" id="down" type="Submit" onClick={this.props.onClick}>Down</button>
+                    <button className="clear-button" id="up" type="Submit" onClick={this.props.onClick}>Smash</button>
+                    <button className="clear-button" id="down" type="Submit" onClick={this.props.onClick}>Unsmash</button>
                 </span>
             </>
         )

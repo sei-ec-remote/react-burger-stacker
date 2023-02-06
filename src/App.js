@@ -39,11 +39,15 @@ class App extends Component {
     handleSmash = (e) => {
         console.log('smash', this.state.smash)
         e.preventDefault()
-        if (e.target.id === 'up') {
-            this.setState({smash: this.state.smash -= 5})
-        } else {
-            this.setState({smash: this.state.smash += 5})
-        }
+            if (e.target.id === 'up') {
+                if (this.state.smash > -45) {
+                    this.setState({smash: this.state.smash -= 5})
+                }
+            } else {
+                if (this.state.smash < 20){
+                    this.setState({smash: this.state.smash += 5})
+                }
+            }
     }
     render() {
     return (

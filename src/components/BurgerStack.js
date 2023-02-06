@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 class BurgerStack extends Component {
     render() {
         console.log('margin', this.props.smash)
+        let z = 9999
         const burgerIngredientItems = this.props.burgerIngredients.map(
             (ingredient, index) => {
                 if(ingredient.name === 'Top Bun' || ingredient.name === 'Bottom Bun') {
@@ -14,8 +15,9 @@ class BurgerStack extends Component {
                         backgroundSize: '100%',
                         backgroundRepeat: 'no-repeat',
                         padding: '5px',
-                        marginTop: this.props.smash + 'px',
-                        marginBottom: '-5px'
+                        marginBottom: this.props.smash + 'px',
+                        marginTop: '-5px', 
+                        zIndex: '10000'
                     }
                     return <div key={index} className='image-div' alt ={ingredient.name} style={imgStyle}></div>
                 } else {
@@ -25,8 +27,9 @@ class BurgerStack extends Component {
                         backgroundSize: '70%',
                         backgroundRepeat: 'no-repeat',
                         padding: '5px',
-                        marginTop: this.props.smash + 'px',
-                        marginBottom: '-5px',
+                        marginBottom: this.props.smash + 'px',
+                        marginTop: '-5px',
+                        zIndex:  z--
                     }
                     return <div key={index} className='image-div' alt ={ingredient.name} style={imgStyle}></div>
                 }
