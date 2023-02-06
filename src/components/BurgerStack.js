@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-import Ingredient from './Ingredient'
 
 
 class BurgerStack extends Component {
     render () {
+        const burger = this.props.burger.map((item, index) => {
+            return (
+                <div className='burger' key={index}>
+                    <div style={{backgroundColor: `${item.color}`}}>{item.name}</div>
+                </div>
+            )
+        })
         return (
             <div>
-                <p>Burger Stack</p>
+                {burger}
             </div>
         )
     }
 }
-
 
 export default BurgerStack

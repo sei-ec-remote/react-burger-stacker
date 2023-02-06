@@ -6,7 +6,7 @@ class Ingredient extends Component {
         const ingredients = this.props.ingredients.map((item, index) => {
             return (
                 <form key={index}>
-                    <button type="submit" value={JSON.stringify(item)}>{item.name}</button>
+                    <button type="submit" value={JSON.stringify(item)} onClick={this.props.onClick}>{item.name}</button>
                 </form>
             )
         })

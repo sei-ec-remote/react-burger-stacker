@@ -20,13 +20,25 @@ class App extends Component {
             {name: 'Onion', color: 'lightyellow'}
             ], 
         burger: []  
-    }
+}
+
+    handleClick = (e) => {
+        e.preventDefault()
+        const clickedIngredient = JSON.parse(e.target.value)
+        this.setState({
+            burger: [...this.state.burger, clickedIngredient]
+    })
+}
 
     render() {
         return (
-            <div className="burgerStack">
-                <IngredientList ingredients={this.state.possibleIngredients} />
-                <BurgerPane burger={this.state.burger}/>
+            <div className="container">
+                <div className="ing">
+                    <IngredientList ingredients={this.state.possibleIngredients} onClick={this.handleClick}/>
+                </div>
+                <div className='bur'>
+                    <BurgerPane burger={this.state.burger}/>
+                </div>
             </div>
         )
     }

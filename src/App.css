@@ -1,19 +1,28 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    display: flex;
+    margin: 50px;
+}
+
+
+.ing {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.bur {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 100px;
+    width: 200px;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 

@@ -6,8 +6,8 @@ class IngredientList extends Component {
     render () {
         return (
             <div>
-                <h2>Ingredients</h2>
-                <Ingredient ingredients={this.props.ingredients}/>
+                <h2>Ingredients:</h2>
+                <Ingredient ingredients={this.props.ingredients} onClick={this.props.onClick}/>
             </div>
         )
     }
