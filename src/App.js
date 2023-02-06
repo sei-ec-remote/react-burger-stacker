@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './App.css'
 import IngredientList from './components/IngredientList'
 import BurgerPane from './components/BurgerPane'
-// import { state, setState } from 'react'
 
 class App extends Component {
     state = {
@@ -18,7 +17,8 @@ class App extends Component {
             {name: 'Chicken Breast', color: '#f4db9a', image: 'https://cdn-icons-png.flaticon.com/512/5572/5572000.png'},
             {name: 'Bottom Bun', color: 'burlywood', image: 'https://cdn-icons-png.flaticon.com/512/4312/4312427.png'}
         ],
-        burgerIngredients: []
+        burgerIngredients: [],
+        smash: -10
     }
     handleClick = (e) => {
         e.preventDefault()
@@ -32,15 +32,26 @@ class App extends Component {
         // add ingredient to the burger ingredients array
         e.preventDefault()
         this.setState({
-            burgerIngredients: []
+            burgerIngredients: [],
+            smash: -10
         })
+    }
+    handleSmash = (e) => {
+        console.log('smash', this.state.smash)
+        e.preventDefault()
+        if (e.target.id === 'up') {
+            this.setState({smash: this.state.smash -= 5})
+        } else {
+            this.setState({smash: this.state.smash += 5})
+        }
     }
     render() {
     return (
         <>
             <span className='main'>
-                <IngredientList ingredients={this.state.ingredients} onClick={this.handleClick} />
-                <BurgerPane burgerIngredients={this.state.burgerIngredients} onClick={this.handleClear}/>
+                <IngredientList ingredients={this.state.ingredients} onClick={this.handleClick} 
+                onClear={this.handleClear} onSmash={this.handleSmash} />
+                <BurgerPane burgerIngredients={this.state.burgerIngredients} smash={this.state.smash} />
             </span>
         </>
     )

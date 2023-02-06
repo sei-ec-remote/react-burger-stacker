@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 class Ingredients extends Component {
     render() {
-        console.log(this.props.ingredients)
         const ingredientItems = this.props.ingredients.map(
             (ingredient, index) => {
                 const buttonStyle = {
