@@ -26,9 +26,23 @@ class App extends Component {
         e.preventDefault()
         const clickedIngredient = JSON.parse(e.target.value)
         this.setState({
-            burger: [...this.state.burger, clickedIngredient]
+            burger: [clickedIngredient, ...this.state.burger]
     })
 }
+
+    clearBurger = () => {
+        this.setState({
+            burger: []
+        })
+    }
+
+    // removeFromStack = (e) => {
+    //     console.log('the original stack', this.state.burger)
+    //     const clickIndex = JSON.parse(e.target.value)
+    //     console.log('the item clicked', clickIndex)
+    //     const currBurger = this.state.burger.slice()
+    //     currBurger.splice(clickIndex, 1)
+    // }
 
     render() {
         return (
@@ -37,7 +51,7 @@ class App extends Component {
                     <IngredientList ingredients={this.state.possibleIngredients} onClick={this.handleClick}/>
                 </div>
                 <div className='bur'>
-                    <BurgerPane burger={this.state.burger}/>
+                    <BurgerPane burger={this.state.burger} clear={this.clearBurger} />
                 </div>
             </div>
         )

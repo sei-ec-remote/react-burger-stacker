@@ -5,11 +5,11 @@ class BurgerPane extends Component {
         return (
             <div>
                 <h2>Burger:</h2>
-                <BurgerStack burger={this.props.burger} />
+                <BurgerStack burger={this.props.burger}/>
+                <button onClick={this.props.clear}>Clear</button>
             </div>
         )
     }
 }
-
 
 export default BurgerPane
