@@ -14,6 +14,8 @@ class BurgerPane extends Component{
                     <ul>
                         { burgerIngredients }
                     </ul>
+                    <div className="pan"></div>
+                    <p>Burger Stacking Area</p>
                     <button onClick={this.props.clear}>Clear </button>
                 </section>
             )
