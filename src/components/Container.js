@@ -1,16 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 import BurgerContainer from './BurgerContainer'
 import IngrediantContainer from './IngrediantContainer'
 
 
 class Container extends Component {
-    
-    state = {
-        myState: 'This is my current state',
 
-        burgerStack: ['item', 'item2']
-    } 
+    constructor(props) {
+        super(props);
+        this.addToStack = this.addToStack.bind(this);
+        this.state = {burgerStack: ['item', 'item2'], myState: 'This is my current state',};
+    }
+    
+    // state = {
+    //     myState: 'This is my current state',
+    //     burgerStack: ['item', 'item2']
+    // } 
+
+    addToStack = () => {
+
+        console.log('adding to stack...', this.props)
+
+    }
+    
 
     render () {
 
@@ -33,7 +45,7 @@ class Container extends Component {
 
         return (
             <> 
-                <IngrediantContainer data={this.state} list={list}/>
+                <IngrediantContainer data={this.state} onClick={this.addToStack} list={list}/>
                 <BurgerContainer data={this.state} /> 
             </>
         )
