@@ -50,7 +50,6 @@ class App extends Component {
         <BurgerPane
           ingredients={this.state.burgerIngredients}
           clear={this.clear}
-          remove={this.removeFromStack}
         />
       </div>
     )
