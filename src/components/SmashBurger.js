@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class SmashBurger extends Component {
-    render() {
-        return (
-            <>
-                <span>  
-                    <button className="clear-button" id="up" type="Submit" onClick={this.props.onClick}>Smash</button>
-                    <button className="clear-button" id="down" type="Submit" onClick={this.props.onClick}>Unsmash</button>
-                </span>
-            </>
-        )
-    }
+function SmashBurger(props) {
+    return (
+        <>
+            <span>  
+                <button className="clear-button" id="up" type="Submit" onClick={props.onClick}>Smash</button>
+                <button className="clear-button" id="down" type="Submit" onClick={props.onClick}>Unsmash</button>
+            </span>
+        </>
+    )
 }
 
 export default SmashBurger

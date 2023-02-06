@@ -1,23 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Ingredients from './Ingredients'
 import ClearBurger from './ClearBurger'
 import SmashBurger from './SmashBurger'
 
-class IngredientList extends Component {
-    render() {
+function IngredientList(props) {
         // Render ingredient lists
-        console.log(this.props.ingredients)
-        return (
-            <>
-                <div className='ingredient-pane'>
-                    <h3>Ingredients</h3>
-                    <Ingredients ingredients={this.props.ingredients} onClick={this.props.onClick}/>
-                    <ClearBurger onClick={this.props.onClear} />
-                    <SmashBurger onClick={this.props.onSmash} />
-                </div>
-            </>
-        )
-    }
+    return (
+        <>
+            <div className='ingredient-pane'>
+                <h3>Ingredients</h3>
+                <Ingredients ingredients={props.ingredients} onClick={props.onClick}/>
+                <ClearBurger onClick={props.onClear} />
+                <SmashBurger onClick={props.onSmash} />
+            </div>
+        </>
+    )
 }
+
 
 export default IngredientList
