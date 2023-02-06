@@ -78,3 +78,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Tomato slice: <a href="https://www.flaticon.com/free-icons/tomato" title="tomato icons">Tomato icons created by smashingstocks - Flaticon</a>
 - Cheese slice: <a href="https://www.flaticon.com/free-icons/cheese" title="cheese icons">Cheese icons created by Freepik - Flaticon</a>
 - Onion: <a href="https://www.flaticon.com/free-icons/onion" title="onion icons">Onion icons created by Ferdinand - Flaticon</a>
+- Bacon: https://en.wikipedia.org/wiki/Bacon 

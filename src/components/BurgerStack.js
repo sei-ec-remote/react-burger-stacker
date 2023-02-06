@@ -4,7 +4,9 @@ class BurgerStack extends Component {
     render() {
         const burgerIngredientItems = this.props.burgerIngredients.map(
             (ingredient, index) => {
-                if(ingredient.name == 'Top Bun' || ingredient.name == 'Bottom Bun') {
+                if(ingredient.name === 'Top Bun' || ingredient.name === 'Bottom Bun') {
+                    // Style Top & Bottom bun at 100% due to smaller png proportion
+                    // Styling here seems to override any CSS styling in App.css
                     const imgStyle = {
                         backgroundImage: 'url(' + ingredient.image + ')',
                         backgroundPosition: 'center',

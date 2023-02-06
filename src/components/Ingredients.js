@@ -6,6 +6,7 @@ class Ingredients extends Component {
         const ingredientItems = this.props.ingredients.map(
             (ingredient, index) => {
                 const buttonStyle = {
+                    // Inline button styling
                     backgroundColor: ingredient.color,
                     textShadow: '1px 1px 2px white',
                     borderRadius: '5px',

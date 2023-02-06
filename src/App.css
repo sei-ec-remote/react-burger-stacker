@@ -27,7 +27,9 @@
 .App-link {
   color: #61dafb;
 }
-
+body {
+    background-color: black;
+}
 .main {
     display: grid;
     grid-template: 1fr / 1fr .4fr;
@@ -37,9 +39,11 @@
 }
 .ingredient-list {
     list-style-type: none;
+    color: white;
 }
 .ingredient-pane {
     grid-area: 1 / 1 / 2 / 2;
+    color: white;
 }
 .burger-pane {
     grid-area: 1 / 2 / 2 / 3;
@@ -52,4 +56,6 @@
 }
 .clear-button {
     margin-bottom: 10px;
+    color: #f1dd00;
+    color: #773e33;
 }

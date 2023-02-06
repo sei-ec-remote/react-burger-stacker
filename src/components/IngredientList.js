@@ -3,6 +3,7 @@ import Ingredients from './Ingredients'
 
 class IngredientList extends Component {
     render() {
+        // Render ingredient lists
         console.log(this.props.ingredients)
         return (
             <>
