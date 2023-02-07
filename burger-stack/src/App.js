@@ -1,38 +1,45 @@
 import './App.css';
-import {useState} from 'react'
 import BurgerStack from './components/BurgerPane/BurgerStack';
 import Ingredients from './components/IngredientsList/Ingredients';
 import ListIngredients from './components/IngredientsList/ListIngredients';
+import React, {Component} from "react";
 
+class App extends Component {
+  // const [stack, setStack] = useState([])
+  state = {
+    Ingredients,
+    stack: []
+  }
 
-function App() {
-  const [stack, setStack] = useState([])
-  // const [color, setColor] = useState()
-
-  function handleClick (e) {
+  addStack = (e) => {
     e.preventDefault()
-    const value = e.target.innerText
-    // setColor(e.target.style.backgroundColor)
-    console.log(e.target.style.backgroundColor)
-    setStack([{name: value, color: e.target.style.backgroundColor}, ...stack])
+    const name = e.target.innerText
+    const color = e.target.style.backgroundColor
+    this.setState({
+      stack: [{name: name, color: color}, ...this.state.stack]
+    })
   }
   
-  function clearStack (e) {
-    setStack([])
+  clearStack = () => {
+    this.setState({
+      stack: []
+    })
   }
 
-  return (
-    <>
-      <h1>Build-A-Burger</h1>
-      <div class="ingredients-list">
-        <ListIngredients ingredients={Ingredients} click={handleClick} />
-      
-      </div>
-      <div class="burger-stack">
-        <BurgerStack value={stack} click={clearStack} />
-      </div>
-    </>
-  )
+  render () {
+    return (
+      <>
+        <h1 className='App'>Build-A-Burger</h1>
+        <div className="ingredients-list">
+          <ListIngredients ingredients={this.state.Ingredients} add={this.addStack} />
+        
+        </div>
+        <div className="burger-stack">
+          <BurgerStack stack={this.state.stack} clear={this.clearStack} />
+        </div>
+      </>
+    )
+  }
 }
 
 export default App;
