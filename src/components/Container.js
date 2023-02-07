@@ -7,7 +7,7 @@ import IngrediantContainer from './IngrediantContainer'
 
 const Container = () => {
     
-    const [ingrediants, setIngrediants] = useState([
+    const ingrediants = [
 
         {name: 'Kaiser Bun', color: 'saddlebrown'},
         {name: 'Sesame Bun', color: 'sandybrown'},
@@ -22,9 +22,7 @@ const Container = () => {
         {name: 'Bacon', color: 'maroon'},
         {name: 'Onion', color: 'lightyellow'}
         
-    ]);
-
-    // burgerIngrediants: []
+    ]
 
     const [burgerIngrediants, setBurgerIngrediants] = useState([])
 
@@ -37,32 +35,27 @@ const Container = () => {
 
         console.log(`clicked on ${ingName} and it is ${ingColor}`)
 
-        setBurgerIngrediants({
-            // ...burgerIngrediants,
-            name: ingName, 
-            color: ingColor,
-                       
-        })
+        setBurgerIngrediants(
+            [{name: ingName, color: ingColor}, ...burgerIngrediants]
+        )
 
     }
     
     const clearBurger = () => {
         console.log('clearing burger...')
 
-        this.setState({
-            burgerIngrediants: []
-        })
+        setBurgerIngrediants([])
     }
 
     const removeFromStack = (e) => {
-        console.log('the original stack', this.state.burgerIngrediants)
+        // console.log('the original stack', this.state.burgerIngrediants)
 
         const clickIndex = e.target.ingrediants
 
         console.log('the index of the item clicked', clickIndex)
 
         // get a copy of the current burger array
-        const currBurger = this.state.burgerIngrediants.slice() //makes shallow copy of our array
+        const currBurger = burgerIngrediants.slice() //makes shallow copy of our array
 
         console.log('the current burger copy', currBurger)
 
@@ -73,9 +66,7 @@ const Container = () => {
         console.log('this is the array after the splice', currBurger)
 
         // set the state to update the UI
-        setBurgerIngrediants({
-            burgerIngrediants: currBurger
-        })
+        setBurgerIngrediants(currBurger)
 
     }
 

@@ -6,9 +6,7 @@ import IngrediantItem from "./IngrediantItem";
 const BurgerContainer = (props) => {
 
     // for our app, functions changing state needs to be at the parent level
-    console.log(props.ingrediants)
-    console.log(typeof(props.ingrediants))
-    
+
     let myStackList = props.ingrediants.map((ing, i) => (
         
             <BurgerIngrediant 
@@ -24,7 +22,7 @@ const BurgerContainer = (props) => {
         <div className="container">
             <h2>Burger Stack</h2>
             <div className="burgerStackArea">
-                {/* { myStackList } */}
+                { myStackList }
             </div>
             <button className="button clear" onClick={props.clear}>Clear Burger</button>
         </div>
