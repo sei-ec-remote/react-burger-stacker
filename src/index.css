@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.burger-pane {
+  display: flex;
+  justify-content: space-around;
+  margin: 1em .3 em;
+  padding: 0 2em;
+
+}
+
+.ingredient-div{
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 1em .3 em;
+  padding: 2em 2em;
+}
+
+ul {
+  list-style: none;
+}
+
+.burger-div {
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 1em .3 em;
+  padding: 0 2em;
+  
+}
+
+
+button {
+  font-weight: bold;
+  width: 100%;
+}
