@@ -56,6 +56,9 @@ li {
   align-items: center;
   border: 1px solid black;
   margin: 0.5rem;
+
+}
+li span {
   padding: 0.5rem;
 }
 li:hover {

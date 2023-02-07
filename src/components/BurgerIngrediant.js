@@ -11,6 +11,7 @@ class BurgerIngrediant extends Component {
                         className="ingredientItem" 
                         key={this.props.index} 
                         onClick={this.props.remove}
+                        style={{backgroundColor: `${this.props.ingrediant.color}`}} 
                     >
                         <span className="ingrediantName">{this.props.ingrediant.name}</span>
                     </li>
