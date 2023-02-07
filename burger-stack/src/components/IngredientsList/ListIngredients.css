@@ -1,4 +1,9 @@
-li{
+li {
     list-style-type: none;
-    
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+button {
+    background-color: honeydew;
 }
