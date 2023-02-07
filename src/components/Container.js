@@ -1,60 +1,59 @@
 import { isClickableInput } from '@testing-library/user-event/dist/utils'
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 
 import BurgerContainer from './BurgerContainer'
 import IngrediantContainer from './IngrediantContainer'
 
 
-class Container extends Component {
+const Container = () => {
     
-    state = {
+    const [ingrediants, setIngrediants] = useState([
 
-        ingrediants: [
+        {name: 'Kaiser Bun', color: 'saddlebrown'},
+        {name: 'Sesame Bun', color: 'sandybrown'},
+        {name: 'Gluten Free Bun', color: 'peru'},
+        {name: 'Lettuce Wrap', color: 'olivedrab'},
+        {name: 'Beef Patty', color: '#3F250B'},
+        {name: 'Soy Patty', color: '#3F250B'},
+        {name: 'Black Bean Patty', color: '#3F250B'},
+        {name: 'Chicken Patty', color: 'burlywood'},
+        {name: 'Lettuce', color: 'lawngreen'},
+        {name: 'Tomato', color: 'tomato'},
+        {name: 'Bacon', color: 'maroon'},
+        {name: 'Onion', color: 'lightyellow'}
+        
+    ]);
 
-            {name: 'Kaiser Bun', color: 'saddlebrown'},
-            {name: 'Sesame Bun', color: 'sandybrown'},
-            {name: 'Gluten Free Bun', color: 'peru'},
-            {name: 'Lettuce Wrap', color: 'olivedrab'},
-            {name: 'Beef Patty', color: '#3F250B'},
-            {name: 'Soy Patty', color: '#3F250B'},
-            {name: 'Black Bean Patty', color: '#3F250B'},
-            {name: 'Chicken Patty', color: 'burlywood'},
-            {name: 'Lettuce', color: 'lawngreen'},
-            {name: 'Tomato', color: 'tomato'},
-            {name: 'Bacon', color: 'maroon'},
-            {name: 'Onion', color: 'lightyellow'}
-        ],
+    // burgerIngrediants: []
 
-        burgerIngrediants: []
-    } 
+    const [burgerIngrediants, setBurgerIngrediants] = useState([])
 
-    addToStack = (e) => {
+    const addToStack = (e) => {
 
-        console.log('adding to stack...', this.props)
+        console.log('adding to stack...')
 
         const ingName = e.target.innerText
         const ingColor = e.target.style.backgroundColor
 
         console.log(`clicked on ${ingName} and it is ${ingColor}`)
 
-        this.setState({
-            burgerIngrediants: [
-                { name: ingName, color: ingColor },
-                ...this.state.burgerIngrediants
-            ]
-        })
+        setBurgerIngrediants((prevBurgerIngrediants) => ({
+            ...prevBurgerIngrediants, 
+                name: ingName, 
+                color: ingColor              
+        }))
 
     }
     
-    clearBurger = () => {
+    const clearBurger = () => {
         console.log('clearing burger...')
-        
+
         this.setState({
             burgerIngrediants: []
         })
     }
 
-    removeFromStack = (e) => {
+    const removeFromStack = (e) => {
         console.log('the original stack', this.state.burgerIngrediants)
 
         const clickIndex = e.target.ingrediants
@@ -73,28 +72,25 @@ class Container extends Component {
         console.log('this is the array after the splice', currBurger)
 
         // set the state to update the UI
-        this.setState({
+        setBurgerIngrediants({
             burgerIngrediants: currBurger
         })
 
     }
 
-    render () {
-
-        return (
-            <> 
-                <IngrediantContainer 
-                    ingrediants={this.state.ingrediants} 
-                    add={this.addToStack}
-                />
-                <BurgerContainer 
-                    ingrediants={this.state.burgerIngrediants}
-                    clear={this.clearBurger}
-                    remove={this.removeFromStack}
-                /> 
-            </>
-        )
-    }
+    return (
+        <> 
+            <IngrediantContainer 
+                ingrediants={ingrediants} 
+                add={addToStack}
+            />
+            <BurgerContainer 
+                ingrediants={burgerIngrediants}
+                clear={clearBurger}
+                remove={removeFromStack}
+            /> 
+        </>
+    )
 }
 
-export default Container
+export default Container;
