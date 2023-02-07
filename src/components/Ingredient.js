@@ -1,22 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-
-class Ingredient extends Component {
-    render () {
-        const ingredients = this.props.ingredients.map((item, index) => {
-            return (
-                <form key={index}>
-                    <button type="submit" value={JSON.stringify(item)} onClick={this.props.onClick}>{item.name}</button>
-                </form>
-            )
-        })
+function Ingredient (props) {
+    const ingredients = props.ingredients.map((item, index) => {
         return (
-            <div>
-                {ingredients}
-            </div>
+            <form key={index}>
+                <button type="submit" value={JSON.stringify(item)} onClick={props.onClick}>{item.name}</button>
+            </form>
         )
-    }
+    })
+    return (
+        <div>
+            {ingredients}
+        </div>
+    )
 }
-
 
 export default Ingredient
