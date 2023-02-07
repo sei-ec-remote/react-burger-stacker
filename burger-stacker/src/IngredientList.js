@@ -1,18 +1,18 @@
 // loops over the ingredients derived from props
 // produces a clickable ingredient for each of them
 
-import React, { Component } from 'react'
+import React from 'react'
 import Ingredient from './Ingredient'
 
-export default class IngredientList extends Component {
-    render () {
-        let allIngredients = this.props.ingredients.map((ing, i) => (
-            // this produces list items
+const IngredientList = ({ ingredients,add }) => {
+
+    // ing = ingredient, i = the index of the array
+    let allIngredients = ingredients.map((ing, i) => (
             <li key={i}>
                 <Ingredient
                     ingredient={ing}
                     itemKey={i}
-                    clickFunc={this.props.add}
+                    clickFunc={add}
                 />
             </li>
         ))
@@ -20,10 +20,13 @@ export default class IngredientList extends Component {
         return (
             <section className='pane'>
                 <h3>Ingredients List</h3>
-                <ul>
-                    { allIngredients }
-                </ul>
+                <div>
+                    <ul>
+                        { allIngredients }
+                    </ul>
+                </div>
             </section>
         )
-    }
 }
+
+export default IngredientList

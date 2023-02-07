@@ -1,20 +1,18 @@
 //  this displays individual ingredients
-import React, { Component } from "react"
+import React from "react"
 
-// recieves one ingredient as a prop, and displays said ingredient
-export default class Ingredient extends Component {
-    render () {
-        // destructure our ingredients properties
-        const { name, color } = this.props.ingredient
+const Ingredient = ({ ingredient, itemKey, clickFunc }) => {
+	const { name, color } = ingredient
 
         return (
             <p 
                 style={{backgroundColor: color}}
-                id={this.props.itemKey}
-                onClick={this.props.clickFunc}
+                id={itemKey}
+                onClick={clickFunc}
             >
                 {name}
             </p>
         )
-    }
 }
+
+export default Ingredient
