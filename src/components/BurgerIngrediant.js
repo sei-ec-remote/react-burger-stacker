@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
 import IngrediantContainer from './IngrediantContainer'
 
-class BurgerIngrediant extends Component {
-    render() {
+const BurgerIngrediant = (props) => {
 
-        return (
-            <>
-                <div className="burgerIngrediant">
-                    <li 
-                        className="ingredientItem" 
-                        key={this.props.index} 
-                        onClick={this.props.remove}
-                        style={{backgroundColor: `${this.props.ingrediant.color}`}} 
-                    >
-                        <span className="ingrediantName">{this.props.ingrediant.name}</span>
-                    </li>
-                </div>
-            </>
-        )
-    }
+    const { name, color } = props.ingrediant
+
+    return (
+        <>
+            <div className="burgerIngrediant">
+                <li 
+                    className="ingredientItem" 
+                    key={props.index} 
+                    onClick={props.remove}
+                    style={{backgroundColor: `${color}`}} 
+                >
+                    <span className="ingrediantName">{name}</span>
+                </li>
+            </div>
+        </>
+    )
+
 }
 
 export default BurgerIngrediant

@@ -37,11 +37,12 @@ const Container = () => {
 
         console.log(`clicked on ${ingName} and it is ${ingColor}`)
 
-        setBurgerIngrediants((prevBurgerIngrediants) => ({
-            ...prevBurgerIngrediants, 
-                name: ingName, 
-                color: ingColor              
-        }))
+        setBurgerIngrediants({
+            // ...burgerIngrediants,
+            name: ingName, 
+            color: ingColor,
+                       
+        })
 
     }
     

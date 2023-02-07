@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 
-class IngrediantItem extends Component {
+const IngrediantItem = (props) => {
 
-    render() {
-        const { name, color } = this.props.ingrediant
+    // console.log(props.ingrediant)
+
+    // render() {
+        const { name, color } = props.ingrediant
 
         return (
-            <li className="ingredientItem" key={this.props.index} onClick={this.props.add} >
-                <span style={{backgroundColor: `${this.props.color}`}} className="ingrediantName">{this.props.name}</span>
+            <li className="ingredientItem" key={props.index} onClick={props.add} >
+                <span style={{backgroundColor: `${color}`}} className="ingrediantName">{name}</span>
             </li>
         )
-    }
+    // }
 }
 
 export default IngrediantItem
