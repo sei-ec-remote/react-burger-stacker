@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import IngrediantContainer from './IngrediantContainer'
 
 class BurgerIngrediant extends Component {
     render() {
@@ -6,8 +7,12 @@ class BurgerIngrediant extends Component {
         return (
             <>
                 <div className="burgerIngrediant">
-                    <li className="ingredientItem" key={this.props.index}>
-                        <span className="ingrediantName">{this.props.item}</span>
+                    <li 
+                        className="ingredientItem" 
+                        key={this.props.index} 
+                        onClick={this.props.remove}
+                    >
+                        <span className="ingrediantName">{this.props.ingrediant.name}</span>
                     </li>
                 </div>
             </>

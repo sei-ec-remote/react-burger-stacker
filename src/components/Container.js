@@ -47,6 +47,8 @@ class Container extends Component {
     }
     
     clearBurger = () => {
+        console.log('clearing burger...')
+        
         this.setState({
             burgerIngrediants: []
         })
@@ -75,7 +77,6 @@ class Container extends Component {
             burgerIngrediants: currBurger
         })
 
-
     }
 
     render () {
@@ -85,7 +86,6 @@ class Container extends Component {
                 <IngrediantContainer 
                     ingrediants={this.state.ingrediants} 
                     add={this.addToStack}
-
                 />
                 <BurgerContainer 
                     ingrediants={this.state.burgerIngrediants}

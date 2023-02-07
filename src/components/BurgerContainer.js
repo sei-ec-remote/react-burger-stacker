@@ -5,20 +5,16 @@ import IngrediantItem from "./IngrediantItem";
 
 class BurgerContainer extends Component {
 
-    // needs to be at the parent level
-
-    // clearStack = () => {
-    //     this.setState({
-    //         burgerStack: []
-    //     }, () => console.log('inside setState', this.state))
-    // }
+    // for our app, functions changing state needs to be at the parent level
     
     render() {
         let myStackList = this.props.ingrediants.map((ing, i) => {
             
             return <BurgerIngrediant 
-                        ingrediant={ing} 
-                        onClick={this.props.removeFromStack} 
+                        ingrediant={ing}
+                        clear={this.props.clear}
+                        remove={this.props.remove} 
+                        // onClick={this.props.removeFromStack} 
                         key={i} />
         })
         return(
@@ -27,8 +23,7 @@ class BurgerContainer extends Component {
                 <div className="burgerStackArea">
                     { myStackList }
                 </div>
-                <div className="button clear" onClick={this.clearStack}>Clear Stack</div>
-                <button onClick={this.clearBurger}></button>
+                <button className="button clear" onClick={this.props.clear}>Clear Burger</button>
             </div>
         )
     }

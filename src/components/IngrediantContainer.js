@@ -9,14 +9,12 @@ class IngrediantContainer extends Component {
         let allIngrediants = this.props.ingrediants.map((ing, i) => (
             
             <IngrediantItem 
-                        // data={this.state} 
                         name={ing.name} 
                         color={ing.color} 
-                        onClick={this.props.addToStack} 
                         key={i} 
                         index={i}
                         ingrediant={ing}
-                        clickFunc={this.props.add}
+                        add={this.props.add}
                     />
         ))
 

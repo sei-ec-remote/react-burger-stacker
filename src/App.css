@@ -56,6 +56,10 @@ li {
   align-items: center;
   border: 1px solid black;
   margin: 0.5rem;
+  padding: 0.5rem;
+}
+li:hover {
+  cursor:pointer;
 }
 .ingrediantName {
   width: 100%;
