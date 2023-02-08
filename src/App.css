@@ -1,6 +1,6 @@
 * {
   text-align: center;
-  background-color:beige;
+  background-color:rgb(198, 231, 180);
 }
 
 ul {
@@ -17,7 +17,7 @@ button {
 }
 
 p {
-  color: blue;
+  color: rgb(109, 109, 112);
   font-size: 20px;
   padding: 5px;
 }
