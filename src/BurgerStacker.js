@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import IngredientList from "./Components/IngredientList";
 import MyBurger from "./Components/MyBurger";
 
-export default class BurgerStacker extends Component{
-    state = {
-        ingredients: [
+const BurgerStacker = () => {
+    const ingredients = [
             {name: 'Kaiser Bun', color: 'saddlebrown'},
             {name: 'Sesame Bun', color: 'sandybrown'},
             {name: 'Gluten Free Bun', color: 'peru'},
@@ -17,55 +16,47 @@ export default class BurgerStacker extends Component{
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-        ],
-        theStack: []
-    }
+        ]
+    
+    const [theStack, setTheStack]=useState([])
 
-    addToStack = (e) => {
+    const addToStack = (e) => {
         const ingName = e.target.innerText
         const ingColor = e.target.style.backgroundColor
         
         console.log(`clicked on ${ingName} and it is ${ingColor}`)
-        this.setState({
-            theStack: [
-                { name: ingName, color: ingColor },
-                ...this.state.theStack
-            ]
-        })
-    }
+        setTheStack(
+                [{ name: ingName, color: ingColor }, ...theStack]
+    )}
+    
 
-    removeFromStack = (e) => {
+    const removeFromStack = (e) => {
         const clickIndex = e.target.id
-        const currBurger = this.state.theStack.slice()
+        const currBurger = theStack.slice()
         console.log('the current burger(copy)', currBurger)
         currBurger.splice(clickIndex, 1)
-        this.setState({
-            theStack: currBurger
-        })
+        setTheStack(currBurger)
     }
 
-    tossBurger = () => {
+    const tossBurger = () => {
         console.log('tossed')
-        this.setState({
-            theStack: []
-        })
+        setTheStack([])
     }
 
-    render(){
-        return (
-            <div>
-                <h1>Burger Stacker</h1>
-                <div className="dash"> 
-                    <IngredientList 
-                        ingredients={this.state.ingredients}
-                        add={this.addToStack}/>
-                    <MyBurger 
-                        ing={this.state.theStack} 
-                        remove={this.removeFromStack}
-                        reset={this.tossBurger}/>
-                </div>
+    return (
+        <div>
+            <h1>Burger Stacker</h1>
+            <div className="dash"> 
+                <IngredientList 
+                    ingredients={ingredients}
+                    add={addToStack}/>
+                <MyBurger 
+                    ing={theStack} 
+                    remove={removeFromStack}
+                    reset={tossBurger}/>
             </div>
+        </div>
     )
-    }
 
 }
+export default BurgerStacker
