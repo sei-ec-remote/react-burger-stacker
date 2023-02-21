@@ -44,10 +44,10 @@ export default class BurgerStacker extends Component {
         console.log('the index of the item clicked', clickIndex)
         // get a copy of the current burger array
         const currBurger = this.state.burgerIngredients.slice()
-        console.log('the current burger (copy)', clickIndex)
+        console.log('the current burger (copy)', currBurger)
         // splice out the ingredient we click on from that copy
         currBurger.splice(clickIndex, 1)
-        console.log('the the copy after click', clickIndex)
+        console.log('the the copy after click', currBurger)
         // then we'll set state with the freshly updated copy
         this.setState({
             burgerIngredients: currBurger
@@ -61,20 +61,6 @@ export default class BurgerStacker extends Component {
         })
     }
 
-    // this function adds items to the burgerIngredients array in state
-    addToStack = (e) => {
-        const ingName = e.target.innerText
-        const ingColor = e.target.style.backgroundColor
-
-        console.log (`clicked on ${ingName} and it is ${ingColor}`)
-        this.setState({
-            burgerIngredients: [
-                {name: ingName, color: ingColor},
-                ...this.state.burgerIngredients
-            ]
-        })
-    }
-
     render () {
         return (
             <div>
@@ -83,10 +69,10 @@ export default class BurgerStacker extends Component {
                     <IngredientList 
                         ingredients={this.state.ingredients}
                         add={this.addToStack}
-                        clickFunc={this.props.add}
                     />
                     <BurgerPane 
                         ingredients={this.state.burgerIngredients}
+                        remove={this.removeFromStack}
                         clear={this.clearBurger}
                     />
                 </div>

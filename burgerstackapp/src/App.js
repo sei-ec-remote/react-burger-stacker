@@ -1,13 +1,15 @@
+import BurgerStacker from "./BurgerStacker"
+import React, { Component } from 'react'
 import './App.css'
-import BurgerStacker from './BurgerStacker'
 
-
-function App() {
-  return (
-    <div className="App">
-      <BurgerStacker />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <BurgerStacker />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
