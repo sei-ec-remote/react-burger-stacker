@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react"
 import Ingredient from "./ingredient";
 
-export default class BurgerPane extends Component{
-    render(){
-         let burgerBits = this.props.ingredients.map((ing, i)=> (
+const BurgerPane = (props) => {
+         let burgerBits = props.ingredients.map((ing, i)=> (
         <li key={i}>
             <Ingredient 
             itemKey={i}
@@ -21,5 +20,7 @@ export default class BurgerPane extends Component{
                     <button onClick={this.props.clear}>Clear Burger</button>
                 </section>
             )
+
 }
-}
+
+export default BurgerPane

@@ -1,9 +1,10 @@
-import React, { Component} from "react";
+import React from "react";
 
-export default class Ingredient extends Component{
-    render(){
+const Ingredients = (props) => {
+    
         const {name, color} = this.props.ingredient
-        return(
+        
+        return (
             <p 
             style={{backgroundColor: color }} 
             id={this.props.itemKey}
@@ -12,5 +13,5 @@ export default class Ingredient extends Component{
             {name} 
             </p>
         )
-    }
+    
 }

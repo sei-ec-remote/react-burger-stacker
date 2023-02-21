@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useState} from "react";
 import IngredientList from "./IngredientList";
 import BurgerPane from "./BurgerPane"
 
-export default class BurgerStack extends Component {
-    state = {
-        ingredients: [
+const Burgerstack = () => {
+
+        const ingredients= [
             { name: 'Kaiser Bun', color: 'saddlebrown' },
             { name: 'Sesame Bun', color: 'sandybrown' },
             { name: 'Gluten Free Bun', color: 'peru' },
@@ -18,44 +18,36 @@ export default class BurgerStack extends Component {
             { name: 'Bacon', color: 'maroon' },
             { name: 'Onion', color: 'lightyellow' },
             { name: 'Cheese', color: 'gold' }
-        ],
-        burgerIngredients: []
+        ]
+        const [IngredientList, setIngredientList] = useState([])
     }
 
-    addToStack = (e) => {
+    const addToStack = (e) => {
         const ingName = e.target.innerText
         const ingColor = e.target.style.backgroundColor
 
         // console.log(`clicked on ${ingName} and it is ${ingColor}`)
 
-        this.setState({
-            burgerIngredients: [
-                { name: ingName, color: ingColor },
-                ...this.state.burgerIngredients
-            ]
-        })
+    
 
+    setIngredients (
+        [{name: ingName, color: ingColor}, ...IngredientList]
+    )
     }
 
-    clearBurger = () => {
-        this.setState({
-            burgerIngredients: []
-        })
-    }
-
-    removeFromStack=(e)=>{
+    const removeFromStack= (e) => {
         // console.log(`the original stack`, this.state.burgerIngredients)
         const clickIndex = e.target.id
         // console.log('the index of the clicked item\n', clickIndex)
         const currBurger = this.state.burgerIngredients
         currBurger.splice(clickIndex, 1)
         // console.log('the copy of the burger\n', currBurger)
-        this.setState({
-            burgerIngredients: currBurger
-        })
-}
+        setIngredients(currBurger)
 
-render() {
+    const clearBurger = () => {
+        setIngredients([])
+    }
+
 
 
     return (
@@ -74,5 +66,4 @@ render() {
             </div>
         </>
     )
-}
 }

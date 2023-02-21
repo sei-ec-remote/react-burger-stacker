@@ -1,9 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
 import Ingredient from "./ingredient"
 
-export default class IngredientList extends Component {
-  render() {
-    let allIngredients = this.props.allIngredients.map((ing, i) => (
+const IngredientList = (props) => {
+ 
+    let allIngredients = props.allIngredients.map((ing, i) => (
       <li key={i}>
         <Ingredient
           ingredient={ing}
@@ -22,5 +22,6 @@ export default class IngredientList extends Component {
       </section>
     )
 
-  }
+  
 }
+export default IngredientList
